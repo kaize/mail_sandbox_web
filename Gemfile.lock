@@ -65,6 +65,12 @@ GEM
     factory_girl_rails (3.5.0)
       factory_girl (~> 3.5.0)
       railties (>= 3.0.0)
+    haml (3.1.6)
+    haml-rails (0.3.4)
+      actionpack (~> 3.0)
+      activesupport (~> 3.0)
+      haml (~> 3.0)
+      railties (~> 3.0)
     hike (1.2.1)
     http_parser.rb (0.5.4)
     i18n (0.6.0)
@@ -156,6 +162,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   factory_girl_rails
+  haml-rails
   jquery-rails
   mail_sandbox!
   minitest

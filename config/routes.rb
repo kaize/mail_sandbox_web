@@ -4,6 +4,11 @@ MailSandboxWeb::Application.routes.draw do
     resources :mail_messages, :only => [:create]
   end
 
+  scope :module => :web do
+    root :to => "welcome#index"
+    resources :mail_messages, :only => [:index]
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
