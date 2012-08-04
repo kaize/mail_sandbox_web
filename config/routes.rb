@@ -1,4 +1,9 @@
 MailSandboxWeb::Application.routes.draw do
+
+  namespace :api do
+    resources :mail_messages, :only => [:create]
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
