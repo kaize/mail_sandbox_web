@@ -22,7 +22,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'mail_sandbox', :path => "/Users/realmyst/git/mail_sandbox"
+gem 'mail_sandbox', :git => "https://github.com/kaize/mail_sandbox.git"
 gem 'unicorn-rails'
 gem 'twitter-bootstrap-rails'
 
