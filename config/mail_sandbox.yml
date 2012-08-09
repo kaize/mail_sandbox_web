@@ -1,0 +1,2 @@
+http_observe?: true
+http_observe_url: 'http://mail_sandbox_web.st2.ul.home/api/mail_messages'
