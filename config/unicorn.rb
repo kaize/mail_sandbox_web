@@ -1,4 +1,4 @@
-APP_PATH = "/u/apps/mail_sandbox_staging"
+APP_PATH = "/u/apps/mail_sandbox_web"
 
 # Sample verbose configuration file for Unicorn (not Rack)
 #
