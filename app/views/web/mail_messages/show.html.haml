@@ -24,4 +24,6 @@
       %th
         = 'TODO: multipart messages'
   - else
-    = render 'mail', :mail => @mail
+    %tr
+      %td
+        = render 'mail', :mail => @mail
