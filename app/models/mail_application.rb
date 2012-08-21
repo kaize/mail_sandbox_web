@@ -10,4 +10,16 @@ class MailApplication < ActiveRecord::Base
     name
   end
 
+  def address
+    '10.40.35.81'  # the real address will be here
+  end
+
+  def port
+    2525      # it will be moved to configus
+  end
+
+  def generate_password
+    self.password = SecureApp.generate_string(16)
+  end
+
 end
