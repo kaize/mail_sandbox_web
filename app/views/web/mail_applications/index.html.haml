@@ -7,6 +7,6 @@
     %tr
       %td= link_to app, app
       %td= link_to t("edit"), edit_mail_application_path(app)
-      %td= link_to t("delete"), mail_application_path(app), :confirm => t(:are_you_sure?), :method => :delete
+      %td= link_to t("delete"), mail_application_path(app), :data => { :confirm => t(:are_you_sure?) }, :method => :delete
 
 = link_to t(".new"), new_mail_application_path, :class => "btn btn-primary"

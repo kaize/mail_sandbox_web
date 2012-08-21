@@ -1,3 +1,10 @@
 %h1= @application
 
-%p!= @application.mail_application_settings
+-#%p!= @application.mail_application_settings
+%code
+  = "config.action_mailer.smtp_settings = {"
+  = " :address => '10.40.35.81',"
+  = " :port => 2525,"
+  = " :user_name => '#{@application.name}',"
+  = " :password => '#{@application.password}'"
+  = "}"
