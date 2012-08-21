@@ -1,0 +1,8 @@
+%table.table
+  %tr
+    %th= MailApplication.human_attribute_name :user
+  - @applications.each do |message|
+    %tr
+      %td= message.user
+
+

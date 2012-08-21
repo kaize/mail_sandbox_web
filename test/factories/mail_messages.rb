@@ -2,9 +2,10 @@
 
 FactoryGirl.define do
   factory :mail_message do
-    data {FactoryGirl.generate :string}
-    recipient {FactoryGirl.generate :string}
-    sender {FactoryGirl.generate :string}
-    completed_at {FactoryGirl.generate :datetime}
+    mail_application
+    data { generate :string }
+    recipient { generate :string }
+    sender { generate :string }
+    completed_at { generate :datetime }
   end
 end

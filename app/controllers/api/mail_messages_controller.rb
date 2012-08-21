@@ -2,9 +2,20 @@ class Api::MailMessagesController < ApplicationController
   respond_to :json
 
   def create
-    @message = MailMessage.new(params[:message])
+    @application = auth_application(params[:message][:user], params[:message][:password])
+
+    @message = MailMessageBuilder.build params[:message]
+
+    @application.mail_messages << @message
     @message.save
-    #respond_with @message, :format => :json
+
     render :json => @message
   end
+
+  protected
+
+    def auth_application(user, password)
+      MailApplication.find_by_credentials(user, password).first
+    end
+
 end

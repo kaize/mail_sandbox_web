@@ -11,5 +11,6 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
   require 'factory_girl'
+  include FactoryGirl::Syntax::Methods
   FactoryGirl.reload
 end
