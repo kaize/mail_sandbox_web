@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :user_facebook, :class => 'User::Facebook' do
-    user nil
-    uid 1
+    user
+    uid { generate(:uid) }
   end
 end
