@@ -7,7 +7,7 @@
     %th= MailMessage.human_attribute_name :completed_at
     %th.show
   - @messages.each do |message|
-    %tr
+    %tr{:'data-href' => mail_message_path(message)}
       %td= message.recipient
       %td= message.sender
       %td= message.mail_application.name

@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+//= require self
+
+$(function(){
+  $('.table > tr').click(function() {
+      var href = $(this).data('href');
+      if(href) window.location.href = href;
+  });
+});
