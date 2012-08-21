@@ -8,17 +8,17 @@
     %th
       = MailMessage.human_attribute_name :sender
       \:
-      = @message.recipient
+      = @message.sender
   %tr
     %th
       = MailMessage.human_attribute_name :mail_application
       \:
-      =@message.recipient
+      =@message.mail_application
   %tr
     %th
       = MailMessage.human_attribute_name :completed_at
       \:
-      =@message.recipient
+      =@message.completed_at
   - if @mail.multipart?
     %tr
       %th
