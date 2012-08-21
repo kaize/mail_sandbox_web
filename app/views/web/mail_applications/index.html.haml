@@ -1,7 +1,12 @@
-%table.table
+%table.table.mail_applications
   %tr
-    %th= MailApplication.human_attribute_name :name
-  - @applications.each do |message|
+    %th.name= MailApplication.human_attribute_name :name
+    %th.edit
+    %th.delete
+  - @applications.each do |app|
     %tr
-      %td= message.name
+      %td= link_to app, app
+      %td= link_to t("edit"), edit_mail_application_path(app)
+      %td= link_to t("delete"), mail_application_path(app), :confirm => t(:are_you_sure?), :method => :delete
 
+= link_to t(".new"), new_mail_application_path, :class => "btn btn-primary"

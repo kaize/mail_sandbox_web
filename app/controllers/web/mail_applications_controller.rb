@@ -1,7 +1,7 @@
 class Web::MailApplicationsController < ApplicationController
 
   def index
-    @applications = MailApplication.all
+    @applications = MailApplication.ordered
   end
 
   def show
@@ -13,7 +13,7 @@ class Web::MailApplicationsController < ApplicationController
   end
 
   def create
-    @application = MailApplication.new(params[:application])
+    @application = MailApplication.new(params[:mail_application])
 
     if @application.save
       redirect_to mail_applications_path
@@ -29,7 +29,7 @@ class Web::MailApplicationsController < ApplicationController
   def update
     @application = MailApplication.find(params[:id])
 
-    if @application.update_attributes(params[:application])
+    if @application.update_attributes(params[:mail_application])
       redirect_to mail_applications_path
     else
       render :action => :edit
