@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
-//= require self
+//= require_self
 
 $(function(){
   $('.table > tr').click(function() {
