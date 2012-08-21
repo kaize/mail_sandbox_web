@@ -7,4 +7,8 @@ FactoryGirl.define do
     Time.now
   end
 
+  sequence :email do |n|
+    "mail#{n}@example.com"
+  end
+
 end

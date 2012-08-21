@@ -26,6 +26,7 @@ gem 'jquery-rails'
 gem 'mail_sandbox', :git => "https://github.com/kaize/mail_sandbox.git"
 gem 'unicorn-rails'
 gem 'twitter-bootstrap-rails'
+gem 'mail'
 
 group :test do
   gem 'minitest'

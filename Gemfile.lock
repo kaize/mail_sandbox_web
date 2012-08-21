@@ -193,6 +193,7 @@ DEPENDENCIES
   factory_girl_rails
   haml-rails
   jquery-rails
+  mail
   mail_sandbox!
   minitest
   pg

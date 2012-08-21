@@ -2,13 +2,13 @@
   %tr
     %th= MailMessage.human_attribute_name :recipient
     %th= MailMessage.human_attribute_name :sender
-    %th= MailMessage.human_attribute_name :data
+    %th= MailMessage.human_attribute_name :mail_application
     %th= MailMessage.human_attribute_name :completed_at
   - @messages.each do |message|
     %tr
       %td= message.recipient
       %td= message.sender
-      %td= message.data
+      %td= message.mail_application.name
       %td= message.completed_at
 
 

@@ -1,0 +1,27 @@
+%table.table
+  %tr
+    %th
+      = MailMessage.human_attribute_name :recipient
+      \:
+      =@message.recipient
+  %tr
+    %th
+      = MailMessage.human_attribute_name :sender
+      \:
+      = @message.recipient
+  %tr
+    %th
+      = MailMessage.human_attribute_name :mail_application
+      \:
+      =@message.recipient
+  %tr
+    %th
+      = MailMessage.human_attribute_name :completed_at
+      \:
+      =@message.recipient
+  - if @mail.multipart?
+    %tr
+      %th
+        = 'TODO: multipart messages'
+  - else
+    = render 'mail', :mail => @mail

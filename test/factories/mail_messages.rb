@@ -3,9 +3,9 @@
 FactoryGirl.define do
   factory :mail_message do
     mail_application
-    data { generate :string }
-    recipient { generate :string }
-    sender { generate :string }
+    data { File.read("#{Rails.root}/test/fixtures/test_mail.txt") }
+    recipient { generate :email }
+    sender { generate :email }
     completed_at { generate :datetime }
   end
 end
