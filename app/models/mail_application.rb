@@ -1,7 +1,7 @@
 class MailApplication < ActiveRecord::Base
-  attr_accessible :password, :user
+  attr_accessible :password, :name
 
   has_many :mail_messages
-  scope :find_by_credentials, ->(user, password){ where(:user => user).where(:password => password) }
+  scope :find_by_credentials, ->(name, password){ where(:name => name).where(:password => password) }
 
 end

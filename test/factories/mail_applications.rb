@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :mail_application, :aliases => [:application] do
-    user { generate :string }
+    name { generate :string }
     password { generate :string }
   end
 end

@@ -1,8 +1,8 @@
 %table.table
   %tr
-    %th= MailApplication.human_attribute_name :user
+    %th= MailApplication.human_attribute_name :name
   - @applications.each do |message|
     %tr
-      %td= message.user
+      %td= message.name
 
 
