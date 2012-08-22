@@ -14,7 +14,6 @@ class Web::MailApplicationsController < Web::ApplicationController
 
   def create
     @application = MailApplication.new(params[:mail_application])
-    @application.generate_password
 
     if @application.save
       redirect_to mail_applications_path
