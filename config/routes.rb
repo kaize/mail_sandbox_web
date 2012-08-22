@@ -8,6 +8,13 @@ MailSandboxWeb::Application.routes.draw do
     root :to => "welcome#index"
     resources :mail_messages, :only => [:index]
     resources :users, :only => [:index]
+    scope :module => :user do
+      resources :networks, :only => [] do
+        collection do
+          get :failure
+        end
+      end
+    end
   end
 
   # The priority is based upon order of creation:
