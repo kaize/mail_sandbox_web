@@ -9,7 +9,9 @@ MailSandboxWeb::Application.routes.draw do
   scope :module => :web do
     root :to => "welcome#index"
     resources :mail_messages, :only => [:index, :show]
-    resources :mail_applications
+    resources :mail_applications do
+      resources :mail_messages, :only => [:index, :show]
+    end
     resources :users, :only => [:index]
     scope :module => :user do
       resources :networks, :only => [] do
