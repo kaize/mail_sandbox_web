@@ -1,4 +1,4 @@
-class Web::MailApplicationsController < ApplicationController
+class Web::MailApplicationsController < Web::ApplicationController
 
   def index
     @applications = MailApplication.ordered
