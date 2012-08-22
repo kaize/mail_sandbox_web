@@ -36,6 +36,7 @@ group :test do
   gem 'minitest'
   gem 'turn'
   gem 'factory_girl_rails', :require => false
+  gem 'tconsole'
 end
 
 # To use ActiveModel has_secure_password

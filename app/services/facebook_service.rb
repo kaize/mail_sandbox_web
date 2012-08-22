@@ -8,5 +8,8 @@ class FacebookService < NetworkService
     end
 
     user = User.new
+    UserPopulator.via_facebook(user, data)
+    user.save!
+    user
   end
 end

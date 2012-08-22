@@ -1,5 +1,11 @@
 MailSandboxWeb::Application.routes.draw do
 
+  get "sessions/new"
+
+  get "sessions/create"
+
+  get "sessions/destroy"
+
   get "facebook/register"
 
   namespace :api do
@@ -14,6 +20,7 @@ MailSandboxWeb::Application.routes.draw do
     end
     resources :users, :only => [:index]
     scope :module => :user do
+      resource  :session, :only => [:new, :destroy]
       resources :networks, :only => [] do
         collection do
           get :failure
