@@ -2,7 +2,7 @@ class Api::MailMessagesController < ApplicationController
   respond_to :json
 
   def create
-    @application = auth_application(params[:message][:name], params[:message][:password])
+    @application = auth_application(params[:message][:user], params[:message][:password])
 
     @message = MailMessageBuilder.build params[:message]
 
