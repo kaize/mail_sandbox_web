@@ -6,6 +6,12 @@ class MailApplication < ActiveRecord::Base
   scope :find_by_credentials, ->(name, password){ where(:name => name).where(:password => password) }
   scope :ordered, ->{order('id DESC')}
 
+  after_initialize :init, :if => :new_record?
+
+  def init
+    generate_password
+  end
+
   def to_s
     name
   end

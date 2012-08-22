@@ -4,7 +4,7 @@
     %th.edit
     %th.delete
   - @applications.each do |app|
-    %tr
+    %tr{:'data-href' => mail_application_path(app)}
       %td= link_to app, app
       %td= link_to t("edit"), edit_mail_application_path(app)
       %td= link_to t("delete"), mail_application_path(app), :data => { :confirm => t(:are_you_sure?) }, :method => :delete

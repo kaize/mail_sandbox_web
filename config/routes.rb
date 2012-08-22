@@ -7,14 +7,16 @@ MailSandboxWeb::Application.routes.draw do
   scope :module => :web do
     root :to => "welcome#index"
     resources :mail_messages, :only => [:index, :show]
-    resources :mail_applications
+    resources :mail_applications do
+      resources :mail_messages, :only => [:index, :show]
+    end
     resource :user, :only => [:index] do
 
       scope :module => :user do
+        resource :session, :only => [:new, :destroy]
         resource :network, :only => [] do
           get :failure, :on => :member
         end
-        resource :session, :only => [:new, :destroy]
         resource :facebook, :only => [] do
           get :callback, :on => :member
         end

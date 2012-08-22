@@ -1,3 +1,5 @@
 http_observe?: true
+#http_observe_url: 'http://localhost:8080/api/mail_messages'
 http_observe_url: 'http://mail_sandbox_web.st2.ul.home/api/mail_messages'
 listen: '0.0.0.0'
+log_level: debug

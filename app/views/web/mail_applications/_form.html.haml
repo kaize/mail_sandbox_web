@@ -1,3 +1,5 @@
 = simple_form_for @application, :url => url do |f|
-  = f.input :name
+  = f.input :name, :input_html => {:class => "span3"}
+  - if @application.persisted?
+    = f.input :password, :as => :string, :disabled => true, :input_html => {:class => "span3"}
   = f.submit
