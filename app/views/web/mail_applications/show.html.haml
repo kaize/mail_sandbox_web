@@ -4,8 +4,8 @@
 %pre
   %code
     = "config.action_mailer.smtp_settings = {"
-    = " :address => '10.40.35.81',"
-    = " :port => 2525,"
+    = " :address => '#{configus.mail_application.address}',"
+    = " :port => #{configus.mail_application.port},"
     = " :user_name => '#{@application.name}',"
     = " :password => '#{@application.password}'"
     = "}"

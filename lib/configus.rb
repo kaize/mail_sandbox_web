@@ -12,12 +12,24 @@ Configus.build Rails.env do
         app_secret ''
       end
     end
+    mail_application do
+      address 'mail-sandbox.com'
+      port 2525
+    end
   end
 
   env :development, :parent => :production do
+    mail_application do
+      address 'localhost'
+      port 2525
+    end
   end
 
   env :staging, :parent => :production do
+    mail_application do
+      address 'staging.mail-sandbox.home'
+      port 2525
+    end
   end
   
   env :test, :parent => :production do
