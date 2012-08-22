@@ -16,6 +16,11 @@ MailSandboxWeb::Application.routes.draw do
           get :failure
         end
       end
+      resources :facebook, :only => [] do
+        collection do
+          get :register
+        end
+      end
     end
   end
 

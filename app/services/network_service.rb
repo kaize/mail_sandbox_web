@@ -1,0 +1,2 @@
+class NetworkService < BaseService
+end
