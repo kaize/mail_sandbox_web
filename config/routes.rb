@@ -1,5 +1,7 @@
 MailSandboxWeb::Application.routes.draw do
 
+  get "facebook/register"
+
   namespace :api do
     resources :mail_messages, :only => [:create]
   end
