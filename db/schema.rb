@@ -30,4 +30,18 @@ ActiveRecord::Schema.define(:version => 20120821135134) do
     t.integer  "mail_application_id"
   end
 
+  create_table "user_facebooks", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "uid"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "user_facebooks", ["user_id"], :name => "index_user_facebooks_on_user_id"
+
+  create_table "users", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
 end

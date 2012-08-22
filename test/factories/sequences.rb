@@ -3,6 +3,10 @@ FactoryGirl.define do
     "string-#{n}"
   end
 
+  sequence :uid do |n|
+    "#{n}" * 5
+  end
+
   sequence :datetime do |n|
     Time.now
   end
