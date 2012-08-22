@@ -1,2 +1,3 @@
-%h1 Web::User::Sessions#new
-%p Find me in app/views/web/user/sessions/new.html.haml
+%h1= t('.login_with')
+%ul
+  %li= link_to t('.facebook'), register_with_cpath(:facebook)

@@ -8,7 +8,7 @@ class Web::User::FacebookControllerTest < ActionController::TestCase
 
   test "should create user via Facebook" do
     @request.env['omniauth.auth'] = @auth_data
-    get :register
+    get :callback
     assert_response :redirect
   end
 
@@ -17,7 +17,7 @@ class Web::User::FacebookControllerTest < ActionController::TestCase
     @auth_data[:uid] = facebook_user.uid
     @request.env['omniauth.auth'] = @auth_data
 
-    get :register
+    get :callback
     assert_response :redirect
     assert signed_in?
     assert_equal facebook_user.user.id, current_user.id

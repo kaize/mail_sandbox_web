@@ -1,6 +1,10 @@
 require 'test_helper'
 
 class Web::MailMessagesControllerTest < ActionController::TestCase
+  def setup
+    @user = create :user
+    sign_in @user
+  end
 
   setup do
     @message = create :mail_message

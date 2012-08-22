@@ -26,10 +26,12 @@
             %span.icon-bar
             %span.icon-bar
           = link_to "MailSandboxWeb", root_path, :class => :brand
-          .container.nav-collapse
-            %ul.nav
-              %li= link_to t("mail_messages"), mail_messages_path
-              %li= link_to t("mail_applications"), mail_applications_path
+          - if signed_in?
+            .container.nav-collapse
+              %ul.nav
+                %li= link_to t("mail_messages"), mail_messages_path
+                %li= link_to t("mail_applications"), mail_applications_path
+              = render 'web/shared/login_menu'
 
     .container
 

@@ -1,5 +1,5 @@
 class Web::User::FacebookController < Web::User::NetworksController
-  def register
+  def callback
     user = services.facebook.register(auth_hash)
     reset_session
     sign_in user

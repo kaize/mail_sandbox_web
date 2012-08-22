@@ -1,0 +1,5 @@
+%ul.nav.pull-right
+  %li.dropdown
+    = drop_down_link_to t '.account'
+    %ul.dropdown-menu
+      %li= link_to t('.sign_out'), user_session_path, :method => :delete
