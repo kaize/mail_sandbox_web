@@ -4,7 +4,7 @@
 %pre
   %code
     = "config.action_mailer.smtp_settings = {"
-    = " :address => '#{configus.mail_application.address}',"
+    = " :address => '#{current_host}',"
     = " :port => #{configus.mail_application.port},"
     = " :user_name => '#{@application.name}',"
     = " :password => '#{@application.password}'"

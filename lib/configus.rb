@@ -17,7 +17,6 @@ Configus.build Rails.env do
       end
     end
     mail_application do
-      address 'mail-sandbox.com'
       port 2525
     end
   end
@@ -34,19 +33,20 @@ Configus.build Rails.env do
       end
     end
     mail_application do
-      address 'localhost'
       port 2525
     end
   end
 
   env :staging, :parent => :production do
     mail_application do
-      address 'staging.mail-sandbox.home'
       port 2525
     end
   end
-  
+
   env :test, :parent => :production do
+    mail_application do
+      port 2525
+    end
   end
 
 end
