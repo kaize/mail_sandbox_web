@@ -10,6 +10,7 @@ MailSandboxWeb::Application.routes.draw do
     resources :mail_applications do
       resources :mail_messages, :only => [:index, :show]
     end
+    resources :users, :only => [:index, :show, :edit, :update]
     resource :user, :only => [:index] do
 
       scope :module => :user do

@@ -1,0 +1,14 @@
+%h2= t '.title'
+
+%dl.dl-horizontal
+  %dt= User.human_attribute_name(:providers)
+  %dd
+    .providers
+      %ul.unstyled
+      - @user.providers.each do |provider|
+        %li
+          = provider_image provider
+          = provider
+
+  %dt= User.human_attribute_name(:admin)
+  %dd= @user.admin?

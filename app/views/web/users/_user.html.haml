@@ -1,0 +1,9 @@
+%tr{:'data-href' => user_path(user)}
+  %td
+    %ul.unstyled
+      - user.providers.each do |provider|
+        %li
+          = provider_image(provider)
+          = provider
+  %td= link_to t('edit'), edit_user_path(user)
+  %td= link_to t('delete'), user_path(user), :data => { :confirm => t(:are_you_sure?) }, :method => :delete
