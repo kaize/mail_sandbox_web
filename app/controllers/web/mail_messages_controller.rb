@@ -1,4 +1,4 @@
-class Web::MailMessagesController < Web::ApplicationController
+class Web::MailMessagesController < Web::ProtectedApplicationController
   def index
     @mail_application = MailApplication.find_by_id(params[:mail_application_id])
 

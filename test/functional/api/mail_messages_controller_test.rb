@@ -9,7 +9,7 @@ class Api::MailMessagesControllerTest < ActionController::TestCase
   test "should get create" do
     attrs = FactoryGirl.attributes_for(:mail_message, :sender => "unique@unique.ru")
 
-    attrs[:name] = @application.name
+    attrs[:user] = @application.name
     attrs[:password] = @application.password
 
     get :create, :message => attrs

@@ -5,7 +5,7 @@ module ServiceLocator
     end
 
     def self.github
-      @facebook ||= GithubService.new
+      @github ||= GithubService.new
     end
 
   end
