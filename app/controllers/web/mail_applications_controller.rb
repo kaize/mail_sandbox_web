@@ -5,7 +5,7 @@ class Web::MailApplicationsController < Web::ProtectedApplicationController
   end
 
   def show
-    @application = MailApplication.find(params[:id]).decorate
+    @application = current_user.available_applications.find(params[:id]).decorate
   end
 
   def new
@@ -13,8 +13,7 @@ class Web::MailApplicationsController < Web::ProtectedApplicationController
   end
 
   def create
-    @application = MailApplication.new(params[:mail_application])
-    @application.owner = current_user
+    @application = current_user.mail_applications.build(params[:mail_application])
 
     if @application.save
       redirect_to mail_applications_path
@@ -24,11 +23,11 @@ class Web::MailApplicationsController < Web::ProtectedApplicationController
   end
 
   def edit
-    @application = MailApplication.find(params[:id])
+    @application = current_user.mail_applications.find(params[:id])
   end
 
   def update
-    @application = MailApplication.find(params[:id])
+    @application = current_user.mail_applications.find(params[:id])
 
     if @application.update_attributes(params[:mail_application])
       redirect_to mail_applications_path
@@ -38,7 +37,7 @@ class Web::MailApplicationsController < Web::ProtectedApplicationController
   end
 
   def destroy
-    @application = MailApplication.find(params[:id])
+    @application = current_user.mail_applications.find(params[:id])
 
     @application.destroy
     redirect_to mail_applications_path

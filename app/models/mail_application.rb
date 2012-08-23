@@ -11,9 +11,10 @@ class MailApplication < ActiveRecord::Base
 
   scope :find_by_credentials, ->(name, password){ where(:name => name).where(:password => password) }
   scope :ordered, ->{order('id DESC')}
+  scope :owner_is, ->(owner){ where(:owner_id => owner.id) }
 
   #TODO: members
-  scope :available_for, ->(user){ where('TRUE') }
+  scope :available_for, ->(user){ owner_is(user) }
 
   def init
     generate_password

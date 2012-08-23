@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :mail_applications, :inverse_of => :owner, :foreign_key => :owner_id
 
   def available_applications
-    mail_applications.available_for(self)
+    MailApplication.available_for(self)
   end
 
   def guest?
