@@ -2,5 +2,8 @@
 
 FactoryGirl.define do
   factory :user do
+    factory :admin_user do
+      admin {true}
+    end
   end
 end
