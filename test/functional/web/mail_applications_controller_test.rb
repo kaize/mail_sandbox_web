@@ -47,4 +47,25 @@ class Web::MailApplicationsControllerTest < ActionController::TestCase
     assert_response :redirect
   end
 
+  test "should not put update to not my app" do
+    assert_raise ActiveRecord::RecordNotFound do
+      put :update, :id => @application.id, :mail_application => @attrs
+    end
+  end
+
+  test "should not get show" do
+    assert_raise ActiveRecord::RecordNotFound do
+      get :show, :id => @application.id
+    end
+  end
+
+  test "should get show to available application" do
+    @application.members << @user
+    get :show, :id => @application.id
+    assert_response :success
+  end
+
+
+
+
 end
