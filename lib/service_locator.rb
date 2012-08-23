@@ -3,6 +3,11 @@ module ServiceLocator
     def self.facebook
       @facebook ||= FacebookService.new
     end
+
+    def self.github
+      @facebook ||= GithubService.new
+    end
+
   end
 
   def self.services

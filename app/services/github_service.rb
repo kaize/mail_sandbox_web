@@ -1,14 +1,14 @@
-class FacebookService < NetworkService
-  
+class GithubService < NetworkService
+
   def register(data)
-    auth = User::Facebook.find_by_uid(data[:uid])
+    auth = User::Github.find_by_uid(data[:uid].to_s)
     if auth
       user = auth.user
       return user
     end
 
     user = User.new
-    UserPopulator.via_facebook(user, data)
+    UserPopulator.via_github(user, data)
     user.save!
     user
   end

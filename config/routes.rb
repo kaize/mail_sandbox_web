@@ -20,6 +20,9 @@ MailSandboxWeb::Application.routes.draw do
         resource :facebook, :only => [] do
           get :callback, :on => :member
         end
+        resource :github, :only => [] do
+          get :callback, :on => :member
+        end
       end
 
     end
