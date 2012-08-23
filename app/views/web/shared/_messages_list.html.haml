@@ -1,0 +1,15 @@
+%table.table
+  %tr
+    %th= MailMessage.human_attribute_name :recipient
+    %th= MailMessage.human_attribute_name :sender
+    %th= MailMessage.human_attribute_name :mail_application
+    %th= MailMessage.human_attribute_name :completed_at
+    %th.show
+  - messages.each do |message|
+    %tr{:'data-href' => mail_message_path(message)}
+      %td= message.recipient
+      %td= message.sender
+      %td= message.mail_application.name
+      %td= message.completed_at
+      %td= link_to t("show"), mail_message_path(message)
+

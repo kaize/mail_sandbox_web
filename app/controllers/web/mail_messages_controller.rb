@@ -3,9 +3,9 @@ class Web::MailMessagesController < Web::ProtectedApplicationController
     @mail_application = MailApplication.find_by_id(params[:mail_application_id])
 
     if @mail_application
-      @messages = @mail_application.mail_messages.web
+      @messages = @mail_application.mail_messages.ordered
     else
-      @messages = MailMessage.web
+      @messages = MailMessage.ordered
     end
   end
 
