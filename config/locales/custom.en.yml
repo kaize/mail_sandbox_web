@@ -5,3 +5,4 @@ en:
     shared:
       messages_list:
         delete: Delete
+        read: Read

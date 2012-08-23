@@ -17,8 +17,8 @@
 //= require_self
 
 $(function(){
-  $('.table tr').click(function() {
+  $('.table tr').click(function(e) {
       var href = $(this).data('href');
-      if(href) window.location.href = href;
+      if(href && !$(e.target).data('remote')) window.location.href = href;
   });
 });
