@@ -1,3 +1,7 @@
 ---
 en:
   'are_you_sure?': "Are you sure?"
+  web:
+    shared:
+      messages_list:
+        delete: Delete

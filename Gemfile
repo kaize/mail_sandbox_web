@@ -9,6 +9,8 @@ gem 'pg'
 gem 'haml-rails'
 gem 'simple_form'
 gem 'draper'
+gem 'state_machine'
+gem 'js-routes'
 
 gem 'configus'
 gem 'omniauth-facebook'

@@ -5,6 +5,7 @@
     %th= MailMessage.human_attribute_name :mail_application
     %th= MailMessage.human_attribute_name :completed_at
     %th.show
+    %th.delete
   - messages.each do |message|
     %tr{:'data-href' => mail_message_path(message)}
       %td= message.recipient
@@ -12,4 +13,5 @@
       %td= message.mail_application.name
       %td= message.completed_at
       %td= link_to t("show"), mail_message_path(message)
+      %td= link_to t(".delete"), api_mail_message_path(message), :id => "del_message_#{message.id}", :method => :delete, :remote => true
 
