@@ -1,7 +1,7 @@
 class Web::MailApplicationsController < Web::ProtectedApplicationController
 
   def index
-    @applications = MailApplication.ordered
+    @applications = current_user.available_applications
   end
 
   def show
@@ -14,6 +14,7 @@ class Web::MailApplicationsController < Web::ProtectedApplicationController
 
   def create
     @application = MailApplication.new(params[:mail_application])
+    @application.owner = current_user
 
     if @application.save
       redirect_to mail_applications_path
