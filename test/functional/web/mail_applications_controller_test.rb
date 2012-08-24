@@ -3,7 +3,7 @@ require 'test_helper'
 class Web::MailApplicationsControllerTest < ActionController::TestCase
 
   setup do
-    @user = create :user
+    @user = create :facebook_user
     sign_in @user
 
     @application = create :application
