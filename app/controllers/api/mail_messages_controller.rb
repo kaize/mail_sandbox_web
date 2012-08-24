@@ -15,7 +15,7 @@ class Api::MailMessagesController < Api::ApplicationController
   def update
     @message = MailMessage.find(params[:id])
 
-    if @message.view
+    if @message.mark_read
       respond_render :success => true, :body => { :success => "marked_as_read" }
     else
       respond_render :success => false, :body => { :error => "failed_to_mark_as_read" }

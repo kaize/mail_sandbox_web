@@ -5,10 +5,12 @@ class Web::MailMessagesController < Web::ProtectedApplicationController
     @mail_application = MailApplication.find_by_id(params[:mail_application_id])
 
     if @mail_application
-      @messages = @mail_application.mail_messages.ordered
+      messages_source = @mail_application.mail_messages
     else
-      @messages = MailMessage.ordered
+      messages_source = MailMessage
     end
+
+    @messages = messages_source.ordered.page(params[:page]).per(params[:per_page])
   end
 
   def show
@@ -19,7 +21,7 @@ class Web::MailMessagesController < Web::ProtectedApplicationController
   private
 
   def mark_as_read
-    @message.view
+    @message.mark_read
   end
 
 end

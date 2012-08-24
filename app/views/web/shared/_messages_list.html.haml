@@ -1,3 +1,5 @@
+= paginate @messages, :theme => "web"
+
 %table.table
   %tr
     %th.read= t(".mark_as")
@@ -17,3 +19,4 @@
       %td= link_to t("show"), mail_message_path(message)
       %td= link_to t(".delete"), api_mail_message_path(message), :class => "del_msg", :method => :delete, :remote => true
 
+= paginate @messages, :theme => "web"

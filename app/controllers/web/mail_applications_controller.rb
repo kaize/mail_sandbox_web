@@ -6,6 +6,7 @@ class Web::MailApplicationsController < Web::ProtectedApplicationController
 
   def show
     @application = current_user.available_applications.find(params[:id]).decorate
+    @messages = @application.mail_messages.ordered.page(params[:page]).per(params[:per_page])
   end
 
   def new
