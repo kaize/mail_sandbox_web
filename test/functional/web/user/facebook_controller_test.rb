@@ -11,7 +11,8 @@ class Web::User::FacebookControllerTest < ActionController::TestCase
 
   test "should sign in via Facebook" do
     @auth_data = generate(:facebook_auth)
-    facebook_user = create('user/facebook')
+    user = create :facebook_user
+    facebook_user = user.facebook
     @auth_data[:uid] = facebook_user.uid
     @request.env['omniauth.auth'] = @auth_data
 
@@ -20,6 +21,5 @@ class Web::User::FacebookControllerTest < ActionController::TestCase
     assert signed_in?
     assert_equal facebook_user.user.id, current_user.id
   end
-  
-   
+
 end

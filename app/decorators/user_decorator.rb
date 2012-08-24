@@ -10,8 +10,8 @@ class UserDecorator < Draper::Base
   def providers
     user.providers.map(&:decorate)
   end
-  
+
   def to_s
-    user
+    "#{user.nickname} <#{user.email}>"
   end
 end

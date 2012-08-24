@@ -2,7 +2,8 @@
 
 FactoryGirl.define do
   factory 'user/facebook', :class => 'User::Facebook' do
-    user
     uid { generate(:uid) }
+    nickname { generate(:string) }
+    email { generate(:email) }
   end
 end

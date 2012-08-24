@@ -1,7 +1,9 @@
 = simple_form_for @application, :url => url do |f|
-  = f.input :name, :input_html => {:class => "span3"}
-  - if @application.persisted?
-    = f.input :password, :as => :string, :disabled => true, :input_html => {:class => "span3"}
+  - f.with_options :input_html => {:class => "span4"} do |opts|
+    = opts.input :name 
+    - if @application.persisted?
+      = opts.input :password, :as => :string, :disabled => true
+    = opts.association :members, :collection => @users_collection
   .actions
     = f.button :submit
     = link_to t('cancel'), mail_applications_path, :class => "btn"

@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require jquery.query-2.1.7
+//= require chosen.jquery.min
+//= require chosen.init
 //= require_tree .
 //= require_self
 
