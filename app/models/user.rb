@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :membered_applications, :through => :mail_application_users, :source => :mail_application
 
   def available_applications
+    return MailApplication.web if admin?
     MailApplication.available_for self
   end
 
