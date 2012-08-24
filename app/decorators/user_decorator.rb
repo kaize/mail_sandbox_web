@@ -3,6 +3,10 @@ class UserDecorator < Draper::Base
 
   include Draper::LazyHelpers
 
+  def role
+    user.admin? ? :admin : :user
+  end
+
   def providers
     user.providers.map(&:decorate)
   end

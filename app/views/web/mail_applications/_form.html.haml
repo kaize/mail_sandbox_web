@@ -2,4 +2,6 @@
   = f.input :name, :input_html => {:class => "span3"}
   - if @application.persisted?
     = f.input :password, :as => :string, :disabled => true, :input_html => {:class => "span3"}
-  = f.submit
+  .actions
+    = f.button :submit
+    = link_to t('cancel'), mail_applications_path, :class => "btn"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120823094143) do
+ActiveRecord::Schema.define(:version => 20120824072509) do
 
   create_table "mail_applications", :force => true do |t|
     t.string   "name"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20120823094143) do
     t.string   "uid"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "nickname"
   end
 
   add_index "user_facebook", ["uid"], :name => "index_user_facebook_on_uid"
@@ -46,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20120823094143) do
     t.string   "uid"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "nickname"
   end
 
   add_index "user_github", ["uid"], :name => "index_user_github_on_uid"

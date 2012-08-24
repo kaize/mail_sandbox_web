@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
 
   has_many :mail_applications, :inverse_of => :owner, :foreign_key => :owner_id
 
+  attr_accessible :admin
+
   def available_applications
     MailApplication.available_for(self)
   end
