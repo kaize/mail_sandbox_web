@@ -2,7 +2,8 @@ class Web::UsersController < Web::ProtectedApplicationController
   before_filter :authenticate_admin!
 
   def index
-    @users = User.active.decorate
+    @users = User.active.page(params[:page]).per(params[:per_page])
+    @users = @users.decorate
     respond_with @users
   end
 
