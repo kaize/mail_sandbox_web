@@ -9,6 +9,9 @@ gem 'pg'
 gem 'haml-rails'
 gem 'simple_form'
 gem 'draper'
+gem 'state_machine'
+gem 'js-routes'
+gem 'kaminari'
 
 gem 'configus'
 gem 'omniauth-facebook'
@@ -32,6 +35,7 @@ gem 'mail_sandbox', :git => "https://github.com/kaize/mail_sandbox.git"
 gem 'unicorn-rails'
 gem 'twitter-bootstrap-rails'
 gem 'mail'
+gem 'squeel'
 
 group :test do
   gem 'minitest'

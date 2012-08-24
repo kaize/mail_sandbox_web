@@ -10,3 +10,16 @@ table.mail_applications th.edit {
 table.mail_applications th.delete {
   width: 10%;
 }
+
+.pagination a {
+  border: 1px solid #DDD;
+}
+
+.pagination a.not_link {
+  cursor: default;
+  color: #000;
+}
+
+.per_page_selector {
+  width: 60px;
+}

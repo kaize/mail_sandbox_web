@@ -10,6 +10,8 @@
     = "}"
 
 = link_to t(".mail_messages"), mail_application_mail_messages_path(@application)
+%br
+%br
 
-- if @application.mail_messages.any?
-  = render "web/shared/messages_list", :messages => @application.mail_messages
+- if @messages.any?
+  = render "web/shared/messages_list", :messages => @messages

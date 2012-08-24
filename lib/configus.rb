@@ -19,6 +19,10 @@ Configus.build Rails.env do
     mail_application do
       port 2525
     end
+    pagination do
+      default_per_page 10
+      per_page_list [1,5,10,20,50,100]
+    end
   end
 
   env :development, :parent => :production do
