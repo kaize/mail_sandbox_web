@@ -10,11 +10,14 @@ class Web::MailApplicationsController < Web::ProtectedApplicationController
   end
 
   def new
-    @application = MailApplication.new
+    @application = MailApplicationType.new
+    @users_collection = User.active.decorate
   end
 
   def create
-    @application = current_user.mail_applications.build(params[:mail_application])
+    @application = current_user.mail_applications.build
+    @application = @application.becomes(MailApplicationType)
+    @application.assign_attributes params[:mail_application]
 
     if @application.save
       redirect_to mail_applications_path
@@ -25,10 +28,13 @@ class Web::MailApplicationsController < Web::ProtectedApplicationController
 
   def edit
     @application = current_user.mail_applications.find(params[:id])
+    @application = @application.becomes(MailApplicationType)
+    @users_collection = User.active.decorate
   end
 
   def update
     @application = current_user.mail_applications.find(params[:id])
+    @application = @application.becomes(MailApplicationType)
 
     if @application.update_attributes(params[:mail_application])
       redirect_to mail_applications_path

@@ -1,6 +1,6 @@
 $(function(){
   var selectors = [
-    "#mail_application_mail_application_user_ids"
+    "#mail_application_member_ids"
   ];
 
   $(selectors.join(',')).chosen();

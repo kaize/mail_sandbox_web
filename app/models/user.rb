@@ -22,4 +22,12 @@ class User < ActiveRecord::Base
      self.github].compact
   end
 
+  def email
+    providers.first.email
+  end
+
+  def nickname
+    providers.first.nickname
+  end
+
 end
