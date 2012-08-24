@@ -5,3 +5,5 @@
     %th.provider=       t '.provider'
     %th.actions.span2=  t '.actions'
   = render @users
+
+= paginate @users, :theme => "web"
