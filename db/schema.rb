@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20120823124219) do
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
     t.integer  "mail_application_id"
+    t.string   "state"
   end
 
   create_table "user_facebook", :force => true do |t|
