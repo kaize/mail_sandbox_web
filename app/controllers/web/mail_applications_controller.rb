@@ -1,7 +1,7 @@
 class Web::MailApplicationsController < Web::ProtectedApplicationController
 
   def index
-    @applications = current_user.available_applications
+    @applications = current_user.available_applications.page(params[:page]).per(params[:per_page])
   end
 
   def show
