@@ -18,6 +18,7 @@ class FacebookService < NetworkService
 
   def update_information(facebook_user, information)
     facebook_user.nickname = information[:nickname]
+    facebook_user.email = information[:email]
     facebook_user.save!
   end
 end

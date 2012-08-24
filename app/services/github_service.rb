@@ -18,6 +18,7 @@ class GithubService < NetworkService
 
   def update_information(github_user, information)
     github_user.nickname = information[:nickname]
+    github_user.email = information[:email]
     github_user.save!
   end
 end

@@ -3,6 +3,7 @@ module UserPopulator
     user.build_facebook do |fb|
       fb.uid = data[:uid]
       fb.nickname = data[:info][:nickname]
+      fb.email = data[:info][:email]
     end
   end
 
@@ -10,6 +11,7 @@ module UserPopulator
     user.build_github do |gh|
       gh.uid = data[:uid]
       gh.nickname = data[:info][:nickname]
+      gh.email = data[:info][:email]
     end
   end
 end
