@@ -21,4 +21,5 @@ class User < ActiveRecord::Base
     [self.facebook,
      self.github].compact
   end
+
 end
