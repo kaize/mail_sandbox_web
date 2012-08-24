@@ -12,26 +12,24 @@ class Api::MailMessagesControllerTest < ActionController::TestCase
     attrs[:user] = @application.name
     attrs[:password] = @application.password
 
-    get :create, :message => attrs
+    post :create, :message => attrs, :format => :json
     assert_response :success
 
     message = MailMessage.find_by_sender("unique@unique.ru")
     assert_not_nil message
   end
 
-  test "should update" do
+  test "should mark read" do
     message = create :mail_message
 
-    put :update, {:id => message.id}
-
+    post :mark_read, :id => message.id, :format => :json
     assert_response :success
   end
 
-  test "should delete" do
+  test "should hide" do
     message = create :mail_message
 
-    delete :destroy, {:id => message.id}
-
+    post :hide, :id => message.id, :format => :json
     assert_response :success
   end
 
