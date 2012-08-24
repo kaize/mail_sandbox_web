@@ -11,12 +11,12 @@
     %th.delete
   - messages.each do |message|
     %tr{:'data-href' => mail_message_path(message)}
-      %td= link_to t(".read"), api_mail_message_path(message), :class => "read_msg", :method => :put, :remote => true if message.unread?
+      %td= link_to t(".read"), mark_read_api_mail_message_path(message), :class => "read_msg", :method => :post, :remote => true if message.unread?
       %td= message.recipient
       %td= message.sender
       %td= message.mail_application.name
       %td= message.completed_at
       %td= link_to t("show"), mail_message_path(message)
-      %td= link_to t(".delete"), api_mail_message_path(message), :class => "del_msg", :method => :delete, :remote => true
+      %td= link_to t(".delete"), hide_api_mail_message_path(message), :class => "del_msg", :method => :post, :remote => true
 
 = paginate @messages, :theme => "web"
