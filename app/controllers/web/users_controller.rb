@@ -17,7 +17,7 @@ class Web::UsersController < Web::ProtectedApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = ModerateUserType.find(params[:id])
     if @user.update_attributes(params[:user])
       flash.now[:notice] = flash_translate(:success)
     else
