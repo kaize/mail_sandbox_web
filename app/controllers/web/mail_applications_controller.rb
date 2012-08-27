@@ -27,13 +27,13 @@ class Web::MailApplicationsController < Web::ProtectedApplicationController
   end
 
   def edit
-    @application = current_user.mail_applications.find(params[:id])
+    @application = current_user.available_applications.find(params[:id])
     @application = @application.becomes(MailApplicationType)
     @users_collection = User.active.decorate
   end
 
   def update
-    @application = current_user.mail_applications.find(params[:id])
+    @application = current_user.available_applications.find(params[:id])
     @application = @application.becomes(MailApplicationType)
 
     if @application.update_attributes(params[:mail_application])
