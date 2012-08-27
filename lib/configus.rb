@@ -18,12 +18,12 @@ Configus.build Rails.env do
 
     auth_providers do
       facebook do
-        app_id '323420671087107'
-        app_secret '86c019a1c365535e882338c9320ee2cf'
+        app_id Configus::FACEBOOK['app_id']
+        app_secret Configus::FACEBOOK['app_secret']
       end
       github do
-        app_id 'b5dd091722ab2550f343'
-        app_secret '4a2013a2665d35844a184f4703e4b5459ae423e9'
+        app_id Configus::GITHUB['app_id']
+        app_secret Configus::GITHUB['app_secret']
       end
     end
 
