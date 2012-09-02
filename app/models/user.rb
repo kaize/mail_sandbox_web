@@ -10,7 +10,12 @@ class User < ActiveRecord::Base
 
   def available_applications
     return MailApplication.web if admin?
-    MailApplication.available_for self
+    MailApplication.web.available_for self
+  end
+
+  def owned_applications
+    return MailApplication.web if admin?
+    mail_applications.web
   end
 
   def guest?

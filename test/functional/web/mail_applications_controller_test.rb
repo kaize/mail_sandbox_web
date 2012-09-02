@@ -45,6 +45,9 @@ class Web::MailApplicationsControllerTest < ActionController::TestCase
   test "should delete" do
     delete :destroy, :id => @my_application.id
     assert_response :redirect
+
+    @my_application.reload
+    assert @my_application.deleted?
   end
 
   test "should not put update to not my app" do
@@ -65,6 +68,16 @@ class Web::MailApplicationsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should delete for admin" do
+    admin = create :admin_user
+    sign_in admin
+
+    delete :destroy, :id => @application.id
+    assert_response :redirect
+
+    @application.reload
+    assert @application.deleted?
+  end
 
 
 

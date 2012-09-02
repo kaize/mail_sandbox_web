@@ -1,3 +1,5 @@
+= link_to t(".new"), new_mail_application_path, :class => "btn btn-primary"
+
 %table.table.mail_applications
   %tr
     %th.name= MailApplication.human_attribute_name :name
@@ -6,10 +8,20 @@
   - @applications.each do |app|
     %tr{:'data-href' => mail_application_path(app)}
       %td= link_to app, app
-      %td= link_to t("edit"), edit_mail_application_path(app)
-      %td= link_to t("delete"), mail_application_path(app), :data => { :confirm => t(:are_you_sure?) }, :method => :delete
+
+      %td
+        = link_to edit_mail_application_path(app), :class => "btn btn-info" do
+          %i.icon-edit
+            = t("edit")
+
+      - if can_delete_app?(app)
+        %td
+          = link_to mail_application_path(app),
+          :data => { :confirm => t(:are_you_sure?) }, :method => :delete,
+          :class => "btn btn-info" do
+            %i.icon-trash
+              = t("delete")
 
 = paginate @applications, :theme => "web"
 %br
 
-= link_to t(".new"), new_mail_application_path, :class => "btn btn-primary"
