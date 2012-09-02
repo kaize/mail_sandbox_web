@@ -8,29 +8,21 @@ class Api::MailMessagesController < Api::ApplicationController
     @application.mail_messages << @message
     @message.save
 
-    respond_render :success => true, :body => @message
+    respond_with @message
   end
 
-  # mark mail message as 'read'
-  def update
+  def mark_read
     @message = MailMessage.find(params[:id])
+    @message.mark_read
 
-    if @message.view
-      respond_render :success => true, :body => { :success => "marked_as_read" }
-    else
-      respond_render :success => false, :body => { :error => "failed_to_mark_as_read" }
-    end
+    respond_with @message
   end
 
-  # mark mail message as deleted
-  def destroy
+  def hide
     @message = MailMessage.find(params[:id])
+    @message.hide
 
-    if @message.hide
-      respond_render :success => true, :body => { :success => "deleted" }
-    else
-      respond_render :success => false, :body => { :error => "failed_to_delete" }
-    end
+    respond_with @message
   end
 
   protected

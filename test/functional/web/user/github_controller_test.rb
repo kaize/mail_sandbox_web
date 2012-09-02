@@ -11,7 +11,8 @@ class Web::User::GithubControllerTest < ActionController::TestCase
 
   test "should sign in via Github" do
     @auth_data = generate(:github_auth)
-    github_user = create('user/github')
+    user = create :github_user
+    github_user = user.github
     @auth_data[:uid] = github_user.uid
     @request.env['omniauth.auth'] = @auth_data
 

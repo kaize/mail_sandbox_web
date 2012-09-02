@@ -12,7 +12,7 @@ class MailMessage < ActiveRecord::Base
     state :read
     state :deleted
 
-    event :view do
+    event :mark_read do
       transition :unread => :read
     end
 

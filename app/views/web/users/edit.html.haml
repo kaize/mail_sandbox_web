@@ -1,0 +1,13 @@
+%h2= t('.edit')
+
+%dl.dl-horizontal
+  %dt= User.human_attribute_name(:providers)
+  %dd
+    .providers
+      %ul.unstyled
+      - @user.decorate.providers.each do |provider|
+        %li
+          = provider_image provider
+          = provider
+
+= render "form"

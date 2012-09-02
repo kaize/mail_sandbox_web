@@ -1,25 +1,15 @@
 class Web::MailMessagesController < Web::ProtectedApplicationController
-  after_filter :mark_as_read, :only => [:show]
 
   def index
     @mail_application = MailApplication.find_by_id(params[:mail_application_id])
-
-    if @mail_application
-      @messages = @mail_application.mail_messages.ordered
-    else
-      @messages = MailMessage.ordered
-    end
+    @messages = @mail_application.mail_messages.ordered.page(params[:page]).per(params[:per_page])
   end
 
   def show
     @message = MailMessage.find params[:id]
+    @message.mark_read
+
     @mail = Mail.new(@message.data)
-  end
-
-  private
-
-  def mark_as_read
-    @message.view
   end
 
 end

@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  # attr_accessible :title, :body
+  include UserRepository
   has_one :facebook, :dependent => :destroy, :autosave => true
   has_one :github, :dependent => :destroy, :autosave => true
 
@@ -9,10 +9,30 @@ class User < ActiveRecord::Base
   has_many :membered_applications, :through => :mail_application_users, :source => :mail_application
 
   def available_applications
-    MailApplication.available_for self
+    return MailApplication.web if admin?
+    MailApplication.web.available_for self
+  end
+
+  def owned_applications
+    return MailApplication.web if admin?
+    mail_applications.web
   end
 
   def guest?
     false
   end
+
+  def providers
+    [self.facebook,
+     self.github].compact
+  end
+
+  def email
+    providers.first.email
+  end
+
+  def nickname
+    providers.first.nickname
+  end
+
 end

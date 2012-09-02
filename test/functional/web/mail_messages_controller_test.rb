@@ -4,14 +4,11 @@ class Web::MailMessagesControllerTest < ActionController::TestCase
   def setup
     @user = create :user
     sign_in @user
-  end
-
-  setup do
     @message = create :mail_message
   end
 
   test "should get index" do
-    get :index
+    get :index, :mail_application_id => @message.mail_application_id
     assert_response :success
   end
 

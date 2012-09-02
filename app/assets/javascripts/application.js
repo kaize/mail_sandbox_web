@@ -13,6 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require jquery.query-2.1.7
+//= require chosen.jquery.min
+//= require chosen.init
 //= require_tree .
 //= require_self
 
@@ -21,4 +24,10 @@ $(function(){
       var href = $(this).data('href');
       if(href && !$(e.target).data('remote')) window.location.href = href;
   });
+
+  $("select.per_page_selector").change(function(){
+    url = $.query.set("per_page", this.value).set("page", 1).toString().replace('%2B', '+');
+    window.location.href = url;
+  });
 });
+

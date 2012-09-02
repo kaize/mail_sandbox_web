@@ -2,7 +2,7 @@ class MailApplication < ActiveRecord::Base
   include MailApplicationRepository
   attr_accessible :password, :name
 
-  has_many :mail_messages
+  has_many :mail_messages, :dependent => :destroy
   belongs_to :owner, :class_name => 'User'
 
   has_many :mail_application_users
@@ -11,6 +11,17 @@ class MailApplication < ActiveRecord::Base
   after_initialize :init, :if => :new_record?
 
   validates :owner, :presence => true
+
+  state_machine :state, :initial => :active do
+    state :active
+    state :deleted
+
+    event :mark_as_deleted do
+      transition all => :deleted
+    end
+
+  end
+
 
   def init
     generate_password

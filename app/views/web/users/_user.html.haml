@@ -1,0 +1,10 @@
+%tr{:'data-href' => user_path(user)}
+  %td= user.id
+  %td= t user.role, :scope => :roles
+  %td
+    %ul.unstyled
+      - user.providers.each do |provider|
+        %li
+          = provider_image(provider)
+          %i.label= provider.nickname
+  %td= link_to t('edit'), edit_user_path(user)

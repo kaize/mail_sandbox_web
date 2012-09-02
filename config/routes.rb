@@ -1,7 +1,12 @@
 MailSandboxWeb::Application.routes.draw do
 
   namespace :api do
-    resources :mail_messages, :only => [:create, :update, :destroy]
+    resources :mail_messages, :only => [:create] do
+      member do
+        post :mark_read
+        post :hide
+      end
+    end
   end
 
   scope :module => :web do
@@ -10,6 +15,7 @@ MailSandboxWeb::Application.routes.draw do
     resources :mail_applications do
       resources :mail_messages, :only => [:index, :show]
     end
+    resources :users, :only => [:index, :show, :edit, :update]
     resource :user, :only => [:index] do
 
       scope :module => :user do
