@@ -10,7 +10,7 @@
       %td= link_to app, app
 
       %td
-        = link_to edit_mail_application_path(app), :class => "btn btn-info" do
+        = link_to edit_mail_application_path(app), :class => "btn btn-info nowrap" do
           %i.icon-edit
             = t("edit")
 
@@ -18,7 +18,7 @@
         %td
           = link_to mail_application_path(app),
           :data => { :confirm => t(:are_you_sure?) }, :method => :delete,
-          :class => "btn btn-info" do
+          :class => "btn btn-danger nowrap" do
             %i.icon-trash
               = t("delete")
 
