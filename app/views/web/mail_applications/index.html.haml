@@ -3,13 +3,15 @@
 %table.table.mail_applications
   %tr
     %th.name= MailApplication.human_attribute_name :name
-    %th.unread_mails_count
+    %th.unread_mails_count= t('.unread_mails_count')
+    %th.owner= t('.owner')
     %th.edit
     %th.delete
   - @applications.each do |app|
     %tr{:'data-href' => mail_application_path(app)}
       %td= link_to app, app
       %td= app.unread_mails_count
+      %td= app.owner.nickname
 
       %td
         = link_to edit_mail_application_path(app), :class => "btn btn-info nowrap" do
