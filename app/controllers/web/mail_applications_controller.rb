@@ -1,11 +1,12 @@
 class Web::MailApplicationsController < Web::ProtectedApplicationController
 
   def index
-    @applications = current_user.available_applications.page(params[:page]).per(params[:per_page])
+    @applications = available_applications.page(params[:page]).per(params[:per_page])
+    @applications = @applications.decorate
   end
 
   def show
-    @application = current_user.available_applications.find(params[:id]).decorate
+    @application = available_applications.find(params[:id]).decorate
     @messages = @application.mail_messages.ordered.page(params[:page]).per(params[:per_page])
   end
 
@@ -27,13 +28,13 @@ class Web::MailApplicationsController < Web::ProtectedApplicationController
   end
 
   def edit
-    @application = current_user.available_applications.find(params[:id])
+    @application = available_applications.find(params[:id])
     @application = @application.becomes(MailApplicationType)
     @users_collection = User.active.decorate
   end
 
   def update
-    @application = current_user.available_applications.find(params[:id])
+    @application = available_applications.find(params[:id])
     @application = @application.becomes(MailApplicationType)
 
     if @application.update_attributes(params[:mail_application])
@@ -50,5 +51,11 @@ class Web::MailApplicationsController < Web::ProtectedApplicationController
     @application.mark_as_deleted
     redirect_to mail_applications_path
   end
+
+  private
+
+    def available_applications
+      current_user.available_applications
+    end
 
 end

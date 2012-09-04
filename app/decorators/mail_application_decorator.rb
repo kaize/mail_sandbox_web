@@ -15,8 +15,12 @@ class MailApplicationDecorator < Draper::Base
     settings.map { |str| content_tag :span, str }.join('<br/>')
   end
 
+  def unread_mails_count
+    mail_messages.unreaded.count
+  end
+
   def to_s
-    mail_application
+    name
   end
 
 end
