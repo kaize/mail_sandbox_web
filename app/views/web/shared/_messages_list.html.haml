@@ -9,12 +9,26 @@
     %th.delete
   - messages.each do |message|
     %tr{:'data-href' => mail_message_path(message)}
-      %td= link_to t(".read"), mark_read_api_mail_message_path(message), :class => "read_msg", :method => :post, :remote => true if message.unread?
+      - if message.unread?
+        %td
+          = link_to mark_read_api_mail_message_path(message),
+          :class => "btn btn-success read_msg", :method => :post, :remote => true do
+            %i.icon-ok
+              = t(".read")
       %td= message.recipient
       %td= message.sender
       %td= message.mail_application.name
       %td= message.completed_at
-      %td= link_to t("show"), mail_message_path(message)
-      %td= link_to t(".delete"), hide_api_mail_message_path(message), :class => "del_msg", :method => :post, :remote => true
+      %td
+        = link_to mail_message_path(message), :class => "btn btn-info nowrap" do
+          %i.icon-edit
+            = t("show")
+      %td
+        = link_to mail_message_path(message),
+        :data => { :confirm => t(:are_you_sure?) }, :method => :delete, :remote => true,
+        :class => "btn btn-danger nowrap del_msg" do
+          %i.icon-trash
+            = t("delete")
+
 
 = paginate @messages, :theme => "web"

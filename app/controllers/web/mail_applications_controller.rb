@@ -45,7 +45,7 @@ class Web::MailApplicationsController < Web::ProtectedApplicationController
   end
 
   def destroy
-    @application = MailApplication.web if current_user.admin?
+    @application = MailApplication.web.find(params[:id]) if current_user.admin?
     @application = current_user.owned_applications.find(params[:id])
 
     @application.mark_as_deleted
