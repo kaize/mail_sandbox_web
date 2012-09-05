@@ -18,8 +18,8 @@
           %i.icon-edit
             = t("edit")
 
-      - if current_user.can_delete_app?(app)
-        %td
+      %td
+        - if current_user.can_delete_app?(app)
           = link_to mail_application_path(app),
           :data => { :confirm => t(:are_you_sure?) }, :method => :delete,
           :class => "btn btn-danger nowrap" do
