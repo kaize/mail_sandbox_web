@@ -9,8 +9,8 @@
     %th.delete
   - messages.each do |message|
     %tr{:'data-href' => mail_message_path(message)}
-      - if message.unread?
-        %td
+      %td
+        - if message.unread?
           = link_to mark_read_api_mail_message_path(message),
           :class => "btn btn-success read_msg", :method => :post, :remote => true do
             %i.icon-ok
