@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/kaize/mail_sandbox.git
-  revision: 7e21bf851c484fccac5f9abd3d903f3f64fa36b6
+  revision: e3f3469e0b6bf125bf6493f51be9d32d3315b8bd
   specs:
     mail_sandbox (0.0.7)
       em-http-request
