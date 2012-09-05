@@ -18,7 +18,7 @@
           %i.icon-edit
             = t("edit")
 
-      - if can_delete_app?(app)
+      - if current_user.can_delete_app?(app)
         %td
           = link_to mail_application_path(app),
           :data => { :confirm => t(:are_you_sure?) }, :method => :delete,

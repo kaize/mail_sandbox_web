@@ -35,4 +35,9 @@ class User < ActiveRecord::Base
     providers.first.nickname
   end
 
+  def can_delete_app?(app)
+    #TODO: app maybe decorator
+    (self.id == app.owner.id) || admin?
+  end
+
 end
