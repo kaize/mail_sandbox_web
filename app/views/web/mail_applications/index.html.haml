@@ -1,6 +1,6 @@
 = link_to t(".new"), new_mail_application_path, :class => "btn btn-primary"
 
-%table.table.mail_applications
+%table.table.table-hover.mail_applications
   %tr
     %th.name= MailApplication.human_attribute_name :name
     %th.unread_mails_count= t('.unread_mails_count')
