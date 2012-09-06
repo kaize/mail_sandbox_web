@@ -33,9 +33,10 @@ end
 gem 'jquery-rails'
 gem 'mail_sandbox', :git => "https://github.com/kaize/mail_sandbox.git"
 gem 'unicorn-rails'
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', :git => "https://github.com/seyhunak/twitter-bootstrap-rails.git"
 gem 'mail'
 gem 'squeel'
+gem 'chosen-rails'
 
 group :test do
   gem 'minitest'
