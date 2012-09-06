@@ -3,7 +3,11 @@ require 'test_helper'
 class Api::MailMessagesControllerTest < ActionController::TestCase
 
   setup do
+    @user = create :facebook_user
+    sign_in @user
+
     @application = create :application
+    @my_application = create :application, :owner => @user
   end
 
   test "should get create" do
@@ -20,17 +24,31 @@ class Api::MailMessagesControllerTest < ActionController::TestCase
   end
 
   test "should mark read" do
-    message = create :mail_message
+    message = create :mail_message, :mail_application => @my_application
 
     post :mark_read, :id => message.id, :format => :json
     assert_response :success
   end
 
-  test "should hide" do
-    message = create :mail_message
+  test "should delete" do
+    message = create :mail_message, :mail_application => @my_application
 
-    post :hide, :id => message.id, :format => :json
+    delete :destroy, :id => message.id, :format => :json
+    message.reload
+
     assert_response :success
+    assert message.deleted?
+  end
+
+  test "should not delete" do
+    message = create :mail_message, :mail_application => @application
+
+    assert_raise ActiveRecord::RecordNotFound do
+      delete :destroy, :id => message.id, :format => :json
+    end
+
+    message.reload
+    assert !message.deleted?
   end
 
 end

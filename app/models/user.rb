@@ -18,6 +18,12 @@ class User < ActiveRecord::Base
     mail_applications.web
   end
 
+  def available_applications_messages
+    return MailMessage.web if admin?
+    MailMessage.web.where(:mail_application_id => available_applications)
+  end
+
+
   def guest?
     false
   end
