@@ -6,3 +6,9 @@ en:
       messages_list:
         delete: Delete
         read: Read
+  views:
+    pagination:
+      first: '«'
+      last: '»'
+      next: '›'
+      previous: '‹'
