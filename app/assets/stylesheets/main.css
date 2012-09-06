@@ -31,3 +31,7 @@
 .clear{
     clear: both;
 }
+
+.btn{
+    margin:0px 5px;
+}
