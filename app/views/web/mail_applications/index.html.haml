@@ -5,11 +5,10 @@
     %th.name= MailApplication.human_attribute_name :name
     %th.unread_mails_count= t('.unread_mails_count')
     %th.owner= t('.owner')
-    %th.edit
-    %th.delete
+    %th.actions
   - @applications.each do |app|
     %tr{:'data-href' => mail_application_path(app)}
-      %td= link_to app, app
+      %td.clicked= link_to app, app
       %td.clicked= app.unread_mails_count
       %td.clicked= app.owner.nickname
 
@@ -18,7 +17,6 @@
           %i.icon-edit
             = t("edit")
 
-      %td
         - if current_user.can_delete_app?(app)
           = link_to mail_application_path(app),
           :data => { :confirm => t(:are_you_sure?) }, :method => :delete,
