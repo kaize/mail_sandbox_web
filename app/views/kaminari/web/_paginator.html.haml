@@ -6,7 +6,7 @@
 -#    remote:        data-remote
 -#    paginator:     the paginator that renders the pagination tags inside
 
-- if per_page*num_pages > 50
+- if per_page*total_pages > 50
   = per_page_selector
 = paginator.render do
   %nav.pagination
