@@ -10,8 +10,8 @@
   - @applications.each do |app|
     %tr{:'data-href' => mail_application_path(app)}
       %td= link_to app, app
-      %td= app.unread_mails_count
-      %td= app.owner.nickname
+      %td.clicked= app.unread_mails_count
+      %td.clicked= app.owner.nickname
 
       %td
         = link_to edit_mail_application_path(app), :class => "btn btn-info nowrap" do
