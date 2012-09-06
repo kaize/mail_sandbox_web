@@ -28,7 +28,7 @@ class Api::MailMessagesControllerTest < ActionController::TestCase
   test "should mark read" do
     message = create :mail_message, :mail_application => @my_application
 
-    post :mark_read, :id => message.id, :format => :json
+    put :mark_read, :id => message.id, :format => :json
     assert_response :success
   end
 

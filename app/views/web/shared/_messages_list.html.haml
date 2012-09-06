@@ -11,7 +11,7 @@
       %td
         - if message.unread?
           = link_to mark_read_api_mail_message_path(message),
-          :class => "btn btn-success read_msg", :method => :post, :remote => true do
+          :class => "btn btn-success read_msg", :method => :put, :remote => true do
             %i.icon-ok
               = t(".read")
       %td.clicked= message.recipient

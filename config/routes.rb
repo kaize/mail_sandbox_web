@@ -3,7 +3,7 @@ MailSandboxWeb::Application.routes.draw do
   namespace :api do
     resources :mail_messages, :only => [:create, :destroy] do
       member do
-        post :mark_read
+        put :mark_read
       end
     end
   end
