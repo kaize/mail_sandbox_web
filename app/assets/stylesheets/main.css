@@ -1,26 +1,33 @@
-table.mail_applications {
-  width: 70%;
-}
+/*table.mail_applications {*/
+  /*width: 70%;*/
+/*}*/
 
 
-table.mail_applications th.edit {
-  width: 10%;
-}
+/*table.mail_applications th.edit {*/
+  /*width: 10%;*/
+/*}*/
 
-table.mail_applications th.delete {
-  width: 10%;
-}
+/*table.mail_applications th.delete {*/
+  /*width: 10%;*/
+/*}*/
 
-.pagination a {
-  border: 1px solid #DDD;
-}
+/*.pagination a {*/
+  /*border: 1px solid #DDD;*/
+/*}*/
 
-.pagination a.not_link {
-  cursor: default;
-  color: #000;
-}
+/*.pagination a.not_link {*/
+  /*cursor: default;*/
+  /*color: #000;*/
+/*}*/
 
 .per_page_selector {
   width: 60px;
+  margin: 22px 0 0 20px;
 }
 
+.float-left{
+    float: left;
+}
+.clear{
+    clear: both;
+}
