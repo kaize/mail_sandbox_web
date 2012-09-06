@@ -8,6 +8,8 @@ class Api::MailMessagesControllerTest < ActionController::TestCase
 
     @application = create :application
     @my_application = create :application, :owner => @user
+    @member_application = create :application
+    @member_application.members << @user
   end
 
   test "should get create" do
@@ -32,6 +34,16 @@ class Api::MailMessagesControllerTest < ActionController::TestCase
 
   test "should delete" do
     message = create :mail_message, :mail_application => @my_application
+
+    delete :destroy, :id => message.id, :format => :json
+    message.reload
+
+    assert_response :success
+    assert message.deleted?
+  end
+
+  test "should delete message with member" do
+    message = create :mail_message, :mail_application => @member_application
 
     delete :destroy, :id => message.id, :format => :json
     message.reload

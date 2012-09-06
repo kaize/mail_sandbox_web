@@ -24,7 +24,7 @@
           %i.icon-eye-open
             = t("show")
 
-        = link_to mail_message_path(message),
+        = link_to api_mail_message_path(message),
         :data => { :confirm => t(:are_you_sure?) }, :method => :delete, :remote => true,
         :class => "btn btn-danger nowrap del_msg" do
           %i.icon-trash
