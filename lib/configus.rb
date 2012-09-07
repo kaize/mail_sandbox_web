@@ -1,16 +1,23 @@
 # coding: UTF-8
 
 module Configus
-  yaml_cfg = YAML.load_file "#{Rails.root}config/secret_keys.yml"
+  yaml_cfg = YAML.load_file("#{Rails.root}config/secret_keys.yml")[Rails.env.to_s]
 
   FACEBOOK = yaml_cfg['facebook']
   GITHUB = yaml_cfg['github']
+  AIRBRAKE = yaml_cfg['airbrake']
 
 end
 
 Configus.build Rails.env do
 
   env :production do
+
+    airbrake do
+      enable? true
+      api_key Configus::AIRBRAKE['api_key']
+      host Configus::AIRBRAKE['host']
+    end
 
     omniauth do
       path_prefix '/user'
@@ -39,16 +46,6 @@ Configus.build Rails.env do
   end
 
   env :development, :parent => :production do
-    auth_providers do
-      facebook do
-        app_id Configus::FACEBOOK['app_id']
-        app_secret Configus::FACEBOOK['app_secret']
-      end
-      github do
-        app_id Configus::GITHUB['app_id']
-        app_secret Configus::GITHUB['app_secret']
-      end
-    end
   end
 
   env :staging, :parent => :production do
