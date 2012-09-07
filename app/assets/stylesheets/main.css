@@ -1,26 +1,10 @@
-table.mail_applications {
-  width: 70%;
-}
-
-
-table.mail_applications th.edit {
-  width: 10%;
-}
-
-table.mail_applications th.delete {
-  width: 10%;
-}
-
-.pagination a {
-  border: 1px solid #DDD;
-}
-
-.pagination a.not_link {
-  cursor: default;
-  color: #000;
-}
 
 .per_page_selector {
-  width: 60px;
+  width: 65px;
+  height: 40px;
+  margin: 20px 0 0 20px;
 }
 
+.btn{
+    margin:0px 5px;
+}

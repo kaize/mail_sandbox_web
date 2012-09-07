@@ -10,8 +10,4 @@ module ApplicationHelper
     select_tag :per_page, options_for_select(configus.pagination.per_page_list, per_page), :class => "per_page_selector"
   end
 
-  def can_delete_app?(app)
-    current_user == app.owner || current_user.admin?
-  end
-
 end

@@ -12,23 +12,27 @@ class Api::MailMessagesController < Api::ApplicationController
   end
 
   def mark_read
-    @message = MailMessage.find(params[:id])
+    @message = available_applications_messages.find(params[:id])
     @message.mark_read
 
     respond_with @message
   end
 
-  def hide
-    @message = MailMessage.find(params[:id])
-    @message.hide
+  def destroy
+    @message = available_applications_messages.find(params[:id])
+    @message.mark_as_deleted
 
     respond_with @message
   end
 
   protected
 
-  def auth_application(name, password)
-    MailApplication.find_by_credentials(name, password).first
-  end
+    def auth_application(name, password)
+      MailApplication.find_by_credentials(name, password).first
+    end
+
+    def available_applications_messages
+      current_user.available_applications_messages
+    end
 
 end

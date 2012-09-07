@@ -16,7 +16,7 @@ class MailMessage < ActiveRecord::Base
       transition :unread => :read
     end
 
-    event :hide do
+    event :mark_as_deleted do
       transition all => :deleted
     end
   end

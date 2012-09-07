@@ -5,7 +5,7 @@ class MailApplication < ActiveRecord::Base
   has_many :mail_messages, :dependent => :destroy
   belongs_to :owner, :class_name => 'User'
 
-  has_many :mail_application_users
+  has_many :mail_application_users, :dependent => :destroy
   has_many :members, :through => :mail_application_users, :source => :user
 
   after_initialize :init, :if => :new_record?

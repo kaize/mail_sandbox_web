@@ -1,3 +1,9 @@
 ---
 en:
   'are_you_sure?': "Вы уверены?"
+  views:
+    pagination:
+      first: '«'
+      last: '»'
+      next: '›'
+      previous: '‹'

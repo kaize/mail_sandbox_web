@@ -1,20 +1,34 @@
-%table.table
+%table.table.table-hover
   %tr
     %th.read= t(".mark_as")
     %th= MailMessage.human_attribute_name :recipient
     %th= MailMessage.human_attribute_name :sender
     %th= MailMessage.human_attribute_name :mail_application
     %th= MailMessage.human_attribute_name :completed_at
-    %th.show
-    %th.delete
+    %th.actions
   - messages.each do |message|
     %tr{:'data-href' => mail_message_path(message)}
-      %td= link_to t(".read"), mark_read_api_mail_message_path(message), :class => "read_msg", :method => :post, :remote => true if message.unread?
-      %td= message.recipient
-      %td= message.sender
-      %td= message.mail_application.name
-      %td= message.completed_at
-      %td= link_to t("show"), mail_message_path(message)
-      %td= link_to t(".delete"), hide_api_mail_message_path(message), :class => "del_msg", :method => :post, :remote => true
+      %td
+        - if message.unread?
+          = link_to mark_read_api_mail_message_path(message),
+          :class => "btn btn-success read_msg", :method => :put, :remote => true do
+            %i.icon-ok
+              = t(".read")
+      %td.clicked= message.recipient
+      %td.clicked= message.sender
+      %td.clicked= message.mail_application.name
+      %td.clicked= message.completed_at
+      %td
+
+        = link_to mail_message_path(message), :class => "btn btn-info nowrap" do
+          %i.icon-eye-open
+            = t("show")
+
+        = link_to api_mail_message_path(message),
+        :data => { :confirm => t(:are_you_sure?) }, :method => :delete, :remote => true,
+        :class => "btn btn-danger nowrap del_msg" do
+          %i.icon-trash
+            = t("delete")
+
 
 = paginate @messages, :theme => "web"

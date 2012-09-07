@@ -79,6 +79,18 @@ class Web::MailApplicationsControllerTest < ActionController::TestCase
     assert @application.deleted?
   end
 
+  test "should not delete over application" do
+    delete :destroy, :id => @my_application.id
+    assert_response :redirect
+
+    @my_application.reload
+    @application.reload
+    assert @my_application.deleted?
+    assert !@application.deleted?
+  end
+
+
+
 
 
 end

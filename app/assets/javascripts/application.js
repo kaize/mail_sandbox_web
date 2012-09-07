@@ -13,15 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require chosen-jquery
 //= require jquery.query-2.1.7
-//= require chosen.jquery.min
-//= require chosen.init
 //= require_tree .
 //= require_self
 
 $(function(){
-  $('.table tr').click(function(e) {
-      var href = $(this).data('href');
+  $('.table tr .clicked').click(function(e) {
+      var href = $(this).parent().data('href');
       if(href && !$(e.target).data('remote')) window.location.href = href;
   });
 

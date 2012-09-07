@@ -8,6 +8,6 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 
   provider :github, configus.auth_providers.github.app_id,
                     configus.auth_providers.github.app_secret,
-                    scope: "user"
-                    
+                    scope: "public"
+
 end
