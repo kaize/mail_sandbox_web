@@ -1,16 +1,20 @@
 MailSandboxWeb.Router = Ember.Router.extend({
-  location: 'hash',
-
   root: Ember.Route.extend({
+
     index: Ember.Route.extend({
-      route: '/'
+      route: '/',
+      connectOutlets: function(router) {
+        router.transitionTo('mailApplications');
+      }
 
-      // You'll likely want to connect a view here.
-      // connectOutlets: function(router) {
-      //   router.get('applicationController').connectOutlet(App.MainView);
-      // }
+    }),
 
-      // Layout your routes here...
+    mailApplications: Ember.Route.extend({
+      route: '/mail_applications',
+      connectOutlets: function(router) {
+        var controller = router.get( 'applicationController' );
+        controller.connectOutlet('mailApplications')
+      }
     })
   })
 });

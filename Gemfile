@@ -17,7 +17,7 @@ gem 'configus'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'airbrake'
-gem 'ember-rails'
+gem 'ember-rails', :git => 'https://github.com/NOX73/ember-rails.git', :branch => 'develop'
 
 # Gems used only for assets and not required
 # in production environments by default.

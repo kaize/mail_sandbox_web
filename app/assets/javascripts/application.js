@@ -20,19 +20,9 @@
 //= require ember-data
 //= require_self
 //= require mail_sandbox_web
+MailSandboxWeb = Ember.Application.create({
+  rootElement: '#root'
+});
+
 //= require_tree .
 //= require_self
-
-//$(function(){
-//  $('.table tr .clicked').click(function(e) {
-//      var href = $(this).parent().data('href');
-//      if(href && !$(e.target).data('remote')) window.location.href = href;
-//  });
-//
-//  $("select.per_page_selector").change(function(){
-//    url = $.query.set("per_page", this.value).set("page", 1).toString().replace('%2B', '+');
-//    window.location.href = url;
-//  });
-//});
-
-MailSandboxWeb = Ember.Application.create();
