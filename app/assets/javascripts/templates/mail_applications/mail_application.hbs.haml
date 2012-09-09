@@ -6,3 +6,7 @@
   {{view.content.owner_nickname}}
 %td
 
+  {{#view MailSandboxWeb.LinkView hrefBinding="view.content.edit_link" class="btn btn-info nowrap"}}
+  %i.icon-edit
+    = h.t("edit")
+  {{/view}}
