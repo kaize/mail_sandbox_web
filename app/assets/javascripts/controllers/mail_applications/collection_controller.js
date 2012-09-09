@@ -1,11 +1,9 @@
-MailSandboxWeb.MailApplicationsController = Ember.ArrayProxy.extend({
-  title: "MailApplications",
+MailSandboxWeb.MailApplicationsCollectionController = Ember.ArrayProxy.extend({
   init: function() {
 			this._super();
 			var items = MailSandboxWeb.Store.findAll(MailSandboxWeb.MailApplication);
-
       this.set( 'content', items );
-      console.log(items);
-      window.app_con = this
+      window.collection_controller = this
+
 		}
 });

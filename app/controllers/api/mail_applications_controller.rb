@@ -1,4 +1,4 @@
-class Api::MailApplicationsController < ApplicationController
+class Api::MailApplicationsController < Api::ProtectedApplicationController
 
   def index
     @applications = current_user.available_applications
