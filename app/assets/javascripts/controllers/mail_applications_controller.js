@@ -1,14 +1,11 @@
-MailSandboxWeb.MailApplicationsController = Ember.ArrayController.extend({
+MailSandboxWeb.MailApplicationsController = Ember.ArrayProxy.extend({
   title: "MailApplications",
-  content: [],
-
   init: function() {
 			this._super();
-//			var items = MailSandboxWeb.Store.findAll(MailSandboxWeb.MailApplication);
-//			var items = MailSandboxWeb.MailApplication.findAll();
+			var items = MailSandboxWeb.Store.findAll(MailSandboxWeb.MailApplication);
 
-//			if ( items.get( 'length' ) ) {
-//				this.set( '[]', items );
-//			};
+      this.set( 'content', items );
+      console.log(items);
+      window.app_con = this
 		}
 });
