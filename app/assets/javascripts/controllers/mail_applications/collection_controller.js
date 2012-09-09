@@ -7,3 +7,4 @@ MailSandboxWeb.MailApplicationsCollectionController = Ember.ArrayProxy.extend({
 
 		}
 });
+MailSandboxWeb.Controllers.MailApplicationsCollection = MailSandboxWeb.MailApplicationsCollectionController.create();

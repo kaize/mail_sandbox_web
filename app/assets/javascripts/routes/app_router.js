@@ -5,7 +5,7 @@ MailSandboxWeb.Router = Ember.Router.extend({
       route: '/',
       connectOutlets: function(router) {
         router.transitionTo('mailApplications');
-      }
+    }
 
     }),
 
