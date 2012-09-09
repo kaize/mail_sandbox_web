@@ -6,6 +6,7 @@ MailSandboxWeb::Application.routes.draw do
         put :mark_read
       end
     end
+    resources :mail_applications, :only => [:index], defaults: {format: 'json'}
   end
 
   scope :module => :web do

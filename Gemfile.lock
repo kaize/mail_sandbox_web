@@ -183,6 +183,9 @@ GEM
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
+    rabl (0.7.1)
+      activesupport (>= 2.3.14)
+      multi_json (~> 1.0)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -252,6 +255,7 @@ GEM
     unicorn-rails (0.0.1)
       rack
       unicorn
+    yajl-ruby (1.1.0)
 
 PLATFORMS
   ruby
@@ -278,6 +282,7 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-github
   pg
+  rabl
   rails (= 3.2.6)
   rvm-capistrano
   sass-rails (~> 3.2.3)
@@ -291,3 +296,4 @@ DEPENDENCIES
   uglifier (>= 1.0.3)
   unicorn
   unicorn-rails
+  yajl-ruby

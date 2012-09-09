@@ -1,0 +1,2 @@
+module Api::MailApplicationsHelper
+end

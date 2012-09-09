@@ -39,6 +39,9 @@ gem 'twitter-bootstrap-rails', :git => "https://github.com/seyhunak/twitter-boot
 gem 'mail'
 gem 'squeel'
 gem 'chosen-rails'
+gem "yajl-ruby"
+gem "rabl"
+
 
 group :test do
   gem 'minitest'
