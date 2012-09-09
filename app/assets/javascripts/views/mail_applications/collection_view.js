@@ -1,6 +1,7 @@
 MailSandboxWeb.MailApplicationsCollectionView = Ember.CollectionView.extend({
 
-  tagName: 'table',
+//  classNames: ['table', 'table-hover', 'mail_applications'],
+  tagName: 'tbody',
   contentBinding: 'controller.content',
 
   itemViewClass: Ember.View.extend({
