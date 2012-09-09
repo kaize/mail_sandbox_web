@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/NOX73/ember-rails.git
-  revision: 375a9036fb965624f5a526d28b3387a49a3c3b41
+  revision: 8d4d28cdc6a16d6de1410dbae62dcc26820b9e5e
   branch: develop
   specs:
     ember-rails (0.7.0)
@@ -65,7 +65,7 @@ GEM
       girl_friday
     ansi (1.4.3)
     arel (3.0.2)
-    builder (3.0.2)
+    builder (3.0.3)
     capi (0.1.1)
       capistrano
     capistrano (2.13.3)

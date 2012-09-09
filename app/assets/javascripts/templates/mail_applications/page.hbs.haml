@@ -2,7 +2,7 @@
   %thead
     %tr
       %th.name= MailApplication.human_attribute_name :name
-      %th.unread_mails_count= Draper::ViewContext.current.t('unread_mails_count')
-      %th.owner= Draper::ViewContext.current.t('owner')
+      %th.unread_mails_count= h.t('unread_mails_count')
+      %th.owner= h.t('owner')
       %th.actions
   {{view view.CollectionView controllerBinding="MailSandboxWeb.Controllers.MailApplicationsCollection"}}
