@@ -22,7 +22,8 @@
 //= require mail_sandbox_web
 MailSandboxWeb = Ember.Application.create({
   rootElement: '#root',
-  Controllers:{}
+  Controllers:{},
+  Helpers:{}
 });
 
 //= require_tree .

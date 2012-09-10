@@ -6,7 +6,14 @@
   {{view.content.owner_nickname}}
 %td
 
-  {{#view MailSandboxWeb.LinkView hrefBinding="view.content.edit_link" class="btn btn-info nowrap"}}
+  {{#view MailSandboxWeb.Helpers.Link contentBinding="view.content.edit_link" class="btn btn-info nowrap"}}
   %i.icon-edit
     = h.t("edit")
   {{/view}}
+
+  {{#if view.content.delete_link}}
+  {{#view MailSandboxWeb.Helpers.DeleteLink contentBinding="view.content.delete_link" class="btn btn-danger nowrap" }}
+  %i.icon-trash
+    = h.t("delete")
+  {{/view}}
+  {{/if}}
