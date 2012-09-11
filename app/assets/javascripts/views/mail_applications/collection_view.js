@@ -6,7 +6,8 @@ MailSandboxWeb.MailApplicationsCollectionView = Ember.CollectionView.extend({
 
   itemViewClass: Ember.View.extend({
     tagName: 'tr',
-    templateName: 'mail_applications/mail_application'
+    templateName: 'mail_applications/mail_application',
+    contextBinding: "content"
   }),
 
   willInsertElement: function(){

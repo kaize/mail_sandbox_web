@@ -7,6 +7,7 @@ MailSandboxWeb.Helpers.Link = Ember.View.extend({
 
 
 MailSandboxWeb.Helpers.DeleteLink = MailSandboxWeb.Helpers.Link.extend({
-  attributeBindings: ['href', 'dataMethod:data-method'],
-  dataMethod:'delete'
+  attributeBindings: ['href', 'dataMethod:data-method', 'confirm:data-confirm'],
+  dataMethod:'delete',
+  confirm: null
 });

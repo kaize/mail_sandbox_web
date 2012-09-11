@@ -1,9 +1,9 @@
 %td
-  {{view.content.name}}
+  {{name}}
 %td
-  {{view.content.unread_mails_count}}
+  {{unread_mails_count}}
 %td
-  {{view.content.owner_nickname}}
+  {{owner_nickname}}
 %td
 
   {{#view MailSandboxWeb.Helpers.Link contentBinding="view.content.edit_link" class="btn btn-info nowrap"}}
@@ -12,7 +12,7 @@
   {{/view}}
 
   {{#if view.content.delete_link}}
-  {{#view MailSandboxWeb.Helpers.DeleteLink contentBinding="view.content.delete_link" class="btn btn-danger nowrap" }}
+  {{#view MailSandboxWeb.Helpers.DeleteLink confirm="#{h.t(:are_you_sure?)}" contentBinding="view.content.delete_link" class="btn btn-danger nowrap" }}
   %i.icon-trash
     = h.t("delete")
   {{/view}}

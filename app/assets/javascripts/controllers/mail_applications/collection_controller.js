@@ -1,4 +1,4 @@
-MailSandboxWeb.MailApplicationsCollectionController = Ember.ArrayProxy.extend({
+MailSandboxWeb.MailApplicationsCollectionController = Ember.ArrayController.extend({
 
   reload_content: function(){
 			var items = MailSandboxWeb.Store.findAll(MailSandboxWeb.MailApplication);
