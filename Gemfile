@@ -16,6 +16,7 @@ gem 'kaminari'
 gem 'configus'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
+gem 'airbrake'
 
 # Gems used only for assets and not required
 # in production environments by default.

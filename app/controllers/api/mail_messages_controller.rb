@@ -1,4 +1,4 @@
-class Api::MailMessagesController < Api::ApplicationController
+class Api::MailMessagesController < Api::ProtectedApplicationController
 
   def create
     @application = auth_application(params[:message][:user], params[:message][:password])
