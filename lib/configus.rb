@@ -1,7 +1,11 @@
 # coding: UTF-8
 
 module Configus
-  yaml_cfg = YAML.load_file("#{Rails.root}config/secret_keys.yml")[Rails.env.to_s]
+  secret_keys_path = "#{Rails.root}config/secret_keys.yml"
+  # load sample file if not exist for 'rake sandbox:setup'
+  secret_keys_path = "#{Rails.root}config/secret_keys.sample.yml" unless File.exist?(secret_keys_path)
+
+  yaml_cfg = YAML.load_file(secret_keys_path)[Rails.env.to_s]
 
   FACEBOOK = yaml_cfg['facebook']
   GITHUB = yaml_cfg['github']
