@@ -1,5 +1,7 @@
 class Api::MailMessagesController < Api::ProtectedApplicationController
 
+  protect_from_forgery :except => :create
+
   def create
     @application = auth_application(params[:message][:user], params[:message][:password])
 
