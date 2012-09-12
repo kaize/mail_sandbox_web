@@ -1,5 +1,5 @@
 %p
-  %button.btn.btn-primary{:_action =>'addPerson'}
+  %button.btn.btn-primary{:_action =>'addMailApplication'}
     = h.t(".new")
 
 %table.table.table-hover.mail_applications
@@ -9,4 +9,4 @@
       %th.unread_mails_count= h.t('unread_mails_count')
       %th.owner= h.t('owner')
       %th.actions
-  {{view view.CollectionView controllerBinding="MailSandboxWeb.Controllers.MailApplicationsCollection"}}
+  = hb "view view.CollectionView", :controllerBinding=>"MailSandboxWeb.Controllers.MailApplicationsCollection"

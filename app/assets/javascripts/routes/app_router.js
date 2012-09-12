@@ -16,9 +16,7 @@ MailSandboxWeb.Router = Ember.Router.extend({
         controller.connectOutlet('mailApplicationsPage')
       },
 
-      addMailApplication:function(){
-        Em.Route.transitionTo('newMailApplication')
-      }
+      addMailApplication: Em.Route.transitionTo('newMailApplication')
     }),
 
 
@@ -26,7 +24,7 @@ MailSandboxWeb.Router = Ember.Router.extend({
       route: '/mail_applications/new',
       connectOutlets: function(router) {
         var controller = router.get( 'applicationController' );
-        controller.connectOutlet('newApplicationPage')
+        controller.connectOutlet('newMailApplicationPage')
       }
     })
 
