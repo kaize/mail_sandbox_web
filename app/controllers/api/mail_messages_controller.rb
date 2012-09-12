@@ -1,4 +1,5 @@
 class Api::MailMessagesController < Api::ApplicationController
+  #TODO: auth for SMTP server
   before_filter :authenticate_user!, :except => :create
 
   def create
