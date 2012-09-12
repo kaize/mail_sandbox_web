@@ -41,6 +41,7 @@ gem 'squeel'
 gem 'chosen-rails'
 gem "yajl-ruby"
 gem "rabl"
+gem 'hamlbars'
 
 
 group :test do

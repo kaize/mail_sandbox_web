@@ -122,6 +122,11 @@ GEM
       activesupport (>= 3.1, < 4.1)
       haml (~> 3.1)
       railties (>= 3.1, < 4.1)
+    hamlbars (1.1.0)
+      execjs (>= 1.2)
+      haml
+      sprockets
+      tilt
     hashie (1.2.0)
     highline (1.6.14)
     hike (1.2.1)
@@ -273,6 +278,7 @@ DEPENDENCIES
   ember-rails!
   factory_girl_rails
   haml-rails
+  hamlbars
   jquery-rails
   js-routes
   kaminari

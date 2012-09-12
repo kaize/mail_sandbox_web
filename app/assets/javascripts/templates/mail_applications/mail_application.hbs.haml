@@ -6,14 +6,15 @@
   {{owner_nickname}}
 %td
 
-  {{#view MailSandboxWeb.Helpers.Link contentBinding="view.content.edit_link" class="btn btn-info nowrap"}}
-  %i.icon-edit
-    = h.t("edit")
-  {{/view}}
-
-  {{#if view.content.delete_link}}
-  {{#view MailSandboxWeb.Helpers.DeleteLink confirm="#{h.t(:are_you_sure?)}" contentBinding="view.content.delete_link" class="btn btn-danger nowrap" }}
-  %i.icon-trash
-    = h.t("delete")
-  {{/view}}
-  {{/if}}
+  = hb "view MailSandboxWeb.Helpers.Link",
+  :contentBinding => "view.content.edit_link",
+  :class=>"btn btn-info nowrap" do
+    %i.icon-edit
+      = h.t("edit")
+  = hb "if view.content.delete_link" do
+    = hb "view MailSandboxWeb.Helpers.DeleteLink",
+    :confirm => h.t(:are_you_sure?),
+    :contentBinding => "view.content.delete_link",
+    :class=>"btn btn-danger nowrap" do
+      %i.icon-trash
+        = h.t("delete")
