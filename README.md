@@ -1,6 +1,7 @@
 ## Mail Sandbox Web
 
 [![Build Status](https://secure.travis-ci.org/kaize/mail_sandbox_web.png)](http://travis-ci.org/kaize/mail_sandbox_web)
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/kaize/mail_sandbox_web)
 
 Mail Sandbox Web служит песочницей для приёма писем со стейджинг серверов.
 
