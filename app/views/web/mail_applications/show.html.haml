@@ -10,8 +10,20 @@
     = "}"
 
 -#= link_to t(".mail_messages"), mail_application_mail_messages_path(@application)
-%br
-%br
+
+.well
+
+  = link_to "#",
+  :data => { :confirm => t(:are_you_sure?) },
+  :class => "btn btn-danger del_selected" do
+    %i.icon-trash
+      = t("delete_selected")
+
+  = link_to "#",
+  :class => "btn btn-success read_selected", :method => :put, :remote => true do
+    %i.icon-ok
+      = t(".read_selected")
+
 
 - if @messages.any?
   = render "web/shared/messages_list", :messages => @messages

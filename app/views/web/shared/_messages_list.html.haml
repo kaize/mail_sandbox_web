@@ -1,5 +1,7 @@
 %table.table.table-hover
   %tr
+    %th
+      = check_box_tag "messages", 1, false, class: "checked_all"
     %th.read= t(".mark_as")
     %th= MailMessage.human_attribute_name :recipient
     %th= MailMessage.human_attribute_name :sender
@@ -9,6 +11,8 @@
     %th.actions
   - messages.each do |message|
     %tr{:'data-href' => mail_message_path(message)}
+      %td.messages_group.group_actions
+        = check_box_tag "message_#{message.id}"
       %td
         - if message.unread?
           = link_to mark_read_api_mail_message_path(message),
