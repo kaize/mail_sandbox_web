@@ -4,6 +4,7 @@ en:
   web:
     shared:
       messages_list:
+        show: Show
         delete: Delete
         read: Read
   views:
@@ -12,3 +13,5 @@ en:
       last: '»'
       next: '›'
       previous: '‹'
+  delete_selected: "Delete selected"
+  read_selected: "Read selected"
