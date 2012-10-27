@@ -18,7 +18,7 @@
           = link_to mark_read_api_mail_message_path(message),
           :class => "btn btn-success read_msg", :method => :put, :remote => true do
             %i.icon-ok
-              = t(".read")
+            = t("read")
       %td.clicked= message.recipient
       %td.clicked= message.sender
       %td.clicked= message.mail.subject
@@ -27,13 +27,13 @@
 
         = link_to mail_message_path(message), :class => "btn btn-info nowrap" do
           %i.icon-eye-open
-            = t("show")
+          = t("show")
 
         = link_to api_mail_message_path(message),
         :data => { :confirm => t(:are_you_sure?) }, :method => :delete, :remote => true,
         :class => "btn btn-danger nowrap del_msg" do
           %i.icon-trash
-            = t("delete")
+          = t("delete")
 
 
 = paginate @messages, :theme => "web"

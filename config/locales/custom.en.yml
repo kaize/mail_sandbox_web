@@ -2,13 +2,18 @@
 en:
   'are_you_sure?': "Are you sure?"
   web:
-    shared:
-      messages_list:
-        delete: Delete
-        read: Read
+
   views:
     pagination:
       first: '«'
       last: '»'
       next: '›'
       previous: '‹'
+
+  new: New
+  edit: Edit
+  show: Show
+  delete: Delete
+  read: Read
+  delete_selected: "Delete selected"
+  read_selected: "Read selected"
