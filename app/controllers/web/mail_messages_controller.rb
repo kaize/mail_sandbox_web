@@ -7,9 +7,7 @@ class Web::MailMessagesController < Web::ProtectedApplicationController
 
   def show
     @message = MailMessage.find params[:id]
-    @message.mark_read
-
-    @mail = Mail.new(@message.data)
+    @message.mark_read if @message.unread?
   end
 
 end

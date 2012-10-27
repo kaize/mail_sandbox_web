@@ -32,7 +32,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'mail_sandbox', :git => "https://github.com/kaize/mail_sandbox.git"
+gem 'mail_sandbox'
 gem 'unicorn-rails'
 gem 'twitter-bootstrap-rails', :git => "https://github.com/seyhunak/twitter-bootstrap-rails.git"
 gem 'mail'

@@ -21,4 +21,8 @@ class MailMessage < ActiveRecord::Base
     end
   end
 
+  def mail
+    @mail ||= Mail.new(data)
+  end
+
 end

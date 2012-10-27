@@ -1,12 +1,12 @@
 %h1
-  = link_to @message.mail_application, mail_application_path(@message.mail_application)
+  = link_to @message.mail_application, :back
 
 %table.table
   %tr
     %th
       = MailMessage.human_attribute_name :recipient
       \:
-      =@message.recipient
+      = @message.recipient
   %tr
     %th
       = MailMessage.human_attribute_name :sender
@@ -16,17 +16,22 @@
     %th
       = MailMessage.human_attribute_name :mail_application
       \:
-      =@message.mail_application
+      = @message.mail_application
+  %tr
+    %th
+      = t :subject
+      \:
+      = @message.mail.subject
   %tr
     %th
       = MailMessage.human_attribute_name :completed_at
       \:
-      =@message.completed_at
-  - if @mail.multipart?
+      = @message.completed_at
+  - if @message.mail.multipart?
     %tr
       %th
         = 'TODO: multipart messages'
   - else
     %tr
       %td
-        = render 'mail', :mail => @mail
+        = render 'mail', :mail => @message.mail
