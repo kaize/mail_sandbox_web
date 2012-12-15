@@ -27,6 +27,13 @@ class Api::MailMessagesController < Api::ApplicationController
     respond_with @message
   end
 
+  def mark_all_as_read
+    @messages = available_applications_messages.all
+    @messages.each { |m| m.mark_read }
+
+    respond_with @messages
+  end
+
   protected
 
     def auth_application(name, password)

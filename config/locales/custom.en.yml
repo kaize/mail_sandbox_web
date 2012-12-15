@@ -17,3 +17,4 @@ en:
   read: Read
   delete_selected: "Delete selected"
   read_selected: "Read selected"
+  mark_all_as_read: Mark all as read

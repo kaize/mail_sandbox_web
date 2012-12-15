@@ -15,4 +15,9 @@ $(function(){
         $(".group_actions input:checked")
             .parents("tr").find(".read_msg").click()
     });
+
+    $(".mark_all_as_read").on('ajax:success', function(event, data, status, xhr){
+      $('a.read_msg').fadeOut('slow');
+    });
+
 });
