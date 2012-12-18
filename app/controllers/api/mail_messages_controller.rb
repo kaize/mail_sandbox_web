@@ -1,6 +1,6 @@
-class Api::MailMessagesController < Api::ApplicationController
+class Api::MailMessagesController < Api::ProtectedApplicationController
   #TODO: auth for SMTP server
-  before_filter :authenticate_user!, :except => :create
+  skip_before_filter :authenticate_user!, :only => :create
 
   def create
     @application = auth_application(params[:message][:user], params[:message][:password])
