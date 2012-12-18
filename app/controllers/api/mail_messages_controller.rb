@@ -1,6 +1,6 @@
-class Api::MailMessagesController < Api::ApplicationController
+class Api::MailMessagesController < Api::ProtectedApplicationController
   #TODO: auth for SMTP server
-  before_filter :authenticate_user!, :except => :create
+  skip_before_filter :authenticate_user!, :only => :create
 
   def create
     @application = auth_application(params[:message][:user], params[:message][:password])
@@ -25,13 +25,6 @@ class Api::MailMessagesController < Api::ApplicationController
     @message.mark_as_deleted
 
     respond_with @message
-  end
-
-  def mark_all_as_read
-    @messages = available_applications_messages.all
-    @messages.each { |m| m.mark_read }
-
-    respond_with @messages
   end
 
   protected
