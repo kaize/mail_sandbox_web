@@ -62,15 +62,4 @@ class Api::MailMessagesControllerTest < ActionController::TestCase
     message.reload
     assert !message.deleted?
   end
-
-  test "should mark all as read" do
-    messages = create_list :mail_message, 2, :mail_application => @my_application
-
-    put :mark_all_as_read, :format => :json
-    assert_response :success
-
-    message = messages.first
-    message.reload
-    assert message.read?
-  end
 end
