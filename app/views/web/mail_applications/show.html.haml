@@ -24,7 +24,7 @@
     %i.icon-ok
     = t("read_selected")
 
-  = link_to mark_all_as_read_api_mail_messages_path,
+  = link_to mark_all_messages_as_read_api_mail_application_path(@application),
     :class => "btn btn-success mark_all_as_read", :method => :put, :remote => true do
     %i.icon-ok
     = t("mark_all_as_read")

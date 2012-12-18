@@ -5,8 +5,10 @@ MailSandboxWeb::Application.routes.draw do
       member do
         put :mark_read
       end
-      collection do
-        put :mark_all_as_read
+    end
+    resources :mail_applications, :only => [] do
+      member do
+        put :mark_all_messages_as_read
       end
     end
   end
