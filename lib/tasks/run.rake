@@ -26,13 +26,13 @@ namespace :sandbox do
   desc "Stop mail sandbox web interface"
   task :stop_web do
     file = File.join(Rails.root, "tmp/pids/unicorn.pid")
-    spawn "kill -9 `cat #{file}`" if File.exists?(file)
+    spawn "kill -QUIT `cat #{file}`" if File.exists?(file)
   end
 
   desc "Stop mail sandbox smtp interface"
   task :stop_smtp do
     file = File.join(Rails.root, "tmp/pids/mail_sandbox.pid")
-    spawn "kill -9 `cat #{file}`" if File.exists?(file)
+    spawn "kill -QUIT `cat #{file}`" if File.exists?(file)
   end
 
 end
