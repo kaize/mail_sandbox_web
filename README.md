@@ -10,20 +10,22 @@ Mail Sandbox Web служит песочницей для приёма писе�
 Cклонировать репозиторий.
 
 Выполнить:
- 
-    bundle exec rake sandbox:setup
+
+    bundle exec rake db:drop db:create db:migrate sandbox:setup
 
 Прописать IP сервера в __config/deploy/staging.rb__
 
-Залить приложение на сервер:
-
     bundle exec cap deploy:setup deploy:migrations
 
-Или запустить локально
+Или запустить локально:
  
-    bundle exec unicorn_rails
+    bundle exec rake sandbox:start
 
 Должен запуститься web сервер и smtp сервер.
+
+Остановка web и smtp серверов:
+
+    bundle exec rake sandbox:stop
 
 ## Конфиг
 
@@ -37,8 +39,6 @@ __config/secret_keys.yml__ содержит ключи для приложени
     github:
         app_id: '12345678rtyudfghvbg4'
         app_secret: '123456789rtyufghfrghcvbnfghcvbfdgdfcvdfc'
-
-
 
 ### SMTP сервер
 
