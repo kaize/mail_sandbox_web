@@ -26,13 +26,22 @@ namespace :sandbox do
   desc "Stop mail sandbox web interface"
   task :stop_web do
     file = File.join(Rails.root, "tmp/pids/unicorn.pid")
-    spawn "kill -QUIT `cat #{file}`" if File.exists?(file)
+    begin
+      Process.kill "QUIT", File.read(file).to_i if File.exists?(file)
+    rescue Errno::ESRCH
+      #  Ignore
+    end
+
   end
 
   desc "Stop mail sandbox smtp interface"
   task :stop_smtp do
     file = File.join(Rails.root, "tmp/pids/mail_sandbox.pid")
-    spawn "kill -QUIT `cat #{file}`" if File.exists?(file)
+    begin
+      Process.kill "QUIT", File.read(file).to_i if File.exists?(file)
+    rescue Errno::ESRCH
+      #  Ignore
+    end
   end
 
 end
