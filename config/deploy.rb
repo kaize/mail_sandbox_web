@@ -26,7 +26,7 @@ end
 namespace :sandbox do
   desc "Restart mail sandbox"
   task :restart, :roles => :app do
-    run "cd #{release_path}; bundle exec rake sandbox:restart"
+    run "cd #{current_path}; nohup bundle exec rake sandbox:restart RAILS_ENV=#{rails_env}"
   end
 end
 
