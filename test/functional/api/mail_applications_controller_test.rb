@@ -19,4 +19,14 @@ class Api::MailApplicationsControllerTest < ActionController::TestCase
     message.reload
     assert message.read?
   end
+
+  test "should delete all messages" do
+    create_list :mail_message, 2, :mail_application => @my_application
+
+    put :destroy_all_messages, :id => @my_application.id, :format => :json
+    assert_response :success
+
+    messages_after_destroy = @my_application.mail_messages
+    assert messages_after_destroy.blank?
+  end
 end
