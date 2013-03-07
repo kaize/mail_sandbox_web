@@ -7,6 +7,8 @@ class MailMessage < ActiveRecord::Base
 
   validates :mail_application, :presence => true
 
+  scope :unread, -> { where(state: "unread") }
+
   state_machine :state, :initial => :unread do
     state :unread
     state :read
