@@ -4,10 +4,12 @@ set :branch do
     ENV['TAG']
 end
 
-set :user, 'mail_sandbox_web_production'
+set :repository, "gitorious@git.undev.cc:infrastructure/mailsandbox.git"
 
-role :web, ""
-role :app, ""
-role :db,  "", :primary => true
+set :user, 'poweruser'
+
+role :web, "192.168.249.187"
+role :app, "192.168.249.187"
+role :db,  "192.168.249.187", :primary => true
 
 set :keep_releases, 10

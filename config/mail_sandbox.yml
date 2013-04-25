@@ -1,0 +1,17 @@
+setup: &setup
+  http_observe?: true
+  http_observe_url: 'http://localhost:8080/api/mail_messages'
+  listen: '0.0.0.0'
+  log_level: debug
+  pidfile: tmp/pids/mail_sandbox.pid
+staging:
+  <<: *setup
+  http_observe_url: 'http://mail-sandbox-web.st2.ul.home/api/mail_messages'
+development:
+  <<: *setup
+production:
+  <<: *setup
+  log_level: info
+  http_observe_url: 'http://mail-sandbox-web.st2.ul.home/api/mail_messages'
+test:
+  <<: *setup
