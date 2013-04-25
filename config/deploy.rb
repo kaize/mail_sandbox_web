@@ -30,5 +30,7 @@ namespace :sandbox do
   end
 end
 
-after 'deploy:restart', 'sandbox:restart'
+#before 'deploy:finalize_update', 'deploy:symlink_config_files'
+
+#after 'deploy:restart', 'sandbox:restart'
 after "deploy:update", "deploy:cleanup"
