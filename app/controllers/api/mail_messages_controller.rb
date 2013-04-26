@@ -1,6 +1,7 @@
 class Api::MailMessagesController < Api::ProtectedApplicationController
   #TODO: auth for SMTP server
   skip_before_filter :authenticate_user!, :only => :create
+  skip_before_filter :authenticate_user!, :only => :last_minute_count
 
   def create
     @application = auth_application(params[:message][:user], params[:message][:password])
@@ -25,6 +26,11 @@ class Api::MailMessagesController < Api::ProtectedApplicationController
     @message.mark_as_deleted
 
     respond_with @message
+  end
+
+  def last_minute_count
+    count = MailMessage.last_minute_count
+    respond_with count: count
   end
 
   protected

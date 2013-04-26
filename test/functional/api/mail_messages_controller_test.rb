@@ -62,4 +62,13 @@ class Api::MailMessagesControllerTest < ActionController::TestCase
     message.reload
     assert !message.deleted?
   end
+
+  test "should get mails count" do
+    sign_out
+
+    3.times{ create :mail_message, :mail_application => @application }
+
+    get :last_minute_count, :format => :json
+    assert_response :success
+  end
 end

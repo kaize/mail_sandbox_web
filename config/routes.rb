@@ -5,6 +5,9 @@ MailSandboxWeb::Application.routes.draw do
       member do
         put :mark_read
       end
+      collection do
+        get :last_minute_count
+      end
     end
     resources :mail_applications, :only => [] do
       member do
