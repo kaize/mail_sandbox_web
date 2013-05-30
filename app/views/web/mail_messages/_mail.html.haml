@@ -1,1 +1,2 @@
-!= mail.body.to_s.force_encoding("UTF-8")
+- body = @message.mail.body.to_s.force_encoding("UTF-8")
+!= @message.plain_text? ? content_tag(:pre, @message.utf8body) : @message.utf8body

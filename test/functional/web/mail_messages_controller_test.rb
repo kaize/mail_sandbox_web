@@ -17,4 +17,13 @@ class Web::MailMessagesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should get email without bootstrap" do
+    get :without_bootstrap, :id => @message.id
+    assert_response :success
+  end
+
+  test "should get raw email data" do
+    get :raw, :id => @message.id
+    assert_response :success
+  end
 end
