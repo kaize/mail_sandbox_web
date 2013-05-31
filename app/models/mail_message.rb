@@ -27,4 +27,11 @@ class MailMessage < ActiveRecord::Base
     @mail ||= Mail.new(data)
   end
 
+  def utf8body
+    @body ||= mail.body.to_s.force_encoding("UTF-8")
+  end
+
+  def plain_text?
+    mail.mime_type == "text/plain"
+  end
 end
