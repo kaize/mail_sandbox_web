@@ -6,7 +6,6 @@
     %th= MailMessage.human_attribute_name :recipient
     %th= MailMessage.human_attribute_name :sender
     %th= MailMessage.human_attribute_name :subject
-    %th= t :subject
     %th= MailMessage.human_attribute_name :completed_at
     %th.actions
   - messages.each do |message|
