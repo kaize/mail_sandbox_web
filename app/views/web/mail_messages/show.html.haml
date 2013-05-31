@@ -3,35 +3,45 @@
 
 %table.table
   %tr
-    %th
+    %th{width: '13%'}
       = MailMessage.human_attribute_name :recipient
       \:
+    %td
       = @message.recipient
   %tr
     %th
       = MailMessage.human_attribute_name :sender
       \:
+    %td
       = @message.sender
   %tr
     %th
       = MailMessage.human_attribute_name :mail_application
       \:
+    %td
       = @message.mail_application
   %tr
     %th
       = t :subject
       \:
+    %td
       = @message.mail.subject
   %tr
     %th
       = MailMessage.human_attribute_name :completed_at
       \:
+    %td
       = @message.completed_at
+  %tr
+    %td{colspan: 2}
+      = link_to "view without bootstrap", raw_mail_message_path(@message)
+      |
+      = link_to "view raw data", without_bootstrap_mail_message_path(@message)
   - if @message.mail.multipart?
     %tr
-      %th
+      %th{colspan: 2}
         = 'TODO: multipart messages'
   - else
     %tr
-      %td
-        = render 'mail', :mail => @message.mail
+      %td{colspan: 2}
+        = render 'mail', :mail => @message

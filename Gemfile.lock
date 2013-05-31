@@ -39,7 +39,7 @@ GEM
     activesupport (3.2.6)
       i18n (~> 0.6)
       multi_json (~> 1.0)
-    addressable (2.3.2)
+    addressable (2.3.4)
     airbrake (3.1.6)
       builder
       girl_friday
@@ -79,7 +79,7 @@ GEM
       escape_utils
       eventmachine (>= 0.12.9)
     erubis (2.7.0)
-    escape_utils (0.2.4)
+    escape_utils (0.3.2)
     eventmachine (0.12.10)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -127,7 +127,7 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mail_sandbox (0.1.0)
+    mail_sandbox (0.1.1)
       OptionParser
       em-http-request (~> 0.3.0)
       eventmachine (~> 0.12.9)
@@ -255,7 +255,7 @@ DEPENDENCIES
   js-routes
   kaminari
   mail
-  mail_sandbox
+  mail_sandbox (~> 0.1.1)
   minitest
   omniauth-facebook
   omniauth-github
