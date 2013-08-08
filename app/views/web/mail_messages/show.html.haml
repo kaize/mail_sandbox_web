@@ -4,10 +4,10 @@
 %table.table
   %tr
     %th{width: '13%'}
-      = MailMessage.human_attribute_name :recipient
+      = MailMessage.human_attribute_name :mail_application
       \:
     %td
-      = @message.recipient
+      = @message.mail_application
   %tr
     %th
       = MailMessage.human_attribute_name :sender
@@ -16,10 +16,16 @@
       = @message.sender
   %tr
     %th
-      = MailMessage.human_attribute_name :mail_application
+      = MailMessage.human_attribute_name :recipient
       \:
     %td
-      = @message.mail_application
+      = @message.recipient
+  %tr
+    %th
+      = t :from
+      \:
+    %td
+      = @message.mail.from
   %tr
     %th
       = t :subject
