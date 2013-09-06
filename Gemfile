@@ -60,7 +60,6 @@ gem 'unicorn'
 group :development do
   gem 'capistrano'
   gem 'capistrano-ext'
-  gem 'rvm-capistrano'
   gem 'capi'
   gem 'undev', '>=0.2.1'
 end
