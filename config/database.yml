@@ -11,7 +11,7 @@ development:
 
 staging:
   <<: *setup
-  database: mail_sandbox_staging
+  database: mail_sandbox
   username: mail_sandbox_staging
 
 test:
