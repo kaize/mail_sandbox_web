@@ -6,7 +6,8 @@ require 'capistrano/ext/multistage'
 
 set :application, "mail_sandbox_web"
 
-set :rvm_type, :system
+require 'undev/capistrano'
+set :undev_ruby_version, '2.0.0-p247'
 
 set :use_sudo, false
 set :ssh_options, :forward_agent => true

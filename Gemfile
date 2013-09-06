@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'http://gems.undev.cc'
 
 gem 'rails', '3.2.6'
 
@@ -59,9 +60,9 @@ gem 'unicorn'
 group :development do
   gem 'capistrano'
   gem 'capistrano-ext'
-  gem 'capistrano_colors'
   gem 'rvm-capistrano'
   gem 'capi'
+  gem 'undev', '>=0.2.1'
 end
 
 
