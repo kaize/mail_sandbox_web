@@ -1,7 +1,2 @@
-class ProviderDecorator < Draper::Base
-  include Draper::LazyHelpers
-
-  def to_s
-    model.class.name.demodulize.downcase
-  end
+class ProviderDecorator < ApplicationDecorator
 end

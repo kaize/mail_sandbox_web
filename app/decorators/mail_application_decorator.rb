@@ -1,6 +1,4 @@
-class MailApplicationDecorator < Draper::Base
-  include Draper::LazyHelpers
-
+class MailApplicationDecorator < ApplicationDecorator
   decorates :mail_application
   decorates_association :owner
 
