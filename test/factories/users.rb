@@ -3,6 +3,8 @@
 FactoryGirl.define do
   factory :user, :aliases => [:facebook_user] do
     facebook :factory => "user/facebook"
+    email { generate :email }
+    password { generate :string }
   end
 
   factory :admin_user, :parent => :user do
