@@ -200,6 +200,10 @@ GEM
       actionpack (~> 3.0)
       activemodel (~> 3.0)
     simple_pid (0.2.1)
+    simplecov (0.7.1)
+      multi_json (~> 1.0)
+      simplecov-html (~> 0.7.1)
+    simplecov-html (0.7.1)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -267,6 +271,7 @@ DEPENDENCIES
   rails (= 3.2.14)
   sass-rails (~> 3.2.3)
   simple_form
+  simplecov
   squeel
   state_machine
   tconsole
