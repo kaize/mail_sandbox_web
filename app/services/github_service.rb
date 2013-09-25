@@ -11,6 +11,7 @@ class GithubService < NetworkService
     user = User.new
     UserPopulator.via_github(user, data)
     user.save!
+    #TODO: send email w/ password to new user
     user
   end
 

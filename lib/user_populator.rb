@@ -5,6 +5,8 @@ module UserPopulator
       fb.nickname = data[:info][:nickname]
       fb.email = data[:info][:email]
     end
+
+    self.set_user_credentials(user, email: data[:info][:email])
   end
 
   def self.via_github(user, data)
@@ -13,5 +15,15 @@ module UserPopulator
       gh.nickname = data[:info][:nickname]
       gh.email = data[:info][:email]
     end
+
+    self.set_user_credentials(user, email: data[:info][:email])
   end
+
+  private
+
+  def self.set_user_credentials(user, options={})
+    user.email = options[:email]
+    user.password = SecureApp.generate_string(16)
+  end
+
 end
