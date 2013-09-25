@@ -44,8 +44,9 @@ gem 'chosen-rails'
 group :test do
   gem 'minitest'
   gem 'turn'
-  gem 'factory_girl_rails', :require => false
+  gem 'factory_girl_rails', require: false
   gem 'tconsole'
+  gem 'simplecov', require: false
 end
 
 # To use ActiveModel has_secure_password

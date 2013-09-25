@@ -1,6 +1,14 @@
-ENV["RAILS_ENV"] = "test"
+ENV["RAILS_ENV"] ||= "test"
+
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
+
+if ENV["COVERAGE"]
+  require 'simplecov'
+  SimpleCov.start('rails') do
+    merge_timeout 3600
+  end
+end
 
 class ActiveSupport::TestCase
   include AuthHelper
