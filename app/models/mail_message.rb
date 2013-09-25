@@ -7,9 +7,6 @@ class MailMessage < ActiveRecord::Base
 
   validates :mail_application, :presence => true
 
-  scope :unread, -> { where(state: "unread") }
-  scope :last_minute, -> { where('created_at >= ?', 1.minute.ago.utc) }
-
   state_machine :state, :initial => :unread do
     state :unread
     state :read
