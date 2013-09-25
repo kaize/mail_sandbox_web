@@ -46,6 +46,7 @@ GEM
       girl_friday
     ansi (1.4.3)
     arel (3.0.2)
+    bcrypt-ruby (3.0.1)
     builder (3.0.4)
     capi (0.1.1)
       capistrano
@@ -243,14 +244,19 @@ GEM
     unicorn-rails (0.0.1)
       rack
       unicorn
+    validates (0.0.8)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   airbrake
+  bcrypt-ruby (~> 3.0.0)
   capi
   capistrano
+  capistrano-db-tasks!
   capistrano-ext
   chosen-rails
   coffee-rails (~> 3.2.1)
@@ -282,3 +288,4 @@ DEPENDENCIES
   undev (>= 0.2.1)
   unicorn
   unicorn-rails
+  validates

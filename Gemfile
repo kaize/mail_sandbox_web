@@ -40,6 +40,7 @@ gem 'twitter-bootstrap-rails', :git => "https://github.com/seyhunak/twitter-boot
 gem 'mail'
 gem 'squeel'
 gem 'chosen-rails'
+gem 'validates'
 
 group :test do
   gem 'minitest'
@@ -50,7 +51,7 @@ group :test do
 end
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
