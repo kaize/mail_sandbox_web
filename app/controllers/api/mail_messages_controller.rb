@@ -35,12 +35,12 @@ class Api::MailMessagesController < Api::ProtectedApplicationController
 
   protected
 
-    def auth_application(name, password)
-      MailApplication.find_by_credentials(name, password).first
-    end
+  def auth_application(name, password)
+    MailApplication.by_credentials(name, password).first
+  end
 
-    def available_applications_messages
-      current_user.available_applications_messages
-    end
+  def available_applications_messages
+    current_user.available_applications_messages
+  end
 
 end
