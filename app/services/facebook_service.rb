@@ -11,6 +11,7 @@ class FacebookService < NetworkService
     user = User.new
     UserPopulator.via_facebook(user, data)
     user.save!
+    #TODO: send email w/ password to new user
     user
   end
 
