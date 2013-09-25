@@ -1,7 +1,5 @@
-class UserDecorator < Draper::Base
+class UserDecorator < ApplicationDecorator
   decorates :user
-
-  include Draper::LazyHelpers
 
   def role
     user.admin? ? :admin : :user
