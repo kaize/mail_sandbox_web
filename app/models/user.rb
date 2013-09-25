@@ -1,5 +1,11 @@
 class User < ActiveRecord::Base
   include UserRepository
+
+  has_secure_password
+
+  validates :email, email: true, uniqueness: {case_sensitive: false}, length: {maximum: 255}
+  validates :password, presence: true, on: :create
+
   has_one :facebook, :dependent => :destroy, :autosave => true
   has_one :github, :dependent => :destroy, :autosave => true
 
