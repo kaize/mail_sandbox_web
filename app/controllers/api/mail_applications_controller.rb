@@ -10,7 +10,8 @@ class Api::MailApplicationsController < Api::ProtectedApplicationController
 
   private
 
-    def available_applications
-      current_user.available_applications
-    end
+  def available_applications
+    current_user.available_applications
+  end
+
 end

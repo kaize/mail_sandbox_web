@@ -22,7 +22,6 @@ class MailApplication < ActiveRecord::Base
 
   end
 
-
   def init
     generate_password
   end
