@@ -63,6 +63,7 @@ gem 'unicorn'
 group :development do
   gem 'capistrano'
   gem 'capistrano-ext'
+  gem 'capistrano-db-tasks', github: "sgruhier/capistrano-db-tasks", require: false
   gem 'capi'
   gem 'undev', '>=0.2.1'
 end

@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/sgruhier/capistrano-db-tasks.git
+  revision: 5ecffdba5d3da0a23556056d52c56c7f6b0f4f5b
+  specs:
+    capistrano-db-tasks (0.2)
+
+GIT
   remote: https://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: 40ffd567ee6bea9974710c58646d309d6a95faaf
   specs:
