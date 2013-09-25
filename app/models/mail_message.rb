@@ -32,6 +32,7 @@ class MailMessage < ActiveRecord::Base
   def plain_text?
     mail.mime_type == "text/plain"
   end
+
   def self.last_minute_count
     last_minute.count
   end

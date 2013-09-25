@@ -1,7 +1,8 @@
 class MailApplicationDecorator < Draper::Base
+  include Draper::LazyHelpers
+
   decorates :mail_application
   decorates_association :owner
-  include Draper::LazyHelpers
 
   def mail_application_settings
     settings = [
