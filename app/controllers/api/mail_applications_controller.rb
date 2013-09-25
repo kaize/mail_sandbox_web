@@ -2,7 +2,7 @@ class Api::MailApplicationsController < Api::ProtectedApplicationController
 
   def mark_all_messages_as_read
     application = available_applications.find(params[:id])
-    messages = application.mail_messages.unread
+    messages = application.mail_messages.unreaded
     messages.update_all(state: :read)
 
     respond_with :status => :ok
