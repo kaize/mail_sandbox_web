@@ -1,21 +1,19 @@
-set :rake, "#{rake} --trace"
+require 'undev/capistrano'
+require 'capistrano/ext/multistage'
+require 'capistrano-db-tasks'
 
+set :rake, "#{rake} --trace"
 set :stages, %w(production staging)
 set :default_stage, "staging"
-require 'capistrano/ext/multistage'
-
 set :application, "mail_sandbox_web"
-
-require 'undev/capistrano'
 set :undev_ruby_version, '2.0.0-p247'
-
 set :use_sudo, false
 set :ssh_options, :forward_agent => true
-default_run_options[:pty] = true
-
 set :scm, :git
 set :repository, "git://git.undev.cc/infrastructure/mailsandbox.git"
 set :deploy_to, "/rest/u/apps/mail_sandbox"
+
+default_run_options[:pty] = true
 
 namespace :deploy do
   desc "Symlinks the config yml files"
