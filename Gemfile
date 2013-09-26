@@ -65,6 +65,7 @@ group :development do
   gem 'capistrano-ext'
   gem 'capistrano-db-tasks', github: "sgruhier/capistrano-db-tasks", require: false
   gem 'capi'
+  gem 'letter_opener_web'
   gem 'undev', '>=0.2.1'
 end
 

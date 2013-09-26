@@ -1,5 +1,9 @@
 MailSandboxWeb::Application.routes.draw do
 
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
   namespace :api do
     resources :mail_messages, :only => [:create, :destroy] do
       member do

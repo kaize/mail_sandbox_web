@@ -1,0 +1,5 @@
+---
+en:
+  user_mailer:
+    send_email_on_registration:
+      subject: "Welcome to MailSandbox!"
