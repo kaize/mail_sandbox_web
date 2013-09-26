@@ -1,5 +1,18 @@
 class Web::User::SessionsController < Web::ApplicationController
   def new
+    @session = UserSignInType.new
+  end
+
+  def create
+    @session = UserSignInType.new(params[:user_sign_in_type])
+
+    if @session.valid?
+      user = @session.user
+      sign_in user
+      redirect_to :root
+    else
+      render :new
+    end
   end
 
   def destroy

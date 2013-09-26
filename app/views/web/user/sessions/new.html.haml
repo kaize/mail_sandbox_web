@@ -1,6 +1,26 @@
-.hero-unit
-  %h1= t '.login_with'
-  %p= t '.login_description'
-  .login_block
-    = login_button :facebook
-    = login_button :github
+.row
+  .span9
+    .hero-unit.padding40
+      %h1 MailSandbox
+      %p Fake SMTP server for development teams to test, view and share emails sent from the development and staging environments without spamming real customers.
+
+    %p MailSandbox - песочница для писем со стейджинг серверов.
+
+    %p MailSandbox служит для просмотра и сбора всех писем, которые уходят со стейджинг серверов, в одном месте вне зависимости от адреса назначения. Предназначен в основном для удобства тестирования как Rails приложений и изоляции этих приложений от внешнего мира, чтобы ненароком не устроить тестовую рассылку на реальные адреса. Является опенсорс проектом (Welcome to contribute).
+
+    %p Чтобы начать использовать необходимо:
+    %ul
+      %li Зарегистрироваться, авторизоваться. Также вы можете использовать для входа соц. сети facebook или github
+      %li Создать приложение в веб интерфейсе.
+      %li Для Rails приложений получить готовый конфиг отправки писем по smtp и добавить его в config/environments/staging.rb
+      %li Для других приложений настроить отправку писем по настройкам включая PLAIN авторизацию.
+    %p В настройках приложения можно подключать других пользователей.
+
+  .span3
+    .hero-unit.padding40
+      %h3 Please sign in
+      .social-login
+        = link_to register_with_cpath(:facebook) do
+          = image_tag "facebook.png"
+        = link_to register_with_cpath(:github) do
+          = image_tag "github.png"
