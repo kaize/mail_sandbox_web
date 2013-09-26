@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  validates :email, email: true, uniqueness: {case_sensitive: false}, length: {maximum: 255}
+  validates :email, presence: true, email: true, uniqueness: true, length: {maximum: 255}
   validates :password, presence: true, on: :create
 
   has_one :facebook, :dependent => :destroy, :autosave => true
@@ -13,6 +13,21 @@ class User < ActiveRecord::Base
 
   has_many :mail_application_users, :dependent => :destroy
   has_many :membered_applications, :through => :mail_application_users, :source => :mail_application
+
+  state_machine initial: :waiting_confirmation do
+    state :waiting_confirmation
+    state :inactive
+    state :active
+
+    event :confirm do
+      transition [:waiting_confirmation, :inactive] => :active
+    end
+
+    event :deactivate do
+      transition [:waiting_confirmation, :active] => :inactive
+    end
+
+  end
 
   def available_applications
     return MailApplication.web if admin?
@@ -28,7 +43,6 @@ class User < ActiveRecord::Base
     return MailMessage.web if admin?
     MailMessage.web.where(:mail_application_id => available_applications)
   end
-
 
   def guest?
     false
