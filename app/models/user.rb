@@ -44,6 +44,18 @@ class User < ActiveRecord::Base
     MailMessage.web.where(:mail_application_id => available_applications)
   end
 
+  def generate_confirmation_token
+    self.confirmation_token = SecureApp.generate_token
+  end
+
+  def generate_reset_password_token
+    self.reset_password_token = SecureApp.generate_token
+  end
+
+  def can_reset_password?
+    active?
+  end
+
   def guest?
     false
   end
