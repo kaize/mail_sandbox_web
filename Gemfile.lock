@@ -124,11 +124,18 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.7.4)
+    launchy (2.3.0)
+      addressable (~> 2.3)
     less (2.4.0)
       commonjs (~> 0.2.7)
     less-rails (2.4.0)
       actionpack (>= 3.1)
       less (~> 2.4.0)
+    letter_opener (1.1.2)
+      launchy (~> 2.2)
+    letter_opener_web (1.0.3)
+      letter_opener (~> 1.0)
+      rails (~> 3.2)
     libv8 (3.16.14.3)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -274,6 +281,7 @@ DEPENDENCIES
   js-routes
   kaminari
   less-rails
+  letter_opener_web
   mail
   mail_sandbox (~> 0.1.1)
   minitest

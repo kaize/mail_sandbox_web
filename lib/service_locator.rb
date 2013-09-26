@@ -8,6 +8,9 @@ module ServiceLocator
       @github ||= GithubService.new
     end
 
+    def self.email_sender
+      @email_sender ||= ::Services::EmailService.new
+    end
   end
 
   def self.services

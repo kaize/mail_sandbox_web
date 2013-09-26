@@ -47,6 +47,10 @@ Configus.build Rails.env do
       per_page_list [5,10,20,50,100]
     end
 
+    emails do
+      sender_email "info@mailsandbox.com"
+    end
+
   end
 
   env :development, :parent => :production do
