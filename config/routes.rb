@@ -36,7 +36,7 @@ MailSandboxWeb::Application.routes.draw do
     resource :user, :only => [:index] do
 
       scope :module => :user do
-        resource :session, :only => [:new, :destroy]
+        resource :session, :only => [:new, :create, :destroy]
         resource :network, :only => [] do
           get :failure, :on => :member
         end
