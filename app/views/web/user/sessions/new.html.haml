@@ -19,6 +19,13 @@
   .span3
     .hero-unit.padding40
       %h3 Please sign in
+      = simple_form_for @session, url: user_session_path, input_html: {class: "form-horizontal"} do |f|
+        - f.with_options label: false do |ff|
+          = ff.input :email, placeholder: "Email address"
+          = ff.input :password, placeholder: "Password"
+        = f.input :remember_me, as: :boolean, wrapper: :label_after_input
+        = f.button :submit, class: "btn-primary"
+      %hr
       .social-login
         = link_to register_with_cpath(:facebook) do
           = image_tag "facebook.png"
