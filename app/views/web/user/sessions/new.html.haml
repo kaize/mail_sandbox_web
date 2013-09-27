@@ -25,9 +25,9 @@
           = ff.input :password, placeholder: "Password"
         = f.input :remember_me, as: :boolean, wrapper: :label_after_input
         = f.button :submit, class: "btn-primary"
-      %hr
-      .social-login
+      %p.social-login
         = link_to register_with_cpath(:facebook) do
           = image_tag "facebook.png"
         = link_to register_with_cpath(:github) do
           = image_tag "github.png"
+      %p= link_to "Sign up", new_user_path, class: "btn btn-success btn-large btn-block"
