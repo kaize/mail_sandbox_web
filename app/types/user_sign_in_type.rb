@@ -3,6 +3,7 @@ class UserSignInType
 
   attribute :email, String
   attribute :password, String
+  attribute :remember_me, Boolean
 
   validates :email, presence: true, email: true
   validates :password, presence: true
