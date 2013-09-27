@@ -1,5 +1,6 @@
 class Web::UsersController < Web::ProtectedApplicationController
-  before_filter :authenticate_admin!
+  before_filter :authenticate_admin!, except: [:new, :create]
+  skip_before_filter :authenticate_user!, only: [:new, :create]
 
   def index
     @users = User.active.page(params[:page]).per(params[:per_page])
@@ -25,5 +26,19 @@ class Web::UsersController < Web::ProtectedApplicationController
       flash.now[:error] = flash_translate(:error)
     end
     respond_with @user
+  end
+
+  def new
+    @user = UserRegistrationType.new
+  end
+
+  def create
+    @user = UserRegistrationType.new params[:user_registration_type]
+
+    if @user.valid?
+      redirect_to :root
+    else
+      render :new
+    end
   end
 end

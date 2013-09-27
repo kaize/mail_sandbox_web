@@ -26,4 +26,14 @@ class Web::UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should get new" do
+    get :new
+    assert_response :success
+  end
+
+  test "should post create" do
+    post :create, user_registration_type: attributes_for(:user)
+    assert_response :redirect
+  end
+
 end
