@@ -23,7 +23,7 @@ class Web::MailApplicationsControllerTest < ActionController::TestCase
   end
 
   test "should post create" do
-    post :create
+    post :create, mail_application: @attrs
     assert_response :redirect
   end
 

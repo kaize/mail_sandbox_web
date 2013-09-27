@@ -1,5 +1,5 @@
 class MailApplicationType < MailApplication
-  include BaseType
+  include ApplicationType
 
-  attr_accessible :member_ids
+  permit :member_ids, :name, :password
 end

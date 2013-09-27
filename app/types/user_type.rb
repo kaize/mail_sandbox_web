@@ -1,5 +1,5 @@
 class UserType < User
-  include BaseType
+  include ApplicationType
 
-  attr_accessible :admin, :email, :password
+  permit :admin, :email, :password
 end
