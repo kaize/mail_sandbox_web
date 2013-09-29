@@ -31,8 +31,13 @@ class Web::UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should get confirm" do
+    get :confirm, id: @user
+    assert_response :redirect
+  end
+
   test "should post create" do
-    post :create, user_registration_type: attributes_for(:user)
+    post :create, user: attributes_for(:user)
     assert_response :redirect
   end
 
