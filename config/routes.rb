@@ -32,7 +32,11 @@ MailSandboxWeb::Application.routes.draw do
       resources :mail_messages, :only => [:index, :show]
     end
 
-    resources :users, :only => [:index, :show, :edit, :update, :new, :create]
+    resources :users, :only => [:index, :show, :edit, :update, :new, :create] do
+      member do
+        get :confirm
+      end
+    end
     resource :user, :only => [:index] do
 
       scope :module => :user do

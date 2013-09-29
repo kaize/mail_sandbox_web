@@ -7,6 +7,8 @@ en:
           attributes:
             email:
               email: "wrong format"
+              user_new: "email is not confirmed"
+              user_inactive: "user is not active"
             password:
               user_or_password_invalid: "wrong password"
   activerecord:
