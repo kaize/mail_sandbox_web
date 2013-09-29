@@ -37,6 +37,7 @@ class Web::UsersController < Web::ProtectedApplicationController
 
     if @user.valid?
       @user.generate_confirmation_token
+      @user.save
       services.email_sender.send_email_on_registration(@user)
       redirect_to :root
     else
@@ -45,7 +46,7 @@ class Web::UsersController < Web::ProtectedApplicationController
   end
 
   def confirm
-    @user = User.where(confirmation_token: params[:token]).first
+    @user = ::User.where(confirmation_token: params[:token]).first
 
     if @user && @user.waiting_confirmation?
       if @user.confirm
