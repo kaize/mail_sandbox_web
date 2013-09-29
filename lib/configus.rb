@@ -16,6 +16,7 @@ end
 Configus.build Rails.env do
 
   env :production do
+    host 'mailsandbox.com'
 
     airbrake do
       enable? true
@@ -53,13 +54,14 @@ Configus.build Rails.env do
 
   end
 
-  env :development, :parent => :production do
+  env :development, parent: :production do
+    host "localhost:8080"
   end
 
-  env :staging, :parent => :production do
+  env :staging, parent: :production do
   end
 
-  env :test, :parent => :development do
+  env :test, parent: :development do
   end
 
 end
