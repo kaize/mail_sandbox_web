@@ -1,5 +1,6 @@
 class Web::WelcomeController < Web::ProtectedApplicationController
   def index
-    redirect_to mail_applications_path
+    @applications = MailApplication.all
+    @messages = current_user.mail_messages.recent
   end
 end

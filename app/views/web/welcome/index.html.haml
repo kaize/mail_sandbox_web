@@ -1,1 +1,15 @@
-%h1= t '.welcome'
+.row
+  .span9
+    %h1= t '.last_messages'
+    %table.table
+      - @messages.each do |message|
+        %tr
+          %td= "subject"
+          %td= l(message.completed_at)
+          %td= message.sender
+          %td= message.recipient
+  .span3
+    %h3= t '.mail_applications'
+    - @applications.each do |application|
+      %p= link_to application, mail_application_path(application)
+    %p= link_to "New application", new_mail_application_path, class: "btn btn-success btn-large btn-block"
