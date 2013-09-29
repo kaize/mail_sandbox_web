@@ -1,0 +1,6 @@
+---
+en:
+  web:
+    welcome:
+      index:
+        last_messages: "Last messages"

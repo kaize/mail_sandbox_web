@@ -1,4 +1,13 @@
 ---
 en:
+  activemodel:
+    errors:
+      models:
+        user_sign_in_type:
+          attributes:
+            email:
+              email: "wrong format"
+            password:
+              user_or_password_invalid: "wrong password"
   activerecord:
     attributes:
