@@ -1,0 +1,5 @@
+= simple_form_for @user, url: account_profile_path do |f|
+  = f.input :email
+  = f.input :password
+  = f.input :admin, as: :boolean, wrapper: :label_after_input
+  = f.button :submit

@@ -22,12 +22,19 @@ MailSandboxWeb::Application.routes.draw do
 
   scope :module => :web do
     root :to => "welcome#index"
+
+    namespace :account do
+      root to: 'profile#edit'
+      resource :profile, only: [:edit, :update]
+    end
+
     resources :mail_messages, :only => [:index, :show] do
       member do
         get :raw
         get :without_bootstrap
       end
     end
+
     resources :mail_applications do
       resources :mail_messages, :only => [:index, :show]
     end
@@ -37,8 +44,8 @@ MailSandboxWeb::Application.routes.draw do
         get :confirm
       end
     end
-    resource :user, :only => [:index] do
 
+    resource :user, :only => [:index] do
       scope :module => :user do
         resource :session, :only => [:new, :create, :destroy]
         resource :network, :only => [] do
@@ -51,8 +58,8 @@ MailSandboxWeb::Application.routes.draw do
           get :callback, :on => :member
         end
       end
-
     end
+
   end
 
 end
