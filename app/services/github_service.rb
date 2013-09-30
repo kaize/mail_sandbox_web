@@ -1,4 +1,4 @@
-class GithubService < NetworkService
+class GithubService < SocialAuthService
 
   def register(data)
     auth = User::Github.find_by_uid(data[:uid].to_s)
@@ -8,18 +8,9 @@ class GithubService < NetworkService
       return user
     end
 
-    user = User.new
+    user = User.find_or_initialize_by_email(data[:info][:email])
     UserPopulator.via_github(user, data)
     user.save!
-    #TODO: send email w/ password to new user
     user
-  end
-
-  protected
-
-  def update_information(github_user, information)
-    github_user.nickname = information[:nickname]
-    github_user.email = information[:email]
-    github_user.save!
   end
 end

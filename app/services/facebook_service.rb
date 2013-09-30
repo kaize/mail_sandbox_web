@@ -1,4 +1,4 @@
-class FacebookService < NetworkService
+class FacebookService < SocialAuthService
   
   def register(data)
     auth = User::Facebook.find_by_uid(data[:uid])
@@ -8,18 +8,10 @@ class FacebookService < NetworkService
       return user
     end
 
-    user = User.new
+    user = User.find_or_initialize_by_email(data[:info][:email])
     UserPopulator.via_facebook(user, data)
     user.save!
-    #TODO: send email w/ password to new user
     user
   end
 
-  protected
-
-  def update_information(facebook_user, information)
-    facebook_user.nickname = information[:nickname]
-    facebook_user.email = information[:email]
-    facebook_user.save!
-  end
 end
