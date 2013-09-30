@@ -1,4 +1,6 @@
 %ul.nav.pull-right
+  - if signed_in?
+    %li.navbar-text= current_user.email
   %li.dropdown
     = drop_down_link_to t '.account'
     %ul.dropdown-menu
