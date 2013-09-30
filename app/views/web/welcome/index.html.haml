@@ -12,4 +12,4 @@
     %h3= t '.mail_applications'
     - @applications.each do |application|
       %p= link_to application, mail_application_path(application)
-    %p= link_to "New application", new_mail_application_path, class: "btn btn-success btn-large btn-block"
+    %p= link_to t(".new_application"), new_mail_application_path, class: "btn btn-success btn-large btn-block"
