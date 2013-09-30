@@ -1,6 +1,6 @@
 %tr{:'data-href' => user_path(user)}
   %td= user.id
-  %td= t user.role, :scope => :roles
+  %td= t user.role, scope: :roles
   %td
     %ul.unstyled
       - user.providers.each do |provider|
