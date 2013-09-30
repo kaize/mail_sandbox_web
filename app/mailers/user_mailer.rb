@@ -4,7 +4,7 @@ class UserMailer < BaseMailer
     @user = user
     @confirm_url = confirm_user_url(user, token: user.confirmation_token)
 
-    mail(:to => user.email)
+    mail(to: user.email)
   end
 
 end
