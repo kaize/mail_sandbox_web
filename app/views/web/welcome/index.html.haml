@@ -4,7 +4,7 @@
     %table.table
       - @messages.each do |message|
         %tr
-          %td= "subject"
+          %td= message.mail.subject
           %td= l(message.completed_at)
           %td= message.sender
           %td= message.recipient
