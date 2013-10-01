@@ -36,6 +36,11 @@ class Web::UsersControllerTest < ActionController::TestCase
     assert_response :redirect
   end
 
+  test "should get reset" do
+    get :reset, id: @user
+    assert_response :redirect
+  end
+
   test "should post create" do
     post :create, user: attributes_for(:user)
     assert_response :redirect

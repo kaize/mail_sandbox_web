@@ -1,6 +1,10 @@
 ---
 en:
   web:
+    user:
+      sessions:
+        new:
+          forgot_password: "Forgot password"
     welcome:
       index:
         last_messages: "Last messages"

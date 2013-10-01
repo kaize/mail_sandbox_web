@@ -1,6 +1,6 @@
 class Web::UsersController < Web::ProtectedApplicationController
-  before_filter :authenticate_admin!, except: [:new, :create, :confirm]
-  skip_before_filter :authenticate_user!, only: [:new, :create, :confirm]
+  before_filter :authenticate_admin!, except: [:new, :create, :confirm, :reset]
+  skip_before_filter :authenticate_user!, only: [:new, :create, :confirm, :reset]
 
   def index
     @users = User.active.page(params[:page]).per(params[:per_page])
@@ -59,5 +59,19 @@ class Web::UsersController < Web::ProtectedApplicationController
     end
 
     redirect_to :root
+  end
+
+  def reset
+    @user = ::User.where(reset_password_token: params[:token]).first
+
+    if @user && @user.active?
+      sign_in @user
+
+      flash[:notice] = flash_translate(:password_was_reset)
+      redirect_to edit_account_profile_path
+    else
+      flash[:error] = flash_translate(:user_not_found)
+      redirect_to :root
+    end
   end
 end

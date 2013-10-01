@@ -7,4 +7,11 @@ class UserMailer < BaseMailer
     mail(to: user.email)
   end
 
+  def send_password_reset_token(user)
+    @user = user
+    @reset_password_url = reset_user_url(user, token: user.reset_password_token)
+
+    mail(to: user.email)
+  end
+
 end

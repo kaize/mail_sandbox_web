@@ -23,6 +23,7 @@
         - f.with_options label: false do |ff|
           = ff.input :email, placeholder: "Email address"
           = ff.input :password, placeholder: "Password"
+        = link_to t(".forgot_password"), forget_user_password_path
         = f.input :remember_me, as: :boolean, wrapper: :label_after_input
         = f.button :submit, class: "btn-primary"
       %p.social-login
