@@ -42,13 +42,18 @@ MailSandboxWeb::Application.routes.draw do
     resources :users, :only => [:index, :show, :edit, :update, :new, :create] do
       member do
         get :confirm
+        get :reset
       end
     end
 
-    resource :user, :only => [:index] do
+    resource :user, only: [:index] do
       scope :module => :user do
-        resource :session, :only => [:new, :create, :destroy]
-        resource :network, :only => [] do
+        resource :session, only: [:new, :create, :destroy]
+        resource :password, only: [] do
+          get :forget
+          post :reset
+        end
+        resource :network, only: [] do
           get :failure, :on => :member
         end
         resource :facebook, :only => [] do
