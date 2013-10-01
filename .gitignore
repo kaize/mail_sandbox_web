@@ -19,4 +19,4 @@
 config/database.yml
 config/secret_keys.yml
 config/mail_sandbox.yml
-coverage
+/coverage
