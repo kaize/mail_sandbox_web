@@ -1,4 +1,5 @@
 = simple_form_for @user, html: {class: 'form-horizontal' } do |f|
+  = f.input :state_event, as: :select, collection: @user.state_events
   = f.input :email
   = f.input :password
   = f.input :admin, as: :boolean
