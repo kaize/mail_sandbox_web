@@ -1,9 +1,10 @@
 %table.table.table-striped.users
   %tr
     %th.id.span1=       t '.id'
+    %th.email.span3=    t '.email'
     %th.admin.span1=    t '.role'
-    %th.provider=       t '.provider'
+    %th.status.span1=   t '.status'
     %th.actions.span2=  t '.actions'
   = render @users
 
-= paginate @users, :theme => "web"
+= paginate @users, theme: "web"

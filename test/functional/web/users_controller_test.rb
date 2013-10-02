@@ -46,4 +46,9 @@ class Web::UsersControllerTest < ActionController::TestCase
     assert_response :redirect
   end
 
+  test "should destroy" do
+    delete :destroy, id: @user
+    assert_response :redirect
+  end
+
 end

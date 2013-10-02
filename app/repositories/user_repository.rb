@@ -2,6 +2,7 @@ module UserRepository
   extend ActiveSupport::Concern
   
   included do
-    scope :active, ->{}
+    scope :web, ->{ without_state :hidden }
+    scope :active, ->{ web }
   end
 end
