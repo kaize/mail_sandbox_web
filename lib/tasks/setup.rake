@@ -1,5 +1,5 @@
 namespace :sandbox do
-  desc "Setup Mail Sendbox Application"
+  desc "Setup Mail Sandbox Application"
   task :setup do
     require 'fileutils'
 
