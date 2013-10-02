@@ -40,7 +40,7 @@ class Web::MailApplicationsController < Web::ProtectedApplicationController
     if @application.update_attributes(params[:mail_application])
       redirect_to mail_applications_path
     else
-      render :action => :edit
+      render action: :edit
     end
   end
 
