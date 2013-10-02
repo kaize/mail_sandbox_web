@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
     state :waiting_confirmation
     state :inactive
     state :active
+    state :hidden
 
     event :confirm do
       transition [:waiting_confirmation, :inactive] => :active
@@ -26,6 +27,10 @@ class User < ActiveRecord::Base
 
     event :deactivate do
       transition [:waiting_confirmation, :active] => :inactive
+    end
+
+    event :hide do
+      transition [:waiting_confirmation, :active, :inactive] => :hidden
     end
 
   end
