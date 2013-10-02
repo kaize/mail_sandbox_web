@@ -188,6 +188,10 @@ GEM
       thor (>= 0.14.6, < 2.0)
     raindrops (0.10.0)
     rake (10.1.0)
+    ransack (0.7.2)
+      actionpack (~> 3.0)
+      activerecord (~> 3.0)
+      polyamorous (~> 0.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.5)
@@ -265,6 +269,7 @@ DEPENDENCIES
   omniauth-github
   pg
   rails (= 3.2.14)
+  ransack
   sass-rails (~> 3.2.3)
   simple_form
   squeel

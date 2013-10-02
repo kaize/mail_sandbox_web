@@ -13,6 +13,7 @@ gem 'draper'
 gem 'state_machine'
 gem 'js-routes'
 gem 'kaminari'
+gem 'ransack'
 
 gem 'configus'
 gem 'omniauth-facebook'
