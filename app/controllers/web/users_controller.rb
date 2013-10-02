@@ -5,26 +5,33 @@ class Web::UsersController < Web::ProtectedApplicationController
   def index
     @users = User.active.page(params[:page]).per(params[:per_page])
     @users = @users.decorate
+
     respond_with @users
   end
 
   def show
     @user = User.find(params[:id]).decorate
+
     respond_with @user
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = ModerateUserType.find(params[:id])
+    @user = @user.decorate
+
     respond_with @user
   end
 
   def update
     @user = ModerateUserType.find(params[:id])
+    @user = @user.decorate
+
     if @user.update_attributes(params[:user])
-      flash.now[:notice] = flash_translate(:success)
+      flash[:notice] = flash_translate(:success)
     else
-      flash.now[:error] = flash_translate(:error)
+      flash[:error] = flash_translate(:error)
     end
+
     respond_with @user
   end
 
@@ -73,5 +80,12 @@ class Web::UsersController < Web::ProtectedApplicationController
       flash[:error] = flash_translate(:user_not_found)
       redirect_to :root
     end
+  end
+
+  def destroy
+    @user = ::User.find(params[:id])
+    @user.hide
+
+    redirect_to users_path
   end
 end

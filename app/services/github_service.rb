@@ -11,6 +11,7 @@ class GithubService < SocialAuthService
     user = User.find_or_initialize_by_email(data[:info][:email])
     UserPopulator.via_github(user, data)
     user.save!
+    user.confirm if user.waiting_confirmation?
     user
   end
 end

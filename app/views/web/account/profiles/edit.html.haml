@@ -1,3 +1,5 @@
+%h1= t(".edit_profile")
+
 = simple_form_for @user, url: account_profile_path do |f|
   = f.input :email
   = f.input :password
