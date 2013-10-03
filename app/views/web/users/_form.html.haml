@@ -1,17 +1,20 @@
 = simple_form_for @user, html: {class: 'form-horizontal' } do |f|
-  = f.input :state_event, as: :select, collection: @user.state_events
+  = f.input :state_event, as: :select, collection: human_state_events_collection(@user)
   = f.input :email
   = f.input :password
   = f.input :admin, as: :boolean
-  %dl.dl-horizontal
-    %dt= User.human_attribute_name(:providers)
-    %dd
-      .providers
-        %ul.unstyled
-        - @user.providers.each do |provider|
-          %li
-            = provider_image provider
-            = provider.nickname
+
+  - if @user.providers.any?
+    %dl.dl-horizontal
+      %dt= User.human_attribute_name(:providers)
+      %dd
+        .providers
+          %ul.unstyled
+          - @user.providers.each do |provider|
+            %l
+              = provider_image provider
+              = provider.nickname
+
   .actions
     = f.button :submit
     = link_to t('cancel'), users_path, class: "btn"
