@@ -16,14 +16,14 @@ class Web::User::PasswordsController < Web::ApplicationController
         services.email_sender.send_password_reset_token(user)
 
         flash[:notice] = flash_translate(:reset_success)
-        redirect_to account_root_path
+        redirect_to root_path
       else
         flash[:error] = flash_translate(:user_not_found)
-        redirect_to forget_user_password_path
+        render :forget
       end
     else
       flash[:error] = flash_translate(:reset_failed)
-      redirect_to forget_user_password_path
+      render :forget
     end
   end
 end
