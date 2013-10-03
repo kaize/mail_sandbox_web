@@ -1,5 +1,12 @@
 ---
 en:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              email: "has wrong format"
   activemodel:
     errors:
       models:
@@ -11,5 +18,7 @@ en:
               user_inactive: "user is not active"
             password:
               user_or_password_invalid: "wrong password"
-  activerecord:
-    attributes:
+        user_reset_password_type:
+          attributes:
+            email:
+              email: "has wrong format"
