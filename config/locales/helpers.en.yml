@@ -4,3 +4,5 @@ en:
     submit:
       user_sign_in_type:
         create: "Sign in"
+      user_reset_password_type:
+        create: "Reset password"

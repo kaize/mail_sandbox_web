@@ -1,0 +1,15 @@
+---
+en:
+  activerecord:
+    state_machines:
+      user:
+        state:
+          events:
+            confirm: "Activate"
+            deactivate: "Deactivate"
+            hide: "Delete"
+          states:
+            active: "Active"
+            inactive: "Inactive"
+            waiting_confirmation: "Waiting confirmation"
+            hidden: "Deleted"

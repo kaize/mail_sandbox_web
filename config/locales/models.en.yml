@@ -1,0 +1,7 @@
+---
+en:
+  activerecord:
+    attributes:
+      user:
+        email: "E-mail"
+        state_event: "Change state"
