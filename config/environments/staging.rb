@@ -50,6 +50,14 @@ MailSandboxWeb::Application.configure do
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.smtp_settings = {
+    address: 'mail-sandbox-web.st2.ul.home',
+    port: 2525,
+    user_name: 'mail_sandbox_staging',
+    password: '29dff5c7241f91140c5ea0fbcc147f09'
+  }
 
   # Enable threaded mode
   # config.threadsafe!
