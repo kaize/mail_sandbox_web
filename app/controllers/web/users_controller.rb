@@ -32,7 +32,7 @@ class Web::UsersController < Web::ProtectedApplicationController
       flash[:error] = flash_translate(:error)
     end
 
-    respond_with @user
+    respond_with @user, location: users_path
   end
 
   def new
