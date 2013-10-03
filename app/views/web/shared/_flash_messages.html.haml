@@ -1,2 +1,3 @@
-= flash.each do |type, message|
-  .alert{class: bootstrap_flash_class_for(type)}= message
+- if flash.any?
+  - flash.each do |type, message|
+    .alert{class: bootstrap_flash_class_for(type)}= message
