@@ -36,7 +36,7 @@
       .content
         .row
           .span12
-            - render "web/shared/flash_messages", flash: flash
+            = render "web/shared/flash_messages"
             = yield
 
       %footer

@@ -7,7 +7,7 @@ class Web::Account::ProfilesController < Web::ProtectedApplicationController
     @user = current_user.becomes UserType
 
     if @user.update_attributes(params[:user])
-      flash.now[:notice] = flash_translate(:success)
+      flash[:notice] = flash_translate(:success)
       redirect_to edit_account_profile_path
     else
       flash.now[:error] = flash_translate(:update_failed)
