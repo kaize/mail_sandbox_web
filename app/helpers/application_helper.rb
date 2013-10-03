@@ -25,4 +25,10 @@ module ApplicationHelper
     end
   end
 
+  def human_state_events_collection(object)
+    object.state_events.map do |event|
+      [object.class.human_state_event_name(event), event]
+    end
+  end
+
 end
