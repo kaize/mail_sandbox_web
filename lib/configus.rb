@@ -16,7 +16,7 @@ end
 Configus.build Rails.env do
 
   env :production do
-    host 'mailsandbox.com'
+    host 'mail-sandbox-web.st2.ul.home'
 
     airbrake do
       enable? true
@@ -59,6 +59,7 @@ Configus.build Rails.env do
   end
 
   env :staging, parent: :production do
+    host "mail-sandbox-web-1.staging.ul.home"
   end
 
   env :test, parent: :development do
