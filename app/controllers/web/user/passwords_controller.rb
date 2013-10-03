@@ -1,6 +1,6 @@
 class Web::User::PasswordsController < Web::ApplicationController
   def forget
-    @user = UserResetPasswordType.new
+    @reset_password_form = UserResetPasswordType.new
   end
 
   def reset
