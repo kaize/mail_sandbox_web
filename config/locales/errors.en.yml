@@ -22,3 +22,4 @@ en:
           attributes:
             email:
               email: "has wrong format"
+              user_new: "User was not confirmed"
