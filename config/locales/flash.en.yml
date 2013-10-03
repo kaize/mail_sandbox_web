@@ -1,0 +1,12 @@
+---
+en:
+  flash:
+    controllers:
+      web:
+        account:
+          profiles:
+            update:
+              success: "Profile was updated successfully"
+        users:
+          update:
+            success: "User's data was updated successfully"
