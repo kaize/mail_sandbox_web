@@ -4,12 +4,14 @@ namespace :user do
     users_with_blank_email = User.where(email: nil)
 
     users_with_blank_email.each do |user|
-      if user.providers.any?
-        provider = user.providers.first
-        if provider.email?
-          user.email = provider.email
-          user.save
-        end
+      user.providers.each do |provider|
+        next unless provider.email?
+
+        user.email = provider.email
+        user.password = "1"
+        user.save!
+
+        break
       end
     end
   end
