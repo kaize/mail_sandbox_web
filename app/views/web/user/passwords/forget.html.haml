@@ -1,4 +1,7 @@
 %h1= t(".reset_password")
-= simple_form_for @user, url: reset_user_password_path do |f|
+
+= render 'web/shared/error_messages', errors:  @reset_password_form.errors
+
+= simple_form_for @reset_password_form, url: reset_user_password_path do |f|
   = f.input :email
   = f.button :submit
