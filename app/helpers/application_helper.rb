@@ -20,7 +20,7 @@ module ApplicationHelper
   end
 
   def sender_list(application)
-    application.mail_messages.unique_by_senders.pluck(:sender)
+    application.mail_messages.uniq_by_senders.pluck(:sender)
   end
 
 end
