@@ -9,7 +9,7 @@ gem 'rails', '3.2.14'
 gem 'pg'
 gem 'haml-rails'
 gem 'simple_form'
-gem 'draper'
+gem 'draper', '0.18.0'
 gem 'state_machine'
 gem 'js-routes'
 gem 'kaminari'
@@ -20,6 +20,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'airbrake'
 
+gem 'select2-rails'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -28,7 +29,6 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'haml-rails'
   gem 'less-rails'
-
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
 
