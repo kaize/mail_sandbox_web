@@ -10,4 +10,12 @@ module ApplicationHelper
     select_tag :per_page, options_for_select(configus.pagination.per_page_list, per_page), :class => "per_page_selector"
   end
 
+  def recipient_list(application)
+    application.mail_messages.uniq_by_recipients.pluck(:recipient)
+  end
+
+  def sender_list(application)
+    application.mail_messages.unique_by_senders.pluck(:sender)
+  end
+
 end
