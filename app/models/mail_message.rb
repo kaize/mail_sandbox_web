@@ -35,8 +35,13 @@ class MailMessage < ActiveRecord::Base
   def plain_text?
     mail.mime_type == "text/plain"
   end
+
   def self.last_minute_count
     last_minute.count
+  end
+
+  ransacker :completed_at_casted do |parent|
+    Arel::Nodes::SqlLiteral.new("date(mail_messages.completed_at)")
   end
 
 end
