@@ -25,6 +25,7 @@ gem 'select2-rails'
 # in production environments by default.
 group :assets do
   gem 'jquery-rails'
+  gem 'jquery-ui-rails'
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'haml-rails'
@@ -41,6 +42,8 @@ gem 'twitter-bootstrap-rails', :git => "https://github.com/seyhunak/twitter-boot
 gem 'mail'
 gem 'squeel'
 gem 'chosen-rails'
+gem 'wrong'
+
 
 group :test do
   gem 'minitest'
