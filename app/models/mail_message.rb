@@ -24,6 +24,8 @@ class MailMessage < ActiveRecord::Base
     end
   end
 
+  after_create :add_mail_subject
+
   def mail
     @mail ||= Mail.new(data)
   end
@@ -42,6 +44,12 @@ class MailMessage < ActiveRecord::Base
 
   ransacker :completed_at_casted do |parent|
     Arel::Nodes::SqlLiteral.new("date(mail_messages.completed_at)")
+  end
+
+  private
+
+  def add_mail_subject
+    self.subject = self.mail.subject
   end
 
 end
