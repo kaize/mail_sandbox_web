@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class MailMessageTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "mail_subject" do
+    message = create :mail_message
+    assert { message.subject == message.mail.subject }
+  end
 end
