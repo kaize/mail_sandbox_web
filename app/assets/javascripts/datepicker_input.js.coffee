@@ -1,2 +1,2 @@
 $(document).ready ->
-  $('.datepicker input').datepicker({ dateFormat: 'yy-mm-dd' })
+  $('.input-append.date').datepicker({  format: 'yyyy-mm-dd' });

@@ -16,7 +16,7 @@
 //= require chosen-jquery
 //= require jquery.query-2.1.7
 //= require select2
-//= require jquery.ui.datepicker
+//= require bootstrap-datepicker
 //= require_tree .
 //= require_self
 
