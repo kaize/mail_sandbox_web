@@ -23,4 +23,8 @@ module ApplicationHelper
     application.mail_messages.uniq_by_senders.pluck(:sender)
   end
 
+  def han(model, attribute)
+    model.to_s.classify.constantize.human_attribute_name(attribute)
+  end
+
 end
