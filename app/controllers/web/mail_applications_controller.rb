@@ -7,9 +7,8 @@ class Web::MailApplicationsController < Web::ProtectedApplicationController
 
   def show
     @application = available_applications.find(params[:id]).decorate
-    @scope = @application.mail_messages.ordered.ransack(params[:q])
-
-    @messages = @scope.result.page(params[:page]).per(params[:per_page])
+    @scope = @application.mail_messages.ordered.page(params[:page]).per(params[:per_page]).ransack(params[:q])
+    @messages = @scope.result
   end
 
   def new
