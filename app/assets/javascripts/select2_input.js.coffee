@@ -1,2 +1,2 @@
 $(document).ready ->
-  $('select.select2').select2({ width: 'resolve' })
+  $('select.select2').select2({ width: 'resolve', allowClear: true })
