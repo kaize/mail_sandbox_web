@@ -31,4 +31,18 @@ module ApplicationHelper
     end
   end
 
+  def default_search_form_options(options = {})
+    { method: 'get', html: { class: 'form-inline' },
+      defaults: { label: false, required: false } }.merge(options)
+  end
+
+  def recipient_list(application)
+    application.mail_messages.uniq_by_recipients.pluck(:recipient)
+  end
+
+  def sender_list(application)
+    application.mail_messages.uniq_by_senders.pluck(:sender)
+  end
+
 end
+

@@ -12,6 +12,7 @@
 /db/schema.rb
 
 # Ignore all logfiles and tempfiles.
+.DS_Store
 /log/*.log
 /tmp
 *.sw[a-z]

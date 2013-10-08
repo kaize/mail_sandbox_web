@@ -9,10 +9,11 @@ gem 'rails', '3.2.14'
 gem 'pg'
 gem 'haml-rails'
 gem 'simple_form'
-gem 'draper'
+gem 'draper', '0.18.0'
 gem 'state_machine'
 gem 'js-routes'
 gem 'kaminari'
+gem 'ransack'
 
 gem 'configus'
 gem 'omniauth-facebook'
@@ -20,15 +21,17 @@ gem 'omniauth-github'
 gem 'airbrake'
 gem 'virtus'
 
+gem 'bootstrap-datepicker-rails'
+gem 'select2-rails'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'jquery-rails'
+  gem 'jquery-ui-rails'
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'haml-rails'
   gem 'less-rails'
-
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
 
@@ -42,6 +45,7 @@ gem 'mail'
 gem 'squeel'
 gem 'chosen-rails'
 gem 'validates'
+gem 'wrong'
 
 group :test do
   gem 'minitest'
