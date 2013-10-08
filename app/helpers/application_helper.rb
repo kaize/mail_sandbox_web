@@ -27,4 +27,11 @@ module ApplicationHelper
     model.to_s.classify.constantize.human_attribute_name(attribute)
   end
 
+  def model_states(model, state_machine = :state)
+    model.to_s.classify.constantize \
+      .state_machines[state_machine] \
+      .states
+  end
+
+
 end

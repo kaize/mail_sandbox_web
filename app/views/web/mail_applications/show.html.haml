@@ -14,7 +14,7 @@
     /TODO move names to locale
     = simple_form_for @scope, default_search_form_options(url: mail_application_path(@application)) do |f|
       .row-fluid
-        .span4= f.input :state_eq, as: :select2, collection: MailMessage.state_machine.states,  placeholder: han('mail_message', :state)
+        .span4= f.input :state_eq, as: :select2, collection: model_states('mail_message'),  placeholder: han('mail_message', :state)
         .span4= f.input :recipient_in, as: :select2, collection: recipient_list(@application), placeholder: han('mail_message', :recipient)
         .span4= f.input :sender_in, as: :select2, collection: sender_list(@application), placeholder: han('mail_message', :sender)
       .row-fluid
