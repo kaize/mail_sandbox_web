@@ -13,18 +13,20 @@
   .well
     /TODO move names to locale
     = simple_form_for @scope, default_search_form_options(url: mail_application_path(@application)) do |form|
+      - block =->(model_name, attribute) { han(model_name, attribute) }
+      - han_mail = block.curry['mail_message']
       .row-fluid
         - form.with_options as: :select2 do |f|
-          .span4= f.input :state_eq, collection: model_states('mail_message'), placeholder: han('mail_message', :state)
-          .span4= f.input :recipient_in, collection: recipient_list(@application), placeholder: han('mail_message', :recipient)
-          .span4= f.input :sender_in, collection: sender_list(@application), placeholder: han('mail_message', :sender)
+          .span4= f.input :state_eq, collection: model_states('mail_message'), placeholder: han_mail.call(:state)
+          .span4= f.input :recipient_in, collection: recipient_list(@application), placeholder: han_mail.call(:recipient)
+          .span4= f.input :sender_in, collection: sender_list(@application), placeholder: han_mail.call(:sender)
       .row-fluid
         .span4
           .input-append.date
-            = form.input_field :completed_at_casted_date_eq, as: :datepicker, class: 'input-medium', placeholder: han('mail_message', :completed_at)
+            = form.input_field :completed_at_casted_date_eq, as: :datepicker, class: 'input-medium', placeholder: han_mail.call(:completed_at)
             %span.add-on
               %i.icon-calendar
-        .span4= form.input :subject_cont, as: :string, placeholder: han('mail_message', :subject)
+        .span4= form.input :subject_cont, as: :string, placeholder: han_mail.call(:subject)
         .span4
           = form.submit "Apply" ,class: 'btn btn-info'
           = link_to mail_application_path(@application), :class => "btn btn-danger" do
