@@ -15,6 +15,7 @@
 //= require twitter/bootstrap
 //= require chosen-jquery
 //= require jquery.query-2.1.7
+//= require angular
 //= require_tree .
 //= require_self
 

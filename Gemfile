@@ -12,6 +12,7 @@ gem 'simple_form'
 gem 'draper'
 gem 'state_machine'
 gem 'js-routes'
+gem 'angularjs-rails'
 gem 'kaminari'
 
 gem 'configus'
