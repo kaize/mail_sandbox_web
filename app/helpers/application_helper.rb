@@ -15,14 +15,6 @@ module ApplicationHelper
       defaults: { label: false, required: false } }.merge(options)
   end
 
-  def recipient_list(application)
-    application.mail_messages.uniq_by_recipients.pluck(:recipient)
-  end
-
-  def sender_list(application)
-    application.mail_messages.uniq_by_senders.pluck(:sender)
-  end
-
   def han(model, attribute)
     model.to_s.classify.constantize.human_attribute_name(attribute)
   end
@@ -32,6 +24,5 @@ module ApplicationHelper
       .state_machines[state_machine] \
       .states
   end
-
 
 end
