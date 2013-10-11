@@ -129,6 +129,9 @@ GEM
     httpauth (0.2.0)
     i18n (0.6.5)
     ice_nine (0.10.0)
+    jbuilder (1.5.2)
+      activesupport (>= 3.0.0)
+      multi_json (>= 1.2.0)
     journey (1.0.4)
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
@@ -303,6 +306,7 @@ DEPENDENCIES
   draper
   factory_girl_rails
   haml-rails
+  jbuilder
   jquery-rails
   js-routes
   kaminari
