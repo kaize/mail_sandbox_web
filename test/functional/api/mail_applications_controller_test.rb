@@ -9,7 +9,7 @@ class Api::MailApplicationsControllerTest < ActionController::TestCase
 
     @my_application = create :application, :owner => @user
 
-    @params = {format: :json}
+    @params = { format: :json }
   end
 
   test "should get show" do
@@ -20,7 +20,7 @@ class Api::MailApplicationsControllerTest < ActionController::TestCase
   test "should mark all as read" do
     messages = create_list :mail_message, 2, :mail_application => @my_application
 
-    put :mark_all_messages_as_read, :id => @my_application.id, :format => :json
+    put :mark_all_messages_as_read, @params.merge(id: @my_application.id)
     assert_response :success
 
     message = messages.first
