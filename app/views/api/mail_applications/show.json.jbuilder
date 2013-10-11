@@ -1,0 +1,1 @@
+json.partial! 'mail_application', application: @application, messages: @messages

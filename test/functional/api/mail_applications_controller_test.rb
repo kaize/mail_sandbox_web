@@ -8,6 +8,13 @@ class Api::MailApplicationsControllerTest < ActionController::TestCase
     sign_in @user
 
     @my_application = create :application, :owner => @user
+
+    @params = {format: :json}
+  end
+
+  test "should get show" do
+    get :show, @params.merge(id: @my_application.id)
+    assert_response :success
   end
 
   test "should mark all as read" do

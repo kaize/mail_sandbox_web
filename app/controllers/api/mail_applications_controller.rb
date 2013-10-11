@@ -1,5 +1,12 @@
 class Api::MailApplicationsController < Api::ProtectedApplicationController
 
+  def show
+    @application = available_applications.find(params[:id]).decorate
+    @messages = @application.mail_messages.ordered.page(params[:page]).per(params[:per_page])
+
+    respond_with @application, @messages
+  end
+
   def mark_all_messages_as_read
     application = available_applications.find(params[:id])
     messages = application.mail_messages.unreaded
