@@ -12,7 +12,6 @@ gem 'simple_form'
 gem 'draper'
 gem 'state_machine'
 gem 'js-routes'
-gem 'angularjs-rails'
 gem 'kaminari'
 
 gem 'configus'
@@ -20,6 +19,9 @@ gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'airbrake'
 gem 'virtus'
+
+gem 'angularjs-rails'
+gem 'angularjs-rails-resource'
 
 # Gems used only for assets and not required
 # in production environments by default.

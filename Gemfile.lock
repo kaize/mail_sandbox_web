@@ -51,6 +51,7 @@ GEM
       builder
       json
     angularjs-rails (1.0.8)
+    angularjs-rails-resource (0.2.4)
     ansi (1.4.3)
     arel (3.0.2)
     axiom-types (0.0.5)
@@ -295,6 +296,7 @@ PLATFORMS
 DEPENDENCIES
   airbrake
   angularjs-rails
+  angularjs-rails-resource
   bcrypt-ruby (~> 3.0.0)
   capi
   capistrano
