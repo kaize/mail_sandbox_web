@@ -22,6 +22,7 @@ gem 'virtus'
 
 gem 'angularjs-rails'
 gem 'angularjs-rails-resource'
+gem 'underscore-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -71,6 +72,7 @@ group :development do
   gem 'capi'
   gem 'letter_opener_web'
   gem 'undev', '>=0.2.1'
+  gem 'vendorer'
 end
 
 

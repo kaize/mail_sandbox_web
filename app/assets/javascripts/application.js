@@ -16,6 +16,7 @@
 //= require twitter/bootstrap
 //= require chosen-jquery
 //= require jquery.query-2.1.7
+//= require underscore
 //= require angular
 //= require angular-bootstrap
 //= require angular-underscore

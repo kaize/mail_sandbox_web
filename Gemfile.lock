@@ -270,6 +270,7 @@ GEM
     uglifier (2.3.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    underscore-rails (1.5.2)
     undev (0.2.2)
       capistrano
       rake
@@ -284,6 +285,7 @@ GEM
     validates (0.0.8)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
+    vendorer (0.1.14)
     virtus (1.0.0)
       axiom-types (~> 0.0.5)
       coercible (~> 0.2)
@@ -331,8 +333,10 @@ DEPENDENCIES
   turn
   twitter-bootstrap-rails!
   uglifier (>= 1.0.3)
+  underscore-rails
   undev (>= 0.2.1)
   unicorn
   unicorn-rails
   validates
+  vendorer
   virtus
