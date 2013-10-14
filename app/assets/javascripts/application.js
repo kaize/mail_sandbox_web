@@ -12,12 +12,21 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require js-routes
 //= require twitter/bootstrap
 //= require chosen-jquery
 //= require jquery.query-2.1.7
 //= require angular
-//= require_tree .
-//= require_self
+//= require angular-bootstrap
+//= require angular-underscore
+//= require angular-resource
+//= require angular-ui-router
+//= require angularjs/rails/resource
+//= require ./boot
+//= require ./vendor/vendor
+//= require_tree ./config
+//= require_tree ./lib
+//= require ./app/app
 
 $(function(){
   $('.table tr .clicked').click(function(e) {
