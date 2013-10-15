@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 source 'http://gems.undev.cc'
 
-gem 'rails', '3.2.14'
+gem 'rails', '4.0.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -20,6 +20,8 @@ gem 'omniauth-github'
 gem 'airbrake'
 gem 'virtus'
 
+gem 'active_model_serializers'
+
 gem 'angularjs-rails'
 gem 'angularjs-rails-resource'
 gem 'underscore-rails'
@@ -28,8 +30,8 @@ gem 'underscore-rails'
 # in production environments by default.
 group :assets do
   gem 'jquery-rails'
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails'
+  gem 'coffee-rails'
   gem 'haml-rails'
   gem 'less-rails'
 

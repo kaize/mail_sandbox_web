@@ -16,9 +16,8 @@ class Web::MailApplicationsController < Web::ProtectedApplicationController
   end
 
   def create
-    @application = current_user.mail_applications.build
-    @application = @application.becomes(MailApplicationType)
-    @application.assign_attributes params[:mail_application]
+    @application = MailApplicationType.new(params[:mail_application])
+    @application.owner = current_user
 
     if @application.save
       redirect_to mail_applications_path

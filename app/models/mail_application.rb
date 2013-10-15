@@ -1,6 +1,5 @@
 class MailApplication < ActiveRecord::Base
   include MailApplicationRepository
-  attr_accessible :password, :name
 
   has_many :mail_messages, :dependent => :destroy
   belongs_to :owner, :class_name => 'User'
