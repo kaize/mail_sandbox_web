@@ -12,6 +12,11 @@ class Api::MailApplicationsControllerTest < ActionController::TestCase
     @params = { format: :json }
   end
 
+  test "should get index" do
+    get :index, @params
+    assert_response :success
+  end
+
   test "should get show" do
     get :show, @params.merge(id: @my_application.id)
     assert_response :success
