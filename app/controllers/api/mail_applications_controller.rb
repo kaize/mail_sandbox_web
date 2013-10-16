@@ -1,5 +1,11 @@
 class Api::MailApplicationsController < Api::ProtectedApplicationController
 
+  def index
+    @mail_applications = available_applications.decorate
+
+    respond_with @mail_applications
+  end
+
   def show
     @application = available_applications.find(params[:id]).decorate
     @messages = @application.mail_messages.ordered.page(params[:page]).per(params[:per_page])
