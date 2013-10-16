@@ -4,6 +4,7 @@ dependencies = [
   'app.vendor'
   'app.modules'
   'ngResource'
+  'infinite-scroll'
   'rails'
 ]
 
