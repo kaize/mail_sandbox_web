@@ -1,8 +1,8 @@
 dependencies = [
+  'ui.router'
   'app.services.resources'
   'app.vendor'
   'app.modules'
-  'ui.state'
   'ngResource'
   'rails'
 ]
