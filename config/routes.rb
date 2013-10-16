@@ -13,7 +13,7 @@ MailSandboxWeb::Application.routes.draw do
         get :last_minute_count
       end
     end
-    resources :mail_applications, :only => [:show] do
+    resources :mail_applications, :only => [:index, :show] do
       member do
         put :mark_all_messages_as_read
       end
@@ -21,13 +21,13 @@ MailSandboxWeb::Application.routes.draw do
   end
 
   scope :module => :web do
-    root :to => "welcome#index"
 
     namespace :account do
       root to: 'profile#edit'
       resource :profile, only: [:edit, :update]
     end
 
+    root to: "welcome#index"
     resources :mail_messages, :only => [:index, :show] do
       member do
         get :raw
@@ -38,6 +38,10 @@ MailSandboxWeb::Application.routes.draw do
     resources :mail_applications do
       resources :mail_messages, :only => [:index, :show]
     end
+
+    resource :angular_template, only: [:show]
+
+    get 'mail_applications', to: 'mail_applications#index'
 
     resources :users do
       member do
