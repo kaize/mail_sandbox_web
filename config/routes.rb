@@ -13,7 +13,11 @@ MailSandboxWeb::Application.routes.draw do
         get :last_minute_count
       end
     end
+
     resources :mail_applications, :only => [:index, :show] do
+      scope module: :mail_applications do
+        resources :mail_messages, only: [:index]
+      end
       member do
         put :mark_all_messages_as_read
       end
