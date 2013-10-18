@@ -1,4 +1,5 @@
 class Api::MailApplicationsController < Api::ProtectedApplicationController
+serialization_scope :current_host
 
   def index
     @mail_applications = available_applications.decorate
@@ -8,9 +9,8 @@ class Api::MailApplicationsController < Api::ProtectedApplicationController
 
   def show
     @application = available_applications.find(params[:id]).decorate
-    @messages = @application.mail_messages.ordered.page(params[:page]).per(params[:per_page])
 
-    respond_with @application, @messages
+    respond_with @application
   end
 
   def mark_all_messages_as_read
