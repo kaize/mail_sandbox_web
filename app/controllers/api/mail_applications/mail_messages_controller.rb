@@ -8,7 +8,7 @@ class Api::MailApplications::MailMessagesController < Api::MailApplications::App
       per_page: params[:per_page] || Kaminari.config.default_per_page
     }
 
-    respond_with @messages
+    respond_with @messages, root: "items", meta: meta
   end
 
 end
