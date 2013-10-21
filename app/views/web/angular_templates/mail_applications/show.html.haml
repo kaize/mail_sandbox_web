@@ -9,3 +9,8 @@
     = " :user => '{{mailApp.name}}',"
     = " :password => '{{mailApp.settings.password}}'"
     = "}"
+.container
+  .row
+    .span8
+      = render "web/shared/messages_list"
+    .span4{ "ng-bind-html" => "resourceMessageBody" }
