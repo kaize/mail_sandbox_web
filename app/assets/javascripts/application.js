@@ -17,7 +17,8 @@
 //= require chosen-jquery
 //= require jquery.query-2.1.7
 //= require underscore
-//= require angular
+//= require angular-1.2.0
+//= require angular-sanitize-1.2.0
 //= require angular-bootstrap
 //= require angular-underscore
 //= require angular-resource
