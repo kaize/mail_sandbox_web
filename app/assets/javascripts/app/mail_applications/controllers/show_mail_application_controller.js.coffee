@@ -1,6 +1,6 @@
 angular.module('app.modules.mail_applications.controllers')
   .controller 'ShowMailApplicationController',
-    ($scope, mailApplications, mailMessages, $state, $stateParams) ->
+    ($scope, mailApplications, mailMessages, $state, $stateParams, $sce) ->
       mailApplications.get($stateParams.id).then (mailApp)->
         $scope.mailApp = mailApp
 
@@ -21,3 +21,6 @@ angular.module('app.modules.mail_applications.controllers')
               $scope.current_page++
 
           pages_loaded.push($scope.current_page)
+
+      $scope.showMailAppMessage = (message) ->
+        $scope.resourceMessageBody = $sce.trustAsHtml(message.body)
