@@ -1,5 +1,6 @@
 %p
-  %a.btn.btn-primary(ng-click="new()") New
+  %a.btn.btn-primary{ "ng-click" => "new()" }
+    = t("new")
 
 %table.table.table-hover.mail_applications
   %tr
@@ -7,27 +8,19 @@
     %th.unread_mails_count= t('.unread_mails_count')
     %th.owner= t('.owner')
     %th.actions
-  - @applications.each do |app|
-    %tr{:'data-href' => mail_application_path(app)}
-      %td.clicked= link_to app, app
-      %td.clicked= app.unread_mails_count
-      %td.clicked= app.owner.nickname
+  %div
+    %tr(ng-repeat="mail_app in items")
+      %td
+        %a{ "href" => '', "ng-click" => "show(mail_app)" } {{mail_app.name}}
+      %td {{mail_app.unreadMailsCount}}
+      %td {{mail_app.ownerNickname}}
 
       %td
-        = link_to edit_mail_application_path(app), :class => "btn btn-info nowrap" do
+        %a.btn.btn-info.nowrap{ "ng-click" => "edit(mail_app)" }
           %i.icon-edit
           = t("edit")
-
-        - if current_user.can_delete_app?(app)
-          = link_to mail_application_path(app),
-          :data => { :confirm => t(:are_you_sure?) }, :method => :delete,
-          :class => "btn btn-danger nowrap" do
+        %span{"ng-if" => "mail_app.currentUserCanDeleteApp"}
+          %a.btn.btn-danger.nowrap{ "ng-click" => "delete(mail_app)", data: { :confirm => t(:are_you_sure?) } }
             %i.icon-trash
             = t("delete")
-
-= paginate @applications, :theme => "web"
 %br
-
-%ul
-  %li(ng-repeat="mail_application in items")
-    = link_to "{{mail_application.name}}", "/mail_applications/{{mail_application.id}}"
