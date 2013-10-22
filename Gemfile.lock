@@ -168,12 +168,15 @@ GEM
       file-utils
       simple_pid
     mime-types (1.25)
+    mini_portile (0.5.1)
     minitest (4.3.3)
     multi_json (1.8.2)
     multipart-post (1.2.0)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (2.7.0)
+    nokogiri (1.6.0)
+      mini_portile (~> 0.5.0)
     oauth2 (0.8.1)
       faraday (~> 0.8)
       httpauth (~> 0.1)
@@ -317,6 +320,7 @@ DEPENDENCIES
   mail
   mail_sandbox (~> 0.1.1)
   minitest
+  nokogiri
   omniauth-facebook
   omniauth-github
   pg

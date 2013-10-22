@@ -14,6 +14,8 @@ gem 'state_machine'
 gem 'js-routes'
 gem 'kaminari'
 
+gem 'nokogiri'
+
 gem 'configus'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
