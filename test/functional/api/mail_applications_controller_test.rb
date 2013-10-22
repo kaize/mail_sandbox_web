@@ -22,6 +22,17 @@ class Api::MailApplicationsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should post create" do
+    attrs = attributes_for(:mail_application)
+    post :create, @params.merge(mail_application: attrs)
+
+    assert_response :created
+
+    application = MailApplication.find_by(name: attrs[:name])
+
+    assert { application }
+  end
+
   test "should mark all as read" do
     messages = create_list :mail_message, 2, :mail_application => @my_application
 

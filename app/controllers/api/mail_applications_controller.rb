@@ -1,5 +1,4 @@
 class Api::MailApplicationsController < Api::ProtectedApplicationController
-serialization_scope :current_host
 
   def index
     @mail_applications = available_applications.decorate
@@ -11,6 +10,15 @@ serialization_scope :current_host
     @application = available_applications.find(params[:id]).decorate
 
     respond_with @application
+  end
+
+  def create
+    @application = MailApplicationType.new(params[:mail_application])
+    @application.owner = current_user
+
+    @application.save
+
+    respond_with @application, location: nil
   end
 
   def mark_all_messages_as_read

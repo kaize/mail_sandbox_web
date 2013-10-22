@@ -16,6 +16,8 @@ gem 'kaminari'
 
 gem 'nokogiri'
 
+gem 'wrong'
+
 gem 'configus'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
