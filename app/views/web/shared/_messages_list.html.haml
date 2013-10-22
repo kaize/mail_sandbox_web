@@ -1,38 +1,28 @@
-%table.table.table-hover
+/TODO checkboxes
+%table.table.mail_msg_table.table-hover
   %tr
-    %th
+    %th.cb_ctrl
       = check_box_tag "messages", 1, false, class: "checked_all"
-    %th.read= t(".mark_as")
-    %th= MailMessage.human_attribute_name :recipient
-    %th= MailMessage.human_attribute_name :sender
-    %th= MailMessage.human_attribute_name :subject
-    %th= MailMessage.human_attribute_name :completed_at
-    %th.actions
-  - messages.each do |message|
-    %tr{:'data-href' => mail_message_path(message)}
+    %th
+  /%tr{'ng-repeat' => 'message in mailApp.messages', :'data-href' => Routes.mail_message_path({id: "{{message.id}}"})}
+  %div{"infinite-scroll" => "loadMore()", "infinite-scroll-distance" => "2"}
+    %tr{'ng-repeat' => 'message in mailAppMessages', 'ng-click' => "showMailAppMessage(message)"}
       %td.messages_group.group_actions
-        = check_box_tag "message_#{message.id}"
-      %td
-        - if message.unread?
-          = link_to mark_read_api_mail_message_path(message),
-          :class => "btn btn-success read_msg", :method => :put, :remote => true do
-            %i.icon-ok
-            = t("read")
-      %td.clicked= message.recipient
-      %td.clicked= message.sender
-      %td.clicked= message.mail.subject
-      %td.clicked= message.completed_at
-      %td
-
-        = link_to mail_message_path(message), :class => "btn btn-info nowrap" do
-          %i.icon-eye-open
-          = t("show")
-
-        = link_to api_mail_message_path(message),
-        :data => { :confirm => t(:are_you_sure?) }, :method => :delete, :remote => true,
-        :class => "btn btn-danger nowrap del_msg" do
-          %i.icon-trash
-          = t("delete")
-
-
-= paginate @messages, :theme => "web"
+        %input{id: "message_{{message.id}}", name: "message_{{message.id}}", type: "checkbox", value: 1}
+      / %td
+      /   /%a{'ng-show' => 'message.unread', href: Routes.mark_read_api_mail_message_path({id: "{{message.id}}"}), class: "btn btn-success read_msg", data: {method: "put", remote: true}}
+      /   %a{'ng-show' => 'message.unread', class: "btn btn-success read_msg", data: {method: "put", remote: true}}
+      /     %i{class: "icon-ok"}
+      /     Read
+      %td.clicked
+        .subject {{message.subject}}
+        .meta
+          %dl
+            %dt From:
+            %dd {{message.recipient}}
+          %dl
+            %dt To:
+            %dd {{message.sender}}
+          %dl
+            %dt At:
+            %dd {{message.completedAt}}
