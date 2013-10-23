@@ -16,7 +16,7 @@ MailSandboxWeb::Application.routes.draw do
 
     resources :mail_applications, :only => [:index, :show, :create] do
       scope module: :mail_applications do
-        resources :mail_messages, only: [:index]
+        resources :mail_messages, only: [:index, :show]
       end
       member do
         put :mark_all_messages_as_read

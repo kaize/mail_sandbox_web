@@ -17,4 +17,12 @@ class Api::MailApplications::MailMessagesControllerTest < ActionController::Test
 
     assert_response :success
   end
+
+  test "should get show" do
+    message = create :mail_message, mail_application: @application
+
+    get :show, @params.merge(id: message.id)
+
+    assert_response :success
+  end
 end

@@ -11,4 +11,10 @@ class Api::MailApplications::MailMessagesController < Api::MailApplications::App
     respond_with @messages, root: "items", meta: meta
   end
 
+  def show
+    @message = resource_application.mail_messages.find(params[:id])
+
+    respond_with @message
+  end
+
 end
