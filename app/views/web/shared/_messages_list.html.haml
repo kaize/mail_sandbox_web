@@ -4,8 +4,7 @@
     %th.cb_ctrl
       = check_box_tag "messages", 1, false, class: "checked_all"
     %th
-  /%tr{'ng-repeat' => 'message in mailApp.messages', :'data-href' => Routes.mail_message_path({id: "{{message.id}}"})}
-  %div{"infinite-scroll" => "loadMore()", "infinite-scroll-distance" => "2"}
+  %div{ "infinite-scroll" => "loadMore()", "infinite-scroll-distance" => "2" }
     %tr{'ng-repeat' => 'message in mailAppMessages', 'ng-click' => "showMailAppMessage(message)"}
       %td.messages_group.group_actions
         %input{id: "message_{{message.id}}", name: "message_{{message.id}}", type: "checkbox", value: 1}
@@ -15,7 +14,8 @@
       /     %i{class: "icon-ok"}
       /     Read
       %td.clicked
-        .subject {{message.subject}}
+        .subject{ "ng-class" => "{'bold' : message.state == 'unread'}" }
+          {{message.subject}}
         .meta
           %dl
             %dt From:
