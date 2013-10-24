@@ -1,6 +1,6 @@
 class MailMessageSerializer < ActiveModel::Serializer
   attributes :id, :recipient, :sender, :subject, :body,
-    :state, :completed_at, :mail_application
+    :state, :completed_at, :data, :mail_application
 
   def body
     object.utf8body
