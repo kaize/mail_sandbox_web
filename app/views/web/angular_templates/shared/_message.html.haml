@@ -29,11 +29,13 @@
       \:
     %td
       {{resourceMessage.completedAt}}
-  / %tr
-  /   %td{colspan: 2}
-  /     = link_to "view raw data", raw_mail_message_path(@message)
-  /     |
-  /     = link_to "view without bootstrap", without_bootstrap_mail_message_path(@message)
+  %tr
+    %td{colspan: 2}
+      %a{ "href" => '', "ng-click" => "showMailAppMessageRaw(resourceMessage)" }
+        = t("view raw data")
+      |
+      %a{ "href" => '', "ng-click" => "showMailAppMessageWithoutBootstrap(resourceMessage)" }
+        = t("view without bootstrap")
   - if false
     %tr
       %th{colspan: 2}

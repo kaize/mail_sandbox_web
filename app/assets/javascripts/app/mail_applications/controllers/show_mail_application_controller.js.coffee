@@ -28,3 +28,5 @@ angular.module('app.modules.mail_applications.controllers')
 
       $scope.showMailAppMessageRaw = (message) ->
         $state.transitionTo 'raw_mail_message', { id: message.id, mail_application_id: $stateParams.id }
+      $scope.showMailAppMessageWithoutBootstrap = (message) ->
+        $state.transitionTo 'without_bootstrap_mail_message', { id: message.id, mail_application_id: $stateParams.id }
