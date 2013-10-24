@@ -14,13 +14,4 @@ class Web::MailMessagesController < Web::ProtectedApplicationController
     message.mark_read if message.unread?
   end
 
-  def raw
-    render :text => message.data, :content_type => 'text/plain'
-
-    message.mark_read if message.unread?
-  end
-
-  def without_bootstrap
-    message.mark_read if message.unread?
-  end
 end
