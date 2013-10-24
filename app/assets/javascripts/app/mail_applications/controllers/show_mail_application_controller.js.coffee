@@ -23,4 +23,8 @@ angular.module('app.modules.mail_applications.controllers')
           pages_loaded.push($scope.current_page)
 
       $scope.showMailAppMessage = (message) ->
+        $scope.resourceMessage = message
         $scope.resourceMessageBody = $sce.trustAsHtml(message.body)
+
+      $scope.showMailAppMessageRaw = (message) ->
+        $state.transitionTo 'raw_mail_message', { id: message.id, mail_application_id: $stateParams.id }
