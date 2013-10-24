@@ -23,8 +23,14 @@ angular.module('app').config ($stateProvider, $urlRouterProvider, $locationProvi
       templateUrl: RouterHelper.templateUrl('mail_applications/show')
       controller: 'ShowMailApplicationController'
     )
+
     .state('raw_mail_message',
       url: '/mail_applications/{mail_application_id}/mail_messages/{id}/raw'
       templateUrl: RouterHelper.templateUrl('mail_messages/raw')
       controller: 'RawMailMessageController'
+    )
+    .state('without_bootstrap_mail_message',
+      url: '/mail_applications/{mail_application_id}/mail_messages/{id}/without_bootstrap'
+      templateUrl: RouterHelper.templateUrl('mail_messages/without_bootstrap')
+      controller: 'WithoutBootstrapMailMessageController'
     )
