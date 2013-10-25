@@ -17,4 +17,11 @@ class Api::MailApplications::MailMessagesController < Api::MailApplications::App
     respond_with @message
   end
 
+  def mark_read
+    @message = resource_application.mail_messages.find(params[:id])
+    @message.mark_read
+
+    respond_with @message
+  end
+
 end

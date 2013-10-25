@@ -6,9 +6,6 @@ MailSandboxWeb::Application.routes.draw do
 
   namespace :api do
     resources :mail_messages, :only => [:create, :destroy] do
-      member do
-        put :mark_read
-      end
       collection do
         get :last_minute_count
       end
@@ -16,7 +13,11 @@ MailSandboxWeb::Application.routes.draw do
 
     resources :mail_applications, :only => [:index, :show, :create] do
       scope module: :mail_applications do
-        resources :mail_messages, only: [:index, :show]
+        resources :mail_messages, only: [:index, :show] do
+          member do
+            put :mark_read
+          end
+        end
       end
       member do
         put :mark_all_messages_as_read

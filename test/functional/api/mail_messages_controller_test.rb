@@ -25,13 +25,6 @@ class Api::MailMessagesControllerTest < ActionController::TestCase
     assert_not_nil message
   end
 
-  test "should mark read" do
-    message = create :mail_message, :mail_application => @my_application
-
-    put :mark_read, :id => message.id, :format => :json
-    assert_response :success
-  end
-
   test "should delete" do
     message = create :mail_message, :mail_application => @my_application
 
