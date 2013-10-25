@@ -1,6 +1,8 @@
 class Api::MailApplications::MailMessagesController < Api::MailApplications::ApplicationController
 
   def index
+
+
     @messages = resource_application.mail_messages.ordered.page(params[:page]).per(params[:per_page])
 
     meta = {
@@ -21,7 +23,7 @@ class Api::MailApplications::MailMessagesController < Api::MailApplications::App
     @message = resource_application.mail_messages.find(params[:id])
     @message.mark_read
 
-    respond_with @message
+    respond_with @message, location: nil
   end
 
 end
