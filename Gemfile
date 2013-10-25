@@ -5,6 +5,8 @@ gem 'rails', '4.0.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'faye'
+gem 'thin'
 
 gem 'pg'
 gem 'haml-rails'
