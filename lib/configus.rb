@@ -18,6 +18,8 @@ Configus.build Rails.env do
   env :production do
     host 'mail-sandbox-web.st2.ul.home'
 
+    faye_url '/faye'
+
     airbrake do
       enable? true
       api_key Configus::AIRBRAKE['api_key']
