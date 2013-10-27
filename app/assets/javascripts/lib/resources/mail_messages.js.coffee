@@ -1,7 +1,5 @@
-angular.module('app.services.resources.mail_messages', [])
-  .factory 'mailMessages', (railsResourceFactory, $http) ->
-    $http.defaults.headers['common']['Accept'] = 'application/json'
-
+angular.module('app.resources.mail_messages', [])
+  .factory 'mailMessages', (railsResourceFactory) ->
     mailMessages = railsResourceFactory
       url: Routes.api_mail_application_mail_message_path("{{mail_application_id}}", "{{id}}")
       name: 'mailMessage'
