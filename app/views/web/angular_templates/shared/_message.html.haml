@@ -16,7 +16,7 @@
       = MailMessage.human_attribute_name :mail_application
       \:
     %td
-      {{resourceMessage.mailApplication}}
+      {{resourceMessage.mail_application}}
   %tr
     %th
       = MailMessage.human_attribute_name :subject
@@ -28,7 +28,7 @@
       = MailMessage.human_attribute_name :completed_at
       \:
     %td
-      {{resourceMessage.completedAt}}
+      {{resourceMessage.completed_at}}
   %tr
     %td{colspan: 2}
       %a{ "href" => '', "ng-click" => "showMailAppMessageRaw(resourceMessage)" }

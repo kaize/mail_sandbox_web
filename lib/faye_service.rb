@@ -11,9 +11,9 @@ class FayeService
       @channel  ||= CustomUrlHelpers::faye_message_new_channel_cpath
       @faye_url ||= CustomUrlHelpers::faye_curl
 
-      message = { channel: @channel, data: mail_message }
+      message = { channel: @channel, data: MailMessageSerializer.new(mail_message, root: false) }
       uri = URI.parse(@faye_url)
-      #NOTE: serialize mail_message
+
       Net::HTTP.post_form(uri, message: message.to_json)
     end
 
