@@ -7,8 +7,10 @@ $(function(){
     })
 
     $(".del_selected").on("click", function(){
-        $(".group_actions input:checked")
-            .parents("tr").find(".del_msg").data("confirm", "").click()
+        if (confirm(I18n.t('js.are_you_sure'))) {
+            $(".group_actions input:checked")
+                .parents("tr").find(".del_msg").data("confirm", "").click()
+        }
     });
 
     $(".read_selected").on("click", function(){
