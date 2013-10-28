@@ -4,9 +4,11 @@ angular.module('app.modules.mail_applications.controllers')
       mailApplications.get($stateParams.id).then (mailApp)->
         $scope.mailApp = mailApp
 
-      Faye.subscribe App.config.faye_channel_message_new, (data) ->
-        $scope.mailAppMessages.splice(0, 0, data)
-        $scope.mailAppMessages.pop()
+      Faye.subscribe App.config.faye_channel_message_new, (message) ->
+        console.log(message.mail_application)
+        if ($scope.mailApp.name == message.mail_application)
+          $scope.mailAppMessages.splice(0, 0, message)
+          $scope.mailAppMessages.pop()
 
       $scope.mailAppMessages = []
       $scope.current_page = 1
@@ -26,13 +28,14 @@ angular.module('app.modules.mail_applications.controllers')
           pages_loaded.push($scope.current_page)
 
       $scope.showMailAppMessage = (message) ->
-        console.log(message)
         $scope.resourceMessage = message
 
         #TODO: move to services
         if $scope.resourceMessage.state == 'unread'
           $scope.resourceMessage.state = 'read'
-          mailMessages.markRead({id: message.id, mail_application_id: $stateParams.id})
+
+          params = { id: message.id, mail_application_id: $stateParams.id, state_event: 'mark_read' }
+          new mailMessages(params).update()
 
         $scope.resourceMessageBody = $sce.trustAsHtml(message.body)
 

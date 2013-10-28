@@ -24,8 +24,10 @@ class Api::MailApplications::MailMessagesControllerTest < ActionController::Test
     assert_response :success
   end
 
-  test "should update mark_read" do
-    patch :mark_read, @params.merge(id: @message.id)
+  test "should update patch" do
+    attrs = { state_event: :mark_read }
+
+    patch :update, @params.merge(id: @message.id, mail_message: attrs)
 
     @message.reload
 

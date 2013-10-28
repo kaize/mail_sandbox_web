@@ -1,8 +1,6 @@
 class Api::MailApplications::MailMessagesController < Api::MailApplications::ApplicationController
 
   def index
-
-
     @messages = resource_application.mail_messages.ordered.page(params[:page]).per(params[:per_page])
 
     meta = {
@@ -16,12 +14,17 @@ class Api::MailApplications::MailMessagesController < Api::MailApplications::App
   def show
     @message = resource_application.mail_messages.find(params[:id])
 
+    FayeService.mail_message_new(@message)
+
     respond_with @message
   end
 
-  def mark_read
+  def update
     @message = resource_application.mail_messages.find(params[:id])
-    @message.mark_read
+
+    @message = @message.becomes(MailMessageType)
+
+    @message.update(params[:mail_message])
 
     respond_with @message, location: nil
   end
