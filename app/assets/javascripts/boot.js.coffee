@@ -1,6 +1,7 @@
 dependencies = [
   'ui.router'
   'app.resources'
+  'app.services'
   'app.vendor'
   'app.modules'
   'ngResource'
