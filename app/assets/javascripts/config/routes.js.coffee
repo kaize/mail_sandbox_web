@@ -14,7 +14,7 @@ angular.module('app').config ($stateProvider, $urlRouterProvider, $locationProvi
       controller: 'NewMailApplicationController'
     )
     .state('edit_mail_application',
-      url: '/mail_applications/edit'
+      url: '/mail_applications/{id}/edit'
       templateUrl: RouterHelper.templateUrl('mail_applications/edit')
       controller: 'EditMailApplicationController'
     )

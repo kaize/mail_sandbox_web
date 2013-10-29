@@ -15,6 +15,9 @@ angular.module('app.modules.mail_applications.controllers')
       $scope.total_pages = 1
       pages_loaded = []
 
+      $scope.editMailApp = (mailApp) ->
+        $state.transitionTo 'edit_mail_application', { id: mailApp.id }
+
       $scope.loadMore = ->
         if $scope.total_pages >= $scope.current_page
           if !_.include(pages_loaded, $scope.current_page)

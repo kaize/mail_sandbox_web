@@ -1,16 +1,12 @@
 /FIXME
 %h1 {{mailApp.name}}
 
-%pre
-  %code
-    = "config.action_mailer.smtp_settings = {"
-    = " :address => '{{mailApp.settings.address}}',"
-    = " :port => '{{mailApp.settings.port}}',"
-    = " :user => '{{mailApp.name}}',"
-    = " :password => '{{mailApp.settings.password}}'"
-    = "}"
-
 .container
+  .row
+    .well
+      %a{ "href" => '', "ng-click" => "editMailApp(mailApp)" }
+        = t("settings")
+
   .row
     .span4
       .well
