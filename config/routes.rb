@@ -11,7 +11,7 @@ MailSandboxWeb::Application.routes.draw do
       end
     end
 
-    resources :mail_applications, :only => [:index, :show, :create] do
+    resources :mail_applications, :only => [:index, :show, :create, :update] do
       scope module: :mail_applications do
         resources :mail_messages, only: [:index, :show, :update]
       end

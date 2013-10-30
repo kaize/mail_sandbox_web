@@ -33,6 +33,17 @@ class Api::MailApplicationsControllerTest < ActionController::TestCase
     assert { application }
   end
 
+  test "should patch update" do
+    attrs = attributes_for(:mail_application)
+    patch :update, @params.merge(id: @my_application.id, mail_application: attrs)
+
+    @my_application.reload
+
+    application = MailApplication.find_by(name: attrs[:name])
+
+    assert { attrs[:name] == @my_application.name }
+  end
+
   test "should mark all as read" do
     messages = create_list :mail_message, 2, :mail_application => @my_application
 

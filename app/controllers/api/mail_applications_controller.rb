@@ -21,6 +21,15 @@ class Api::MailApplicationsController < Api::ProtectedApplicationController
     respond_with @application, location: nil
   end
 
+  def update
+    @application = available_applications.find(params[:id])
+    @application = @application.becomes(MailApplicationType)
+
+    @application.update(params[:mail_application])
+
+    respond_with @application, location: nil
+  end
+
   def mark_all_messages_as_read
     application = available_applications.find(params[:id])
     messages = application.mail_messages.unreaded
