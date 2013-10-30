@@ -1,0 +1,5 @@
+%form(name="form" ng-submit="save()")
+  %form-field(ng-model="mailApp.name" errors="form.errors.name") Name
+  %form-field(ng-model="mailApp.settings.password" errors="form.errors.settings.password" ng-disabled="true") Password
+
+  %button.btn.btn-prmary Save
