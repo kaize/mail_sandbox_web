@@ -231,6 +231,10 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.12.0)
     rake (10.1.0)
+    ransack (1.0.0)
+      actionpack (>= 3.0)
+      activerecord (>= 3.0)
+      polyamorous (~> 0.6.0)
     ref (1.0.5)
     request_store (1.0.5)
     ruby2ruby (2.0.6)
@@ -358,6 +362,7 @@ DEPENDENCIES
   omniauth-github
   pg
   rails (= 4.0.0)
+  ransack
   sass-rails
   simple_form
   simplecov

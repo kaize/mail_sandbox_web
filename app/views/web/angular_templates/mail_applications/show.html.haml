@@ -26,6 +26,9 @@
           %i.icon-ok
           = t("mark_all_as_read")
 
+      .well
+        = render "web/angular_templates/shared/message_filter"
+
       = render "web/angular_templates/shared/messages_list"
     .span8
       %span{ "ng-show" => "resourceMessage" }

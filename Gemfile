@@ -13,6 +13,7 @@ gem 'haml-rails'
 gem 'simple_form'
 gem 'draper'
 gem 'state_machine'
+gem 'ransack'
 gem 'js-routes'
 gem 'kaminari'
 

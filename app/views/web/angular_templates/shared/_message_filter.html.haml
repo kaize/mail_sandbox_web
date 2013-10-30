@@ -1,0 +1,10 @@
+%form(name="form" ng-submit="ransackParamsPicking()")
+  %form-field(ng-model="messageFilterMask.state") State
+  %form-field(ng-model="messageFilterMask.recipient") Recipient
+  %form-field(ng-model="messageFilterMask.sender") Sender
+  %form-field(ng-model="messageFilterMask.completed_at") Completed At
+  %form-field(ng-model="messageFilterMask.subject") Subject
+
+  .actions
+    %button.btn.btn-info Apply
+    %button.btn.btn-danger{"ng-click" => "ransackParamsDrop()"} Clean

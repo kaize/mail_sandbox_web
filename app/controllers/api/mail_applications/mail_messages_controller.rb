@@ -1,7 +1,8 @@
 class Api::MailApplications::MailMessagesController < Api::MailApplications::ApplicationController
 
   def index
-    @messages = resource_application.mail_messages.ordered.page(params[:page]).per(params[:per_page])
+    scope = resource_application.mail_messages.ordered.page(params[:page]).per(params[:per_page]).ransack(params[:q])
+    @messages = scope.result
 
     meta = {
       total_pages: @messages.total_pages,
@@ -13,8 +14,6 @@ class Api::MailApplications::MailMessagesController < Api::MailApplications::App
 
   def show
     @message = resource_application.mail_messages.find(params[:id])
-
-    FayeService.mail_message_new(@message)
 
     respond_with @message
   end

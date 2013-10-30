@@ -3,6 +3,7 @@ dependencies = [
   'app.resources'
   'app.directives'
   'app.notifications'
+  'app.helpers'
   'app.services'
   'app.vendor'
   'app.modules'
