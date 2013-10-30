@@ -7,6 +7,7 @@ angular.module('app.directives').directive 'formField', ($parse, $compile) ->
     type: '@'
     ngModel: '='
     errors: '='
+    ngDisabled: '='
 
   link: ($scope, $element, $attrs) ->
     $scope.getType = -> $scope.type or 'text'
