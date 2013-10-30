@@ -40,8 +40,8 @@
             .flash(ng-controller="NotificationsController")
               %div(ng-show="isVisible()" class="alert alert-{{notification.type}}" ng-bind="notification.message")
 
-
-            = yield
+            .content(ui-view)
+              = yield
 
       %footer
         %p &copy; Company 2013
