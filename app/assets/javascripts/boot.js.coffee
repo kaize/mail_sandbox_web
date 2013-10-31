@@ -1,6 +1,7 @@
 dependencies = [
   'ui.router'
   'ui.select2'
+  'ui.bootstrap'
 
   'app.resources'
   'app.directives'
