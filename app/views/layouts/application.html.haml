@@ -20,7 +20,7 @@
   %body
     .navbar.navbar-fixed-top
       .navbar-inner
-        .container
+        .container-fluid
           %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
             %span.icon-bar
             %span.icon-bar
@@ -31,10 +31,10 @@
               = render 'web/shared/main_menu'
               = render 'web/shared/login_menu'
 
-    .container
+    .container-fluid
 
       .content
-        .row
+        .row-fluid
           .span12
             = render "web/shared/flash_messages"
             .flash(ng-controller="NotificationsController")
