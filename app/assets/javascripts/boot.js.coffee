@@ -1,7 +1,7 @@
 dependencies = [
   'ui.router'
   'ui.select2'
-  'ui.bootstrap'
+  '$strap.directives'
 
   'app.resources'
   'app.directives'

@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require select2
+//= require bootstrap-datepicker
 //= require js-routes
 //= require twitter/bootstrap
 //= require chosen-jquery
