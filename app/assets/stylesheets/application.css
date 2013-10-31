@@ -19,3 +19,13 @@
 #directives-select2 select {
   width: 200px;
 }
+
+.select2 {
+  width: 300px;
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+
+.select2-result-label {
+  font-size: 12px;
+}
