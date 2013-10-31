@@ -1,5 +1,7 @@
 dependencies = [
   'ui.router'
+  'ui.select2'
+
   'app.resources'
   'app.directives'
   'app.notifications'
@@ -7,6 +9,7 @@ dependencies = [
   'app.services'
   'app.vendor'
   'app.modules'
+
   'ngResource'
   'ngSanitize'
   'infinite-scroll'
