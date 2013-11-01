@@ -1,8 +1,21 @@
 angular.module('app.modules.mail_applications.controllers')
   .controller 'ShowMailApplicationController',
-    ($scope, mailApplications, mailMessagesHelper, mailMessages, Faye, $state, $stateParams, $sce) ->
+    ($scope, mailApplications, mailMessages, Faye, $state, $stateParams, $sce, _) ->
+
       mailApplications.get($stateParams.id).then (mailApp)->
         $scope.mailApp = mailApp
+
+      $scope.$on('filter_form:submit', (event, filterParams) ->
+        resetPaginationParams()
+
+        $scope.filterParams = filterParams
+        )
+
+      $scope.$on('filter_form:cancel', (event) ->
+        resetPaginationParams()
+
+        $scope.filterParams = {}
+        )
 
       Faye.subscribe App.config.faye_channel_message_new, (message) ->
         console.log(message.mail_application)
@@ -16,16 +29,7 @@ angular.module('app.modules.mail_applications.controllers')
         $scope.total_pages = 1
         $scope.pages_loaded = []
 
-      $scope.mailMessageFilter = {}
       resetPaginationParams()
-
-      $scope.ransackParamsPicking = ->
-        resetPaginationParams()
-        $scope.ransack_params = mailMessagesHelper.ransackParamsFilling($scope.messageFilterMask)
-
-      $scope.ransackParamsDrop = ->
-        resetPaginationParams()
-        $scope.messageFilterMask = {}
 
       $scope.editMailApp = (mailApp) ->
         $state.transitionTo 'edit_mail_application', { id: mailApp.id }
@@ -35,7 +39,7 @@ angular.module('app.modules.mail_applications.controllers')
           if !_.include($scope.pages_loaded, $scope.current_page)
 
             params = { page: $scope.current_page }
-            mailMessages.query(_.extend(params, $scope.ransack_params), { mail_application_id: $stateParams.id }).then (results) ->
+            mailMessages.query(_.extend(params, $scope.filterParams), { mail_application_id: $stateParams.id }).then (results) ->
               $scope.mailAppMessages = $scope.mailAppMessages.concat(results.items)
 
               $scope.total_pages = results.meta.total_pages
