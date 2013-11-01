@@ -10,6 +10,7 @@ MailSandboxWeb::Application.routes.draw do
         get :last_minute_count
       end
     end
+    resources :users, only: [:index]
 
     resources :mail_applications, :only => [:index, :show, :create, :update] do
       scope module: :mail_applications do
