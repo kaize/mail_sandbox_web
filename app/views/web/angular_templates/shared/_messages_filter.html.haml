@@ -1,42 +1,48 @@
-%form.form-horizontal.mail_msg_filter(name="form" ng-controller="FilterMessagesController"
+%form.form-horizontal.form-inline.mail_msg_filter(name="form" ng-controller="FilterMessagesController"
   ng-submit="filterParamsPicking()")
 
-  %label add filter
-  %select(ng-model="selectedFilter" ng-change="addFilter()" )
-    %option
-    %option(ng-repeat="opt in options | filter: { isSelected: 'false' }" ng-value="opt.title" ng-bind="opt.title")
+  .row-fluid.filter_select_block
+    .span7.offset5
+      %label.d_ib add filter
+      %select.filter_item_select.d_ib(ng-model="selectedFilter" ng-change="addFilter()" )
+        %option
+        %option(ng-repeat="opt in options | filter: { isSelected: 'false' }" ng-value="opt.title" ng-bind="opt.title")
 
-  %div(ng-if="hasFilter('state')")
-    %select.select2(placeholder="State" ng-model="messagesFilterMask.state" ui-select2="{allowClear: true}")
-      %option
-      %option(value="read")   read
-      %option(value="unread") unread
-    %i.icon-remove(ng-click="removeFilter('state')")
+  .filter_items
 
-  %div(ng-if="hasFilter('recipient')")
-    %select.select2(placeholder="Recipient" ng-model="messagesFilterMask.recipient" ui-select2="{allowClear: true}")
-      %option
-      %option(ng-repeat="recipient in mailApp.recipients" value="{{recipient}}") {{recipient}}
-    %i.icon-remove(ng-click="removeFilter('recipient')")
+    %div.filter_item(filter-item-show="hasFilter('state')")
+      %select.select2(placeholder="State" ng-model="messagesFilterMask.state" ui-select2="{allowClear: true}")
+        %option
+        %option(value="read")   read
+        %option(value="unread") unread
+      %i.icon-remove(ng-click="removeFilter('state')")
 
-  %div(ng-if="hasFilter('sender')")
-    %select.select2(placeholder="Sender" ng-model="messagesFilterMask.sender" ui-select2="{allowClear: true}")
-      %option
-      %option(ng-repeat="sender in mailApp.senders" value="{{sender}}") {{sender}}
-    %i.icon-remove(ng-click="removeFilter('sender')")
+    %div.filter_item(filter-item-show="hasFilter('recipient')")
+      %select.select2(placeholder="Recipient" ng-model="messagesFilterMask.recipient" ui-select2="{allowClear: true}")
+        %option
+        %option(ng-repeat="recipient in mailApp.recipients" value="{{recipient}}") {{recipient}}
+      %i.icon-remove(ng-click="removeFilter('recipient')")
 
-  %div(ng-if="hasFilter('completed_at')")
-    .input-append
-      %input.datep(bs-datepicker="" placeholder="Completed At" date-format="yyyy-mm-dd" ng-model= "messagesFilterMask.completed_at" type="text")
-      %button.btn(data-toggle="datepicker" type="button")
-        %i.icon-calendar
-    %i.icon-remove(ng-click="removeFilter('completed_at')")
+    %div.filter_item(filter-item-show="hasFilter('sender')")
+      %select.select2(placeholder="Sender" ng-model="messagesFilterMask.sender" ui-select2="{allowClear: true}")
+        %option
+        %option(ng-repeat="sender in mailApp.senders" value="{{sender}}") {{sender}}
+      %i.icon-remove(ng-click="removeFilter('sender')")
 
-  %div(ng-if="hasFilter('subject')")
-    .input-append.filter_item
-      %input.simple2(ng-model="messagesFilterMask.subject" placeholder="Subject" type="text")
-    %i.icon-remove(ng-click= "removeFilter('subject')")
+    %div.filter_item(filter-item-show="hasFilter('completed_at')")
+      .input-append
+        %input(bs-datepicker="" placeholder="Completed At" date-format="yyyy-mm-dd" ng-model= "messagesFilterMask.completed_at" type="text")
+        %button.btn(data-toggle="datepicker" type="button")
+          %i.icon-calendar
+      %i.icon-remove(ng-click="removeFilter('completed_at')")
+
+    %div.filter_item(filter-item-show="hasFilter('subject')")
+      .input-append
+        %input.simple_input(ng-model="messagesFilterMask.subject" placeholder="Subject" type="text")
+      %i.icon-remove(ng-click= "removeFilter('subject')")
 
   .actions
-    %button.btn.btn-info Apply
-    %button.btn.btn-danger(ng-click="filterParamsDrop()") Clean
+    .row-fluid
+      .span9.offset3
+        %button.btn.btn-info Apply
+        %button.btn.btn-danger(ng-click="filterParamsDrop()") Clean
