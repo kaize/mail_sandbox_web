@@ -10,24 +10,7 @@
   .row-fluid
     .span4
       .well
-        = link_to "#",
-        :data => { :confirm => t(:are_you_sure?) },
-        :class => "btn btn-danger del_selected" do
-          %i.icon-trash
-          = t("delete_selected")
-
-        = link_to "#",
-        :class => "btn btn-success read_selected", :method => :put, :remote => true do
-          %i.icon-ok
-          = t("read_selected")
-
-        = link_to mark_all_messages_as_read_api_mail_application_path(@application),
-          :class => "btn btn-success mark_all_as_read", :method => :put, :remote => true do
-          %i.icon-ok
-          = t("mark_all_as_read")
-
-      .well
-        = render "web/angular_templates/shared/message_filter"
+        = render "web/angular_templates/shared/messages_filter"
 
       = render "web/angular_templates/shared/messages_list"
     .span8
