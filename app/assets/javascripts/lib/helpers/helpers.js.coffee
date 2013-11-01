@@ -1,3 +1,3 @@
 angular.module('app.helpers', [
-  'app.helpers.mail_messages'
+  'app.helpers.messages_filter'
 ])
