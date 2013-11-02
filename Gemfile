@@ -7,7 +7,6 @@ gem 'rails', '4.0.0'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'faye'
 gem 'thin'
-
 gem 'pg'
 gem 'haml-rails'
 gem 'simple_form'
@@ -20,6 +19,8 @@ gem 'kaminari'
 gem 'nokogiri'
 
 gem 'wrong'
+
+gem 'select2-rails'
 
 gem 'configus'
 gem 'omniauth-facebook'
