@@ -2,6 +2,7 @@ dependencies = [
   'ui.router'
   'ui.select2'
   '$strap.directives'
+  'scroll'
 
   'app.resources'
   'app.directives'
@@ -13,7 +14,6 @@ dependencies = [
 
   'ngResource'
   'ngSanitize'
-  'infinite-scroll'
   'rails'
 ]
 

@@ -25,7 +25,6 @@
 //= require angular-underscore
 //= require angular-resource
 //= require angular-ui-router
-//= require ng-infinite-scroll
 //= require angularjs/rails/resource
 //= require ./boot
 //= require ./vendor/vendor

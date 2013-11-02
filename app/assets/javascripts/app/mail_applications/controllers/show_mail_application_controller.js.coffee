@@ -9,12 +9,16 @@ angular.module('app.modules.mail_applications.controllers')
         resetPaginationParams()
 
         $scope.filterParams = filterParams
+
+        $scope.loadMore()
         )
 
       $scope.$on('filter_form:cancel', (event) ->
         resetPaginationParams()
 
         $scope.filterParams = {}
+
+        $scope.loadMore()
         )
 
       Faye.subscribe App.config.faye_channel_message_new, (message) ->
@@ -47,6 +51,8 @@ angular.module('app.modules.mail_applications.controllers')
               $scope.current_page++
 
           $scope.pages_loaded.push($scope.current_page)
+
+      $scope.loadMore()
 
       $scope.showMailAppMessage = (message) ->
         $scope.resourceMessage = message

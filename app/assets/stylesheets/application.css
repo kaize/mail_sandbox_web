@@ -15,3 +15,8 @@
 .nowrap{
     white-space: nowrap;
 }
+
+.mail_msg_container {
+    height: 300px;
+    overflow: auto;
+}
