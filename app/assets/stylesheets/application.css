@@ -21,3 +21,8 @@
     height: 300px;
     overflow: auto;
 }
+
+.mail_msg_form .chosen {
+  width: 400px;
+  margin-bottom: 20px;
+}
