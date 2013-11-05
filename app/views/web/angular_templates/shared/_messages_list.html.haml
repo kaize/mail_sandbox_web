@@ -3,7 +3,7 @@
     %div
       %tr{ 'ng-repeat' => 'message in mailAppMessages', 'ng-click' => "showMailAppMessage(message)" }
         %td.cb_ctrl
-          %input{ "type" => "checkbox", "ng-model" => "message.isChecked", "ng-value" => "message.id" }
+          %input{ "type" => "checkbox", "ng-model" => "message.isChecked", "ng-value" => "message.id", "ng-checked" => "isChecked(message)" }
         %td.clicked
           .subject{ "ng-class" => "{'bold' : message.state == 'unread'}" }
             {{message.subject}}

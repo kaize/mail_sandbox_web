@@ -28,11 +28,34 @@ angular.module('app.modules.mail_applications.controllers')
           $scope.mailAppMessages.pop()
           $scope.$apply()
 
+
+
       resetPaginationParams = ->
         $scope.mailAppMessages = []
         $scope.current_page = 1
         $scope.total_pages = 1
         $scope.pages_loaded = []
+
+      $scope.masterChbox = false
+
+      $scope.isChecked = (message) ->
+        message.isChecked
+
+      $scope.checkAll = ->
+        _.map($scope.mailAppMessages, (message) ->
+          message.isChecked = true
+        )
+
+      $scope.unCheckAll = ->
+        _.map($scope.mailAppMessages, (message) ->
+          message.isChecked = false
+        )
+
+      $scope.onMasterChboxChange = ->
+        if $scope.masterChbox == true
+          $scope.checkAll()
+        else
+          $scope.unCheckAll()
 
       resetPaginationParams()
 

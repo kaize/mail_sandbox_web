@@ -9,7 +9,7 @@
       .well
         = render "web/angular_templates/shared/messages_filter"
       .well.mail_msg_group_actions
-        %input{ type: "checkbox" }
+        %input{ type: "checkbox", "ng-model" => "masterChbox", "ng-change" => "onMasterChboxChange()"}
         %i.icon-trash
         %i.icon-ok
 
