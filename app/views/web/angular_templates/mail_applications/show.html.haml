@@ -1,6 +1,3 @@
-/FIXME
-%h1 {{mailApp.name}}
-
 .container-fluid
   .row-fluid
     .well
@@ -11,6 +8,10 @@
     .span4
       .well
         = render "web/angular_templates/shared/messages_filter"
+      .well.mail_msg_group_actions
+        %input{ type: "checkbox" }
+        %i.icon-trash
+        %i.icon-ok
 
       = render "web/angular_templates/shared/messages_list"
     .span8

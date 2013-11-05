@@ -1,0 +1,21 @@
+.mail_msg_group_actions {
+  position: relative;
+  margin: 0;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border: 0;
+  border-bottom: 1px solid rgba(0,0,0, .20);
+  padding: 15px 12px;
+}
+
+.mail_msg_group_actions:after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid rgba(0,0,0, .12);
+  border-bottom: 1px solid rgba(0,0,0, .04);
+}
