@@ -10,6 +10,7 @@ end
 
 json.recipients  recipient_list(application)
 json.senders     sender_list(application)
+json.members     application.members
 
 json.owner_nickname               application.owner.nickname
 json.unread_mails_count           application.unread_mails_count
