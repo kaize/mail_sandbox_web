@@ -22,10 +22,11 @@ angular.module('app.modules.mail_applications.controllers')
         )
 
       Faye.subscribe App.config.faye_channel_message_new, (message) ->
-        console.log(message.mail_application)
-        if ($scope.mailApp.name == message.mail_application)
+        if $scope.mailApp.name == message.mail_application
+
           $scope.mailAppMessages.splice(0, 0, message)
           $scope.mailAppMessages.pop()
+          $scope.$apply()
 
       resetPaginationParams = ->
         $scope.mailAppMessages = []
@@ -57,7 +58,6 @@ angular.module('app.modules.mail_applications.controllers')
       $scope.showMailAppMessage = (message) ->
         $scope.resourceMessage = message
 
-        #TODO: move to services
         if $scope.resourceMessage.state == 'unread'
           $scope.resourceMessage.state = 'read'
 

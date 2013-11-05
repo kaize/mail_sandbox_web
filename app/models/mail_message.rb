@@ -5,6 +5,13 @@ class MailMessage < ActiveRecord::Base
 
   validates :mail_application, :presence => true
 
+  after_create :init, :if => :new_record?
+
+  after_create :faye_message
+
+  scope :unread, -> { where(state: "unread") }
+  scope :last_minute, -> { where('created_at >= ?', 1.minute.ago.utc) }
+
   state_machine :state, :initial => :unread do
     state :unread
     state :read
@@ -38,5 +45,11 @@ class MailMessage < ActiveRecord::Base
   ransacker :completed_at_casted do |parent|
     Arel::Nodes::SqlLiteral.new("date(mail_messages.completed_at)")
   end
+
+  private
+
+    def faye_message
+      FayeService.mail_message_new(self)
+    end
 
 end
