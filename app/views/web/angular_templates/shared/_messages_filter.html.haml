@@ -15,31 +15,31 @@
         %option
         %option(value="read")   read
         %option(value="unread") unread
-      %i.icon-remove(ng-click="removeFilter('state')")
+      %i.icon-remove.icon(ng-click="removeFilter('state')")
 
     %div.filter_item(filter-item-show="hasFilter('recipient')")
       %select.select2(placeholder="Recipient" ng-model="messagesFilterMask.recipient" ui-select2="{allowClear: true}")
         %option
         %option(ng-repeat="recipient in mailApp.recipients" value="{{recipient}}") {{recipient}}
-      %i.icon-remove(ng-click="removeFilter('recipient')")
+      %i.icon-remove.icon(ng-click="removeFilter('recipient')")
 
     %div.filter_item(filter-item-show="hasFilter('sender')")
       %select.select2(placeholder="Sender" ng-model="messagesFilterMask.sender" ui-select2="{allowClear: true}")
         %option
         %option(ng-repeat="sender in mailApp.senders" value="{{sender}}") {{sender}}
-      %i.icon-remove(ng-click="removeFilter('sender')")
+      %i.icon-remove.icon(ng-click="removeFilter('sender')")
 
     %div.filter_item(filter-item-show="hasFilter('completed_at')")
       .input-append
         %input(bs-datepicker="" placeholder="Completed At" date-format="yyyy-mm-dd" ng-model= "messagesFilterMask.completed_at" type="text")
         %button.btn(data-toggle="datepicker" type="button")
           %i.icon-calendar
-      %i.icon-remove(ng-click="removeFilter('completed_at')")
+      %i.icon-remove.icon(ng-click="removeFilter('completed_at')")
 
     %div.filter_item(filter-item-show="hasFilter('subject')")
       .input-append
         %input.simple_input(ng-model="messagesFilterMask.subject" placeholder="Subject" type="text")
-      %i.icon-remove(ng-click= "removeFilter('subject')")
+      %i.icon-remove.icon(ng-click= "removeFilter('subject')")
 
   .actions
     .row-fluid

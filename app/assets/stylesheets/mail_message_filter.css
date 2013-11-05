@@ -2,6 +2,10 @@
   margin: 0;
 }
 
+.mail_msg_filter .icon {
+  cursor: pointer;
+}
+
 .mail_msg_filter .filter_select_block {
   margin: 0 0 20px;
 }
