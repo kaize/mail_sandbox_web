@@ -1,19 +1,9 @@
-/TODO checkboxes
 .mail_msg_container{ "when-scrolled" => "loadMore()" }
   %table.table.mail_msg_table.table-hover
-    %tr
-      %th.cb_ctrl
-        = check_box_tag "messages", 1, false, class: "checked_all"
-      %th
     %div
-      %tr{'ng-repeat' => 'message in mailAppMessages', 'ng-click' => "showMailAppMessage(message)"}
-        %td.messages_group.group_actions
-          %input{id: "message_{{message.id}}", name: "message_{{message.id}}", type: "checkbox", value: 1}
-        / %td
-        /   /%a{'ng-show' => 'message.unread', href: Routes.mark_read_api_mail_message_path({id: "{{message.id}}"}), class: "btn btn-success read_msg", data: {method: "put", remote: true}}
-        /   %a{'ng-show' => 'message.unread', class: "btn btn-success read_msg", data: {method: "put", remote: true}}
-        /     %i{class: "icon-ok"}
-        /     Read
+      %tr{ 'ng-repeat' => 'message in mailAppMessages', 'ng-click' => "showMailAppMessage(message)" }
+        %td.cb_ctrl
+          %input{ "type" => "checkbox", "ng-model" => "message.isChecked", "ng-value" => "message.id" }
         %td.clicked
           .subject{ "ng-class" => "{'bold' : message.state == 'unread'}" }
             {{message.subject}}
