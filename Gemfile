@@ -29,6 +29,7 @@ gem 'airbrake'
 gem 'virtus'
 
 gem 'active_model_serializers'
+gem 'rails-observers'
 
 gem 'angularjs-rails'
 gem 'angularjs-rails-resource'
@@ -83,6 +84,7 @@ group :development do
   gem 'letter_opener_web'
   gem 'undev', '>=0.2.1'
   gem 'vendorer'
+  gem 'pry-rails'
 end
 
 
