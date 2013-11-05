@@ -28,8 +28,6 @@ angular.module('app.modules.mail_applications.controllers')
           $scope.mailAppMessages.pop()
           $scope.$apply()
 
-
-
       resetPaginationParams = ->
         $scope.mailAppMessages = []
         $scope.current_page = 1
@@ -52,7 +50,7 @@ angular.module('app.modules.mail_applications.controllers')
         )
 
       $scope.onMasterChboxChange = ->
-        if $scope.masterChbox == true
+        if $scope.masterChbox
           $scope.checkAll()
         else
           $scope.unCheckAll()
