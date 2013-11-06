@@ -30,12 +30,6 @@ MailSandboxWeb::Application.routes.draw do
     end
 
     root to: "welcome#index"
-    resources :mail_messages, :only => [:index, :show] do
-      member do
-        get :raw
-        get :without_bootstrap
-      end
-    end
 
     resources :mail_applications do
       resources :mail_messages, :only => [:index, :show]
