@@ -1,5 +1,5 @@
 class MailApplicationUserType < MailApplicationUser
-  include BaseType
+  include ApplicationType
 
   permit :mail_application, :user
 end

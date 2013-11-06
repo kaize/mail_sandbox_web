@@ -1,5 +1,5 @@
 class FacebookType < User::Facebook
-  include BaseType
+  include ApplicationType
 
   permit :uid
 end

@@ -1,5 +1,5 @@
 class GithubType < User::Github
-  include BaseType
+  include ApplicationType
 
   permit :uid
 end
