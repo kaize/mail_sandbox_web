@@ -1,8 +1,12 @@
+require 'sidekiq/web'
+
 MailSandboxWeb::Application.routes.draw do
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
+
+  mount Sidekiq::Web, at: "/sidekiq"
 
   namespace :api do
     resources :mail_messages, :only => [:create, :destroy] do
@@ -12,9 +16,13 @@ MailSandboxWeb::Application.routes.draw do
     end
     resources :users, only: [:index]
 
-    resources :mail_applications, :only => [:index, :show, :create, :update] do
+    resources :mail_applications, only: [:index, :show, :create, :update] do
       scope module: :mail_applications do
-        resources :mail_messages, only: [:index, :show, :update]
+        resources :mail_messages, only: [:index, :show, :update] do
+          collection do
+            patch :batch_update
+          end
+        end
       end
       member do
         put :mark_all_messages_as_read

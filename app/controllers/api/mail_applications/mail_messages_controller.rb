@@ -28,4 +28,10 @@ class Api::MailApplications::MailMessagesController < Api::MailApplications::App
     respond_with @message, location: nil
   end
 
+  def batch_update
+    MailMessagesUpdateWorker.perform_async(params)
+
+    respond_with nil, location: nil
+  end
+
 end

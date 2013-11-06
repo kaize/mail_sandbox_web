@@ -20,6 +20,9 @@ gem 'nokogiri'
 
 gem 'wrong'
 
+gem 'sidekiq'
+gem 'sinatra', require: false
+
 gem 'select2-rails'
 
 gem 'configus'
@@ -64,6 +67,7 @@ group :test do
   gem 'factory_girl_rails', require: false
   gem 'tconsole'
   gem 'simplecov', require: false
+  gem 'mocha', require: false
 end
 
 # To use ActiveModel has_secure_password
