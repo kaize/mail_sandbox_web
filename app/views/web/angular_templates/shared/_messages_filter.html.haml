@@ -1,13 +1,6 @@
 %form.form-horizontal.form-inline.mail_msg_filter(name="form" ng-controller="FilterMessagesController"
   ng-submit="filterParamsPicking()")
 
-  .row-fluid.filter_select_block
-    .span7.offset5
-      %label.d_ib add filter
-      %select.filter_item_select.d_ib(ng-model="selectedFilter" ng-change="addFilter()" )
-        %option
-        %option(ng-repeat="opt in options | filter: { isSelected: 'false' }" ng-value="opt.title" ng-bind="opt.title")
-
   .filter_items
 
     %div.filter_item(filter-item-show="hasFilter('state')")
@@ -40,6 +33,13 @@
       .input-append
         %input.simple_input(ng-model="messagesFilterMask.subject" placeholder="Subject" type="text")
       %i.icon-remove.icon(ng-click= "removeFilter('subject')")
+
+  .row-fluid.filter_select_block
+    .span7.offset5
+      %label.d_ib add filter
+      %select.filter_item_select.d_ib(ng-model="selectedFilter" ng-change="addFilter()" )
+        %option
+        %option(ng-repeat="opt in options | filter: { isSelected: 'false' }" ng-value="opt.title" ng-bind="opt.title")
 
   .actions
     .row-fluid

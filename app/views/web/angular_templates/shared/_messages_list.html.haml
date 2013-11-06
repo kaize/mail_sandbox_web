@@ -1,12 +1,13 @@
 .mail_msg_container{ "when-scrolled" => "loadMore()" }
   %table.table.mail_msg_table.table-hover
     %div
-      %tr{ 'ng-repeat' => 'message in mailAppMessages', 'ng-click' => "showMailAppMessage(message)" }
-        %td.cb_ctrl
+      %tr{ 'ng-repeat' => 'message in mailAppMessages' }
+        %td.cb_ctrl_cell
           %input{ "type" => "checkbox", "ng-model" => "message.isChecked", "ng-value" => "message.id", "ng-checked" => "isChecked(message)" }
-        %td.clicked
-          .subject{ "ng-class" => "{'bold' : message.state == 'unread'}" }
-            {{message.subject}}
+        %td
+          .subject{ "ng-class" => "{'bold' : message.state == 'unread'}", 'ng-click' => "showMailAppMessage(message)" }
+            %span
+              {{message.subject}}
           .meta
             %dl
               %dt From:

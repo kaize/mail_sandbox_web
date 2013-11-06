@@ -26,3 +26,18 @@
   width: 400px;
   margin-bottom: 20px;
 }
+
+.mail_msg_box {
+  background-color: #fff;
+  padding: 0;
+}
+
+.mail_msg_filter_container {
+  padding: 20px;
+  background-color: #f5f5f5;
+  margin: 0;
+  border-radius: 4px 4px 0 0;
+  -webkit-border-radius: 4px 4px 0 0;
+  -mos-border-radius: 4px 4px 0 0;
+  border-bottom: 1px solid #fff;
+}

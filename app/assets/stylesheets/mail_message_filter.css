@@ -25,11 +25,11 @@
 .mail_msg_filter .input-append input {
   padding-top: 3px;
   padding-bottom: 3px;
-  width :260px;
+  width: 262px;
 }
 
 .mail_msg_filter .input-append .simple_input {
-  width: 300px;
+  /*width: 300px;*/
   border-radius: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -39,6 +39,7 @@
 .mail_msg_filter .input-append .btn {
   padding-top: 3px;
   padding-bottom: 3px;
+  margin-right: 0;
 }
 
 .mail_msg_filter .filter_item_select {

@@ -1,16 +1,16 @@
 .mail_msg_table {
-    table-layout: fixed;
+  table-layout: fixed;
 }
 
 .mail_msg_table tr:first-child td {
   border-top: 0;
 }
 
-.mail_msg_table .cb_ctrl {
+.mail_msg_table .cb_ctrl_cell {
   width:10%;
 }
 
-.mail_msg_table .cb_ctrl input[type="checkbox"] {
+.mail_msg_table .cb_ctrl_cell input[type="checkbox"] {
   margin-left: 4px
 }
 
@@ -21,6 +21,17 @@
 .mail_msg_table .subject {
   font-size: 13px;
   margin: 0 0 10px;
+  cursor:pointer;
+}
+
+.mail_msg_table .subject span {
+  padding: 1px 0;
+  color: #08c;
+  border-bottom: 1px dotted #08c;
+}
+
+.mail_msg_table .subject span:hover {
+  border: none;
 }
 
 .mail_msg_table .bold {

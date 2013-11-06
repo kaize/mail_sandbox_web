@@ -5,16 +5,17 @@
         = t("settings")
 
   .row-fluid
-    .span4
-      .well
+    .span4.well.mail_msg_box
+      .mail_msg_filter_container
         = render "web/angular_templates/shared/messages_filter"
-      .well.mail_msg_group_actions
-        %input{ type: "checkbox", "ng-model" => "masterChbox", "ng-change" => "onMasterChboxChange()"}
-        %i.icon-trash
-        %i.icon-ok
+      .mail_msg_group_actions
+        %input.cb_ctrl.d_ib{ type: "checkbox", "ng-model" => "masterChbox", "ng-change" => "onMasterChboxChange()"}
+        %i.icon-trash.d_ib{ "ng-click" => "deleteCheckedMessages()" }
+        = t("delete")
+        %i.icon-ok.d_ib{ "ng-click" => "markReadCheckedMessages()" }
+        = t("mark read")
 
       = render "web/angular_templates/shared/messages_list"
     .span8
       %span{ "ng-show" => "resourceMessage" }
         = render "web/angular_templates/shared/message"
-
