@@ -44,14 +44,4 @@ class Api::MailApplicationsControllerTest < ActionController::TestCase
     assert { attrs[:name] == @my_application.name }
   end
 
-  test "should mark all as read" do
-    messages = create_list :mail_message, 2, :mail_application => @my_application
-
-    put :mark_all_messages_as_read, @params.merge(id: @my_application.id)
-    assert_response :success
-
-    message = messages.first
-    message.reload
-    assert message.read?
-  end
 end

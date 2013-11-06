@@ -12,7 +12,7 @@ class Api::MailMessagesControllerTest < ActionController::TestCase
     @member_application.members << @user
   end
 
-  test "should get create" do
+  test "should post create" do
     attrs = attributes_for(:mail_message, :sender => "unique@unique.ru")
 
     attrs[:user] = @application.name

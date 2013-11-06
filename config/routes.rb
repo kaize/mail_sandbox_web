@@ -24,9 +24,6 @@ MailSandboxWeb::Application.routes.draw do
           end
         end
       end
-      member do
-        put :mark_all_messages_as_read
-      end
     end
   end
 

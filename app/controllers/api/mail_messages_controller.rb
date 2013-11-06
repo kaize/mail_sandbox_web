@@ -10,14 +10,7 @@ class Api::MailMessagesController < Api::ProtectedApplicationController
     @application.mail_messages << @message
     @message.save
 
-    respond_with @message
-  end
-
-  def mark_read
-    @message = available_applications_messages.find(params[:id])
-    @message.mark_read
-
-    respond_with @message
+    respond_with @message, location: nil
   end
 
   def destroy
