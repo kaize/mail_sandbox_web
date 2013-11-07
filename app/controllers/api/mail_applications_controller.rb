@@ -30,12 +30,11 @@ class Api::MailApplicationsController < Api::ProtectedApplicationController
     respond_with @application, location: nil
   end
 
-  def mark_all_messages_as_read
-    application = available_applications.find(params[:id])
-    messages = application.mail_messages.unreaded
-    messages.update_all(state: :read)
+  def destroy
+    @application = available_applications.find(params[:id])
+    @application.destroy
 
-    respond_with :status => :ok
+    respond_with @application
   end
 
   private

@@ -44,4 +44,17 @@ class Api::MailApplicationsControllerTest < ActionController::TestCase
     assert { attrs[:name] == @my_application.name }
   end
 
+
+  test "should delete destroy app and its messages" do
+    @message = create :mail_message, mail_application: @my_application
+
+    delete :destroy, @params.merge(id: @my_application.id)
+
+    application = MailApplication.find_by(id: @my_application.id)
+    message = MailMessage.find_by(id: @message.id)
+
+    assert { !application }
+    assert { !message }
+  end
+
 end
