@@ -17,7 +17,7 @@
     white-space: nowrap;
 }
 
-.mail_msg_container {
+.mail_msg_content {
     height: 300px;
     overflow: auto;
 }
@@ -38,6 +38,6 @@
   margin: 0;
   border-radius: 4px 4px 0 0;
   -webkit-border-radius: 4px 4px 0 0;
-  -mos-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
   border-bottom: 1px solid #fff;
 }

@@ -24,10 +24,7 @@
 }
 
 .mail_msg_group_actions .d_ib {
-  /*vertical-align: middle;*/
-  /*display: inline-block;*/
   cursor: pointer;
-
   margin: 0 0 0 15px;
 }
 
