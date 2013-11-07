@@ -36,6 +36,7 @@
       .content
         .row-fluid
           .span12
+
             = render "web/shared/flash_messages"
             .flash(ng-controller="NotificationsController")
               %div(ng-show="isVisible()" class="alert alert-{{notification.type}}" ng-bind="notification.message")

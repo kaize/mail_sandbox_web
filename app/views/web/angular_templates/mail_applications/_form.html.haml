@@ -1,3 +1,6 @@
+.flash(ng-controller="NotificationsController")
+  %div(ng-show="isVisible()" class="alert alert-{{notification.type}}" ng-bind="notification.message")
+
 %form.mail_msg_form(name="form" ng-submit="save()")
   %form-field(ng-model="mailApp.name" errors="form.errors.name") Name
   %form-field(ng-if="mailApp.settings.password!=null" ng-model="mailApp.settings.password" ng-disabled="true") Password
