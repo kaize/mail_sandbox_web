@@ -2,7 +2,7 @@
   .mail_msg_content{ "when-scrolled" => "loadMore()" }
     %table.table.mail_msg_table.table-hover
       %div
-        %tr{ 'ng-repeat' => 'message in mailAppMessages' }
+        %tr{ 'ng-repeat' => 'message in mailAppMessages'}
           %td.cb_ctrl_cell
             %input{ "type" => "checkbox", "ng-model" => "message.isChecked", "ng-value" => "message.id", "ng-checked" => "isChecked(message)" }
           %td
@@ -21,4 +21,4 @@
                 %dd {{message.completed_at}}
         %tr{ "ng-show" => "messagesLoading" }
           %td
-            = image_tag "loading.gif"
+            = image_tag "infinite_scroll_loading.gif"
