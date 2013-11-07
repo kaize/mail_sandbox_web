@@ -3,7 +3,7 @@
     %h1= t '.last_messages'
     %table.table.table-hover.mail_applications
       - @messages.each do |message|
-        %tr{:'data-href' => mail_message_path(message)}
+        %tr
           %td.clicked
             .span5
               %strong= message.mail.subject

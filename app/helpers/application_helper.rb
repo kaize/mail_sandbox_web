@@ -29,6 +29,7 @@ module ApplicationHelper
     object.state_events.map do |event|
       [object.class.human_state_event_name(event), event]
     end
+  end
 
   def recipient_list(application)
     application.mail_messages.uniq_by_recipients.pluck(:recipient)
