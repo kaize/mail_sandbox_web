@@ -1,10 +1,5 @@
 .container-fluid
   .row-fluid
-    .well
-      %a{ "href" => '', "ng-click" => "editMailApp(mailApp)" }
-        = t("settings")
-
-  .row-fluid
     .span4.well.mail_msg_box
       .mail_msg_filter_container
         = render "web/angular_templates/shared/messages_filter"
@@ -17,5 +12,7 @@
 
       = render "web/angular_templates/shared/messages_list"
     .span8
+      = render "web/angular_templates/shared/mail_application_menu"
+
       %span{ "ng-show" => "resourceMessage" }
         = render "web/angular_templates/shared/message"
