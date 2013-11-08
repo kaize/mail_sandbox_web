@@ -73,12 +73,6 @@ GEM
     celluloid (0.15.2)
       timers (~> 1.1.0)
     chattyproc (1.0.0)
-    chosen-rails (1.0.1)
-      coffee-rails (>= 3.2)
-      compass-rails (>= 1.0)
-      railties (>= 3.0)
-      sass-rails (>= 3.2)
-    chunky_png (1.2.9)
     coderay (1.0.9)
     coercible (0.2.0)
       backports (~> 3.0, >= 3.1.0)
@@ -91,12 +85,6 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     commonjs (0.2.7)
-    compass (0.12.2)
-      chunky_png (~> 1.2)
-      fssm (>= 0.2.7)
-      sass (~> 3.1)
-    compass-rails (1.0.3)
-      compass (>= 0.12.2, < 0.14)
     configus (0.0.4)
       rake
     connection_pool (1.1.0)
@@ -137,7 +125,6 @@ GEM
       eventmachine (>= 0.12.0)
       websocket-driver (>= 0.3.0)
     file-utils (0.1.1)
-    fssm (0.2.10)
     haml (4.0.4)
       tilt
     haml-rails (0.4)
@@ -381,7 +368,6 @@ DEPENDENCIES
   capistrano
   capistrano-db-tasks!
   capistrano-ext
-  chosen-rails
   coffee-rails
   configus
   draper

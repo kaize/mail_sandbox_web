@@ -64,9 +64,6 @@ gem 'squeel'
 
 gem 'validates'
 
-gem 'chosen-rails'
-
-
 group :test do
   gem 'minitest'
   gem 'turn'
