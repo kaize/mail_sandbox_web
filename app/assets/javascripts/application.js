@@ -30,16 +30,3 @@
 //= require_tree ./config
 //= require_tree ./lib
 //= require ./app/app
-
-$(function(){
-  $('.table tr .clicked').click(function(e) {
-      var href = $(this).parent().data('href');
-      if(href && !$(e.target).data('remote')) window.location.href = href;
-  });
-
-  $("select.per_page_selector").change(function(){
-    url = $.query.set("per_page", this.value).set("page", 1).toString().replace('%2B', '+');
-    window.location.href = url;
-  });
-});
-

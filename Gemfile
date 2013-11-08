@@ -3,18 +3,20 @@ source 'http://gems.undev.cc'
 
 gem 'rails', '4.0.0'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'faye'
 gem 'thin'
+
 gem 'pg'
+
 gem 'haml-rails'
 gem 'simple_form'
 gem 'draper'
+
 gem 'state_machine'
 gem 'ransack'
 gem 'js-routes'
 gem 'kaminari'
+gem 'ransack'
 
 gem 'nokogiri'
 
@@ -38,15 +40,16 @@ gem 'angularjs-rails'
 gem 'angularjs-rails-resource'
 gem 'underscore-rails'
 
+gem 'bootstrap-datepicker-rails'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'jquery-rails'
+  gem 'jquery-ui-rails'
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'haml-rails'
   gem 'less-rails'
-
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
 
@@ -58,7 +61,11 @@ gem 'unicorn-rails'
 gem 'twitter-bootstrap-rails', :git => "https://github.com/seyhunak/twitter-bootstrap-rails.git"
 gem 'mail'
 gem 'squeel'
+
 gem 'validates'
+
+gem 'chosen-rails'
+
 
 group :test do
   gem 'minitest'

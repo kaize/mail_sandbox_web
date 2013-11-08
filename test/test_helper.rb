@@ -27,4 +27,5 @@ class ActiveSupport::TestCase
   require 'factory_girl'
   include FactoryGirl::Syntax::Methods
   FactoryGirl.reload
+
 end
