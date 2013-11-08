@@ -25,7 +25,7 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          = link_to "MailSandboxWeb", root_path, :class => :brand
+          = link_to "MailSandboxWeb", root_path, :class => :brand, target: "_self"
           - if signed_in?
             .container.nav-collapse
               = render 'web/shared/main_menu'

@@ -1,6 +1,5 @@
-angular.module('app').config ($stateProvider, $urlRouterProvider, $locationProvider) ->
+angular.module('app').config ($stateProvider, $urlRouterProvider) ->
   $urlRouterProvider.otherwise "/"
-  $locationProvider.html5Mode(true)
 
   $stateProvider
     .state('mail_applications',
