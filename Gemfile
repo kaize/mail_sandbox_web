@@ -58,7 +58,6 @@ gem 'unicorn-rails'
 gem 'twitter-bootstrap-rails', :git => "https://github.com/seyhunak/twitter-bootstrap-rails.git"
 gem 'mail'
 gem 'squeel'
-gem 'chosen-rails'
 gem 'validates'
 
 group :test do

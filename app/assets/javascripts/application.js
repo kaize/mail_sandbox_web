@@ -16,7 +16,6 @@
 //= require bootstrap-datepicker
 //= require js-routes
 //= require twitter/bootstrap
-//= require chosen-jquery
 //= require jquery.query-2.1.7
 //= require underscore
 //= require angular-1.2.0

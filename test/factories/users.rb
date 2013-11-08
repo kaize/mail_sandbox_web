@@ -5,6 +5,7 @@ FactoryGirl.define do
     facebook :factory => "user/facebook"
     email { generate :email }
     password { generate :string }
+    password_confirmation { "#{password}" }
   end
 
   factory :admin_user, :parent => :user do
