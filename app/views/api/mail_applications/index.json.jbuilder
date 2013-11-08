@@ -1,1 +1,0 @@
-json.partial! 'mail_application',  collection: @mail_applications, as: :application
