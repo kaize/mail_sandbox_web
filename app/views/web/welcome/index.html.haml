@@ -1,5 +1,5 @@
 .row-fluid
-  .span9
+  .span8
     %h1= t '.last_messages'
     %table.table.table-hover.mail_applications
       - @messages.each do |message|
@@ -17,7 +17,17 @@
           %td.clicked
             .pull-left= message.completed_at
   .span3
-    %h3= t '.mail_applications'
-    - @applications.each do |application|
-      %p= link_to application, AngularUrlHelpers::mail_application_path(application)
-    %p= link_to t(".new_application"), AngularUrlHelpers::new_mail_application_path, class: "btn btn-success btn-large btn-block"
+    .well
+      %p= link_to t(".new_application"), AngularUrlHelpers::new_mail_application_path, class: "btn btn-success btn-large btn-block"
+      %h6.table-header
+        = t(".mail applications")
+
+      %table.table.table-hover
+        - @mail_applications.each do |app|
+          %tr
+            %td= link_to app, AngularUrlHelpers::mail_application_path(app)
+
+            %td
+              - if app.unread_mails_count > 0
+                %span.badge.badge-info.pull-right
+                  = app.unread_mails_count
