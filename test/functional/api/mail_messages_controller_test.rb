@@ -22,7 +22,8 @@ class Api::MailMessagesControllerTest < ActionController::TestCase
     assert_response :success
 
     message = MailMessage.find_by_sender("unique@unique.ru")
-    assert_not_nil message
+
+    assert { message }
   end
 
   test "should delete" do
