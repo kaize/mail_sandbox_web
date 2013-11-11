@@ -5,9 +5,11 @@ module MailApplicationRepository
     scope :active, where(:state => 'active')
     scope :web, active
     scope :by_credentials, ->(n, p){ where{ (name.eq n) & (password.eq p)} }
-    scope :ordered, ->{ web.order('id DESC') }
-    scope :owner_is, ->(owner){ where(:owner_id => owner.id) }
+    scope :ordered, ->{ web.order('completed_at DESC') }
+    scope :owner_is, ->(owner) { where(:owner_id => owner.id) }
     scope :available_for, ->(user){ where{ ( owner_id == user.id ) | ( id >> user.membered_application_ids ) } }
+
+    scope :recently_active, ->(count = 10) { web.where("last_message_at IS NOT NULL").order('last_message_at DESC').limit(count) }
   end
 
 end
