@@ -11,7 +11,7 @@
 }
 
 .mail_msg_filter .select2 {
-  width: 315px;
+  width: 310px;
 }
 
 .mail_msg_filter input, .mail_msg_filter select, .mail_msg_filter .select2, .mail_msg_filter label {
@@ -25,11 +25,11 @@
 .mail_msg_filter .input-append input {
   padding-top: 3px;
   padding-bottom: 3px;
-  width: 262px;
+  width: 258px;
 }
 
 .mail_msg_filter .input-append .simple_input {
-  /*width: 300px;*/
+  width: 296px;
   border-radius: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
