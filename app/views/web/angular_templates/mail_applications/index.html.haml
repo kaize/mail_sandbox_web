@@ -9,18 +9,21 @@
     %th.owner= t('.owner')
     %th.actions
   %div
-    %tr(ng-repeat="mail_app in items")
+    %tr{ "ng-show" => "mailApplicationsLoading" }
       %td
-        %a{ "href" => '', "ng-click" => "show(mail_app)" } {{mail_app.name}}
-      %td {{mail_app.unreadMailsCount}}
-      %td {{mail_app.ownerNickname}}
+        = image_tag "loading.gif"
+    %tr(ng-repeat="mailApp in mailApplications")
+      %td
+        %a{ "href" => '', "ng-click" => "show(mailApp)" } {{mailApp.name}}
+      %td {{mailApp.unread_mails_count}}
+      %td {{mailApp.owner_nickname}}
 
       %td
-        %a.btn.btn-info.nowrap{ "ng-click" => "edit(mail_app)" }
+        %a.btn.btn-info.nowrap{ "href" => '', "ng-click" => "edit(mailApp)" }
           %i.icon-edit
           = t("edit")
-        %span{"ng-if" => "mail_app.currentUserCanDeleteApp"}
-          %a.btn.btn-danger.nowrap{ "ng-click" => "delete(mail_app)", data: { :confirm => t(:are_you_sure?) } }
+        %span{"ng-if" => "mailApp.current_user_can_delete_app"}
+          %a.btn.btn-danger.nowrap{ "href" => '', "ng-click" => "destroy(mailApp)" }
             %i.icon-trash
             = t("delete")
 %br
