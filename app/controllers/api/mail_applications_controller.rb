@@ -13,7 +13,7 @@ class Api::MailApplicationsController < Api::ProtectedApplicationController
   end
 
   def create
-    @application = MailApplicationType.new(params[:mail_application])
+    @application = MailApplicationType.new(params[:mail_application]).decorate
     @application.owner = current_user
 
     @application.save
