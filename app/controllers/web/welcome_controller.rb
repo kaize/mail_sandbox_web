@@ -1,6 +1,6 @@
 class Web::WelcomeController < Web::ProtectedApplicationController
   def index
-    @applications = available_applications.recently_active
+    @mail_applications = available_applications.recently_active.decorate
 
     @messages = current_user.mail_messages.recent
   end
