@@ -2,11 +2,11 @@ class MailApplicationSerializer < ActiveModel::Serializer
 
   include ApplicationHelper
 
-  attributes :id, :name, :password, :port, :recipients, :senders, :members,
+  attributes :id, :name, :password, :smtp_settings, :recipients, :senders, :members,
     :owner_nickname, :unread_mails_count, :current_user_can_delete_app
 
-  def port
-    configus.mail_application.port
+  def smtp_settings
+    { host: configus.host, port: configus.mail_application.port }
   end
 
   def recipients
