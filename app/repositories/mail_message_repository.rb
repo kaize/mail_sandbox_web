@@ -3,7 +3,7 @@ module MailMessageRepository
 
   included do
     scope :web, ->{ without_state(:deleted) }
-    scope :ordered, ->{ web.order('completed_at DESC') }
+    scope :ordered, ->{ web.order(completed_at: :desc) }
     scope :unreaded, ->{ with_state(:unread) }
 
     scope :last_minute, -> { where('created_at >= ?', 1.minute.ago.utc) }

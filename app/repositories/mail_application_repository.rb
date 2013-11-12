@@ -2,14 +2,14 @@ module MailApplicationRepository
   extend ActiveSupport::Concern
 
   included do
-    scope :active, where(:state => 'active')
+    scope :active, where(state: 'active')
     scope :web, active
     scope :by_credentials, ->(n, p){ where{ (name.eq n) & (password.eq p)} }
-    scope :ordered, ->{ web.order('completed_at DESC') }
-    scope :owner_is, ->(owner) { where(:owner_id => owner.id) }
+    scope :ordered, ->{ web.order(completed_at: :desc) }
+    scope :owner_is, ->(owner) { where(owner: owner) }
     scope :available_for, ->(user){ where{ ( owner_id == user.id ) | ( id >> user.membered_application_ids ) } }
 
-    scope :recently_active, ->(count = 10) { web.where("last_message_at IS NOT NULL").order('last_message_at DESC').limit(count) }
+    scope :recently_active, ->(count = 10) { web.where("last_message_at IS NOT NULL").order(last_message_at: :desc).limit(count) }
   end
 
 end
