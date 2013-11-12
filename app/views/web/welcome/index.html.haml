@@ -25,9 +25,11 @@
       %table.table.table-hover
         - @mail_applications.each do |app|
           %tr
-            %td= link_to app, AngularUrlHelpers::mail_application_path(app)
+            %td
+              = link_to app, AngularUrlHelpers::mail_application_path(app)
 
             %td
               - if app.unread_mails_count > 0
                 %span.badge.badge-info.pull-right
                   = app.unread_mails_count
+      %p= link_to t(".show_all"), AngularUrlHelpers::mail_applications_path, class: "btn btn-success btn-large btn-block"
