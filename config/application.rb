@@ -14,8 +14,7 @@ require File.expand_path('../../lib/configus', __FILE__)
 
 module MailSandboxWeb
   class Application < Rails::Application
-    config.active_record.observers = :mail_message_notification_observer,
-      :mail_message_update_mail_application_observer
+    config.active_record.observers = :mail_message_notification_observer
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
