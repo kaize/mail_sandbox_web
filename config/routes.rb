@@ -38,6 +38,16 @@ MailSandboxWeb::Application.routes.draw do
 
     resource :angular_template, only: [:show]
 
+    resources :mail_applications, only: [] do
+      scope module: :mail_applications do
+        resources :mail_messages, only: [] do
+          member do
+            get :without_bootstrap
+          end
+        end
+      end
+    end
+
     resources :users do
       member do
         get :confirm
