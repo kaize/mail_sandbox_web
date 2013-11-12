@@ -28,8 +28,3 @@ angular.module('app').config ($stateProvider, $urlRouterProvider) ->
       templateUrl: RouterHelper.templateUrl('mail_messages/raw')
       controller: 'RawMailMessageController'
     )
-    .state('without_bootstrap_mail_message',
-      url: '/mail_applications/{mail_application_id}/mail_messages/{id}/without_bootstrap'
-      templateUrl: RouterHelper.templateUrl('mail_messages/without_bootstrap')
-      controller: 'WithoutBootstrapMailMessageController'
-    )
