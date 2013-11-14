@@ -1,0 +1,46 @@
+%table.table
+  %tr
+    %th{width: '13%'}
+      = MailMessage.human_attribute_name :recipient
+      \:
+    %td
+      {{resourceMessage.recipient}}
+  %tr
+    %th
+      = MailMessage.human_attribute_name :sender
+      \:
+    %td
+      {{resourceMessage.sender}}
+  %tr
+    %th
+      = MailMessage.human_attribute_name :mail_application
+      \:
+    %td
+      {{resourceMessage.mail_application}}
+  %tr
+    %th
+      = MailMessage.human_attribute_name :subject
+      \:
+    %td
+      {{resourceMessage.subject}}
+  %tr
+    %th
+      = MailMessage.human_attribute_name :completed_at
+      \:
+    %td
+      {{resourceMessage.completed_at}}
+  %tr
+    %td{colspan: 2}
+      %a{ "href" => '', "ng-click" => "showMailAppMessageRaw(resourceMessage)" }
+        = t("view raw data")
+      |
+      %a{ "ng-href" => "{{resourceMessage.without_bootstrap_path}}", target: "_self" }
+        = t("view without bootstrap")
+  - if false
+    %tr
+      %th{colspan: 2}
+        = 'TODO: multipart messages'
+  - else
+    %tr
+      %td{colspan: 2}
+        %span{ "ng-bind-html" => "resourceMessageBody" }

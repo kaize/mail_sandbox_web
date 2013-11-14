@@ -5,7 +5,7 @@ module ApplicationTypeWithoutActiveRecord
     include ActiveModel::Validations
     include ActiveModel::Conversion
     include ActiveModel::Translation
-    include Virtus
+    include Virtus.model
   end
 
   module ClassMethods

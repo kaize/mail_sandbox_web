@@ -9,11 +9,34 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require select2
- *= require bootstrap-datepicker
- *= require chosen
  *= require_tree .
  *= require_self
  */
 .nowrap{
     white-space: nowrap;
+}
+
+.mail_msg_content {
+    height: 300px;
+    overflow: auto;
+}
+
+.mail_msg_form .chosen {
+  width: 400px;
+  margin-bottom: 20px;
+}
+
+.mail_msg_box {
+  background-color: #fff;
+  padding: 0;
+}
+
+.mail_msg_filter_container {
+  padding: 20px;
+  background-color: #f5f5f5;
+  margin: 0;
+  border-radius: 4px 4px 0 0;
+  -webkit-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+  border-bottom: 1px solid #fff;
 }

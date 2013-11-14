@@ -1,0 +1,4 @@
+file 'vendor/assets/javascripts/angular-ui-router.js', 'http://angular-ui.github.io/ui-router/release/angular-ui-router.js'
+file 'vendor/assets/javascripts/angular-underscore.js', 'https://raw.github.com/floydsoft/angular-underscore/master/angular-underscore.js'
+file 'vendor/assets/javascripts/angular-1.2.0.js', 'http://code.angularjs.org/1.2.0rc1/angular.js'
+file 'vendor/assets/javascripts/angular-sanitize-1.2.0.js', 'http://code.angularjs.org/1.2.0rc1/angular-sanitize.js'

@@ -1,6 +1,10 @@
 class MailApplication < ActiveRecord::Base
   include MailApplicationRepository
-  attr_accessible :password, :name
+
+  def initialize(attributes = nil)
+    super
+    generate_password
+  end
 
   has_many :mail_messages, :dependent => :destroy
   belongs_to :owner, :class_name => 'User'
@@ -8,9 +12,8 @@ class MailApplication < ActiveRecord::Base
   has_many :mail_application_users, :dependent => :destroy
   has_many :members, :through => :mail_application_users, :source => :user
 
-  after_initialize :init, :if => :new_record?
-
   validates :owner, :presence => true
+  validates :name, :presence => true
 
   state_machine :state, :initial => :active do
     state :active
@@ -22,16 +25,14 @@ class MailApplication < ActiveRecord::Base
 
   end
 
-  def init
-    generate_password
-  end
-
   def to_s
     name
   end
 
-  def generate_password
-    self.password = SecureApp.generate_string(16)
-  end
+  private
+
+    def generate_password
+      self.password = SecureApp.generate_string(16)
+    end
 
 end

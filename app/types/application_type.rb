@@ -1,6 +1,10 @@
 module ApplicationType
   extend ActiveSupport::Concern
 
+  def self.params_from_redis(params)
+    ActionController::Parameters.new(params)
+  end
+
   module ClassMethods
     def model_name
       superclass.model_name
@@ -19,9 +23,9 @@ module ApplicationType
     end
   end
 
-  def assign_attributes(attrs = {}, options = {})
-    raise ArgumentError, "expected hash of attrs" if attrs.nil?
-    permitted_attrs = attrs.slice *self.class._args
+  def assign_attributes(attrs = {})
+    raise ArgumentError, "expected hash" if attrs.nil?
+    permitted_attrs = attrs.send :permit, self.class._args
     super(permitted_attrs)
   end
 end

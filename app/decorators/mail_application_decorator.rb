@@ -1,14 +1,14 @@
 class MailApplicationDecorator < ApplicationDecorator
-  decorates :mail_application
   decorates_association :owner
+  delegate_all
 
   def mail_application_settings
     settings = [
       "config.action_mailer.smtp_settings = {",
-      ":address => '#{mail_application.address}',",
-      ":port => #{mail_application.port},",
-      ":user_name => '#{mail_application}',",
-      ":password => '#{mail_application.password}'",
+      ":address => '#{address}',",
+      ":port => #{port},",
+      ":user_name => '#{}',",
+      ":password => '#{password}'",
       "}"
     ]
 

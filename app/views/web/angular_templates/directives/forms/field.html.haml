@@ -1,0 +1,7 @@
+.control-group
+  %label.control-label(ng-transclude)
+  .controls
+    %input(type="{{getType()}}" ng-model="ngModel" ng-disabled="ngDisabled")
+    .alert.alert-block.alert-error(ng-show="errors")
+      %ul
+        %li(ng-repeat="error in errors" ng-bind="error")

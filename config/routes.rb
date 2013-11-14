@@ -1,43 +1,53 @@
+require 'sidekiq/web'
+
 MailSandboxWeb::Application.routes.draw do
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
+  mount Sidekiq::Web, at: "/sidekiq"
+
   namespace :api do
     resources :mail_messages, :only => [:create, :destroy] do
-      member do
-        put :mark_read
-      end
       collection do
         get :last_minute_count
       end
     end
-    resources :mail_applications, :only => [] do
-      member do
-        put :mark_all_messages_as_read
+    resources :users, only: [:index]
+
+    resources :mail_applications, only: [:index, :show, :create, :update, :destroy] do
+      scope module: :mail_applications do
+        resources :mail_messages, only: [:index, :show, :update] do
+          collection do
+            patch :batch_update
+          end
+        end
       end
     end
   end
 
   scope :module => :web do
-    root :to => "welcome#index"
-
     namespace :account do
       root to: 'profile#edit'
       resource :profile, only: [:edit, :update]
     end
 
-    resources :mail_messages, :only => [:index, :show] do
-      member do
-        get :raw
-        get :without_bootstrap
+    root to: "welcome#index"
+
+    resources :mail_applications, only: [:index] do
+      scope module: :mail_applications do
+        resources :mail_messages, only: [] do
+          member do
+            get :without_bootstrap
+          end
+        end
       end
     end
 
-    resources :mail_applications do
-      resources :mail_messages, :only => [:index, :show]
-    end
+    get '/mail_applications/*path', to: "mail_applications#index"
+
+    resource :angular_template, only: [:show]
 
     resources :users do
       member do

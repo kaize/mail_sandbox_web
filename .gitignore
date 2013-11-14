@@ -16,8 +16,11 @@
 /log/*.log
 /tmp
 *.sw[a-z]
+*.gz
+.DS_Store
 /.idea/
 config/database.yml
 config/secret_keys.yml
 config/mail_sandbox.yml
-/coverage
+coverage
+gitflow/

@@ -1,0 +1,8 @@
+%script{ src: CustomUrlHelpers::faye_js_curl }
+:javascript
+  window.App = {
+    config: {
+      faye_url: "#{CustomUrlHelpers::faye_curl}",
+      faye_channel_message_new: "#{CustomUrlHelpers::faye_message_new_channel_cpath}"
+    }
+  }

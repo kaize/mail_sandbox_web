@@ -1,0 +1,15 @@
+.flash(ng-controller="NotificationsController")
+  %div(ng-show="isVisible()" class="alert alert-{{notification.type}}" ng-bind="notification.message")
+
+%form.mail_msg_form(name="form" ng-submit="save()")
+  %form-field(ng-model="mailApp.name" errors="form.errors.name") Name
+  %form-field(ng-if="mailApp.settings.password!=null" ng-model="mailApp.settings.password" ng-disabled="true") Password
+  %label Members
+  %select.select2.chosen(chosen="" multiple="true" placeholder="Select some options" ng-model="members" ui-select2="")
+    %option(ng-value="user.id" ng-repeat="user in users | filter: {email: '!!'}") {{user.email}}
+
+  %br
+
+  .actions
+
+    %button.btn.btn-prmary Save
