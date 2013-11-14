@@ -22,6 +22,7 @@
 //= require angular-sanitize-1.2.0
 //= require angular-bootstrap
 //= require angular-underscore
+//= require angular-route.min
 //= require angular-resource
 //= require angular-ui-router
 //= require angularjs/rails/resource

@@ -14,6 +14,7 @@ dependencies = [
 
   'ngResource'
   'ngSanitize'
+  'ngRoute'
   'rails'
 ]
 

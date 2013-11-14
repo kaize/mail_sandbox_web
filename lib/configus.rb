@@ -61,6 +61,7 @@ Configus.build Rails.env do
 
   env :development, :parent => :production do
     host 'http://localhost'
+    port 8080
   end
 
   env :staging, parent: :production do
@@ -69,6 +70,7 @@ Configus.build Rails.env do
 
   env :test, :parent => :development do
     host 'http://localhost'
+    port 8080
   end
 
 end

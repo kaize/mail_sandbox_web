@@ -34,7 +34,7 @@
       %a{ "href" => '', "ng-click" => "showMailAppMessageRaw(resourceMessage)" }
         = t("view raw data")
       |
-      %a{ "ng-href" => "{{resourceMessage.without_bootstrap_path}}" }
+      %a{ "ng-href" => "{{resourceMessage.without_bootstrap_path}}", target: "_self" }
         = t("view without bootstrap")
   - if false
     %tr
