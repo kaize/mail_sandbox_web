@@ -1,6 +1,6 @@
 angular.module('app.modules.mail_applications.controllers')
   .controller 'ShowMailApplicationController',
-    ($scope, mailApplications, mailMessages, Faye, $state, $stateParams, $sce, _) ->
+    ($scope, mailApplications, mailMessages, Faye, railsRoutesHelper, $state, $stateParams, $sce, _) ->
 
       mailApplications.get($stateParams.id).then (mailApp)->
         $scope.mailApp = mailApp
@@ -55,6 +55,43 @@ angular.module('app.modules.mail_applications.controllers')
         else
           $scope.unCheckAll()
 
+      checkedMessagesIds = ->
+        $scope.checkedMessages = _.filter($scope.mailAppMessages, (message) ->
+          message.isChecked
+        )
+        _.pluck($scope.checkedMessages, 'id')
+
+      $scope.markReadCheckedMessages = ->
+        #TODO better solution
+        console.log $scope.checkedMessages
+
+        checkedIds = checkedMessagesIds()
+        console.log $scope.checkedMessages
+
+        _.map($scope.checkedMessages, (message) ->
+          message.state = 'read'
+        )
+
+        mailMessages.batchUpdate({
+          mail_application_id: $stateParams.id,
+          ids: checkedMessagesIds,
+          mail_message: { state_event: 'mark_read' }
+        })
+
+      $scope.deleteCheckedMessages = ->
+        #TODO pagination
+        checkedIds = checkedMessagesIds()
+        console.log checkedIds
+        $scope.mailAppMessages = _.reject($scope.mailAppMessages, (message) ->
+          message.isChecked == true
+        )
+        mailMessages.batchUpdate({
+          mail_application_id: $stateParams.id,
+          ids: checkedIds,
+          mail_message: { state_event: 'mark_as_deleted' }
+        })
+
+
       resetPaginationParams()
 
       $scope.editMailApp = (mailApp) ->
@@ -65,6 +102,8 @@ angular.module('app.modules.mail_applications.controllers')
           if !_.include($scope.pages_loaded, $scope.current_page)
 
             params = { page: $scope.current_page }
+            $scope.messagesLoading = true
+
             mailMessages.query(_.extend(params, $scope.filterParams), { mail_application_id: $stateParams.id }).then (results) ->
               $scope.mailAppMessages = $scope.mailAppMessages.concat(results.items)
 
@@ -72,12 +111,16 @@ angular.module('app.modules.mail_applications.controllers')
 
               $scope.current_page++
 
+              $scope.messagesLoading = false
+
           $scope.pages_loaded.push($scope.current_page)
 
       $scope.loadMore()
 
       $scope.showMailAppMessage = (message) ->
         $scope.resourceMessage = message
+
+        $scope.resourceMessage.without_bootstrap_path ||= railsRoutesHelper.mail_message_without_bootstrap_path($scope.mailApp.id, message.id)
 
         if $scope.resourceMessage.state == 'unread'
           $scope.resourceMessage.state = 'read'
