@@ -64,10 +64,12 @@ GEM
     builder (3.1.4)
     capi (0.1.1)
       capistrano
-    capistrano (3.0.1)
-      i18n
-      rake (>= 10.0.0)
-      sshkit (>= 0.0.23)
+    capistrano (2.13.5)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
     capistrano-ext (1.2.1)
       capistrano (>= 1.0.0)
     celluloid (0.15.2)
@@ -133,6 +135,7 @@ GEM
       haml (>= 3.1, < 4.1)
       railties (>= 3.1, < 4.1)
     hashie (2.0.5)
+    highline (1.6.20)
     hike (1.2.3)
     httpauth (0.2.0)
     i18n (0.6.5)
@@ -184,7 +187,11 @@ GEM
     multipart-post (1.2.0)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
+    net-sftp (2.1.2)
+      net-ssh (>= 2.6.5)
     net-ssh (2.7.0)
+    net-ssh-gateway (1.2.0)
+      net-ssh (>= 2.6.5)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     oauth2 (0.8.1)
@@ -291,10 +298,6 @@ GEM
       activerecord (>= 3.0)
       activesupport (>= 3.0)
       polyamorous (~> 0.6.0)
-    sshkit (1.1.0)
-      net-scp
-      net-ssh
-      term-ansicolor
     state_machine (1.2.0)
     tconsole (1.2.8)
       chattyproc (~> 1.0.0)
@@ -362,7 +365,7 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   bootstrap-datepicker-rails
   capi
-  capistrano
+  capistrano (= 2.13.5)
   capistrano-db-tasks!
   capistrano-ext
   coffee-rails

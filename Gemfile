@@ -1,3 +1,5 @@
+ruby '2.0.0'
+
 source 'https://rubygems.org'
 source 'http://gems.undev.cc'
 
@@ -82,7 +84,7 @@ gem 'unicorn'
 
 # Deploy with Capistrano
 group :development do
-  gem 'capistrano'
+  gem 'capistrano', '2.13.5'
   gem 'capistrano-ext'
   gem 'capistrano-db-tasks', github: "sgruhier/capistrano-db-tasks", require: false
   gem 'capi'
