@@ -69,7 +69,7 @@ group :test do
   gem 'turn'
   gem 'factory_girl_rails', require: false
   gem 'tconsole'
-  gem 'simplecov', require: false
+  gem 'simplecov', '0.7.1', require: false
   gem 'mocha', require: false
 end
 

@@ -20,7 +20,6 @@
 //= require underscore
 //= require angular-1.2.0
 //= require angular-sanitize-1.2.0
-//= require angular-bootstrap
 //= require angular-underscore
 //= require angular-route.min
 //= require angular-resource
