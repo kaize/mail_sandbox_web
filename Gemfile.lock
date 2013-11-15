@@ -5,6 +5,18 @@ GIT
     capistrano-db-tasks (0.2)
 
 GIT
+  remote: https://github.com/kaize/mail_sandbox.git
+  revision: 39e3553b05d230be306b8d933f6919470f62e6d3
+  branch: develop
+  specs:
+    mail_sandbox (0.1.1)
+      OptionParser
+      em-http-request (~> 0.3.0)
+      eventmachine (~> 1.0.1)
+      file-utils
+      simple_pid
+
+GIT
   remote: https://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: 4b8a511e65181e28fd3caecdcf5ba730f4afe2b1
   specs:
@@ -106,7 +118,7 @@ GEM
     equalizer (0.0.7)
     erubis (2.7.0)
     escape_utils (1.0.0)
-    eventmachine (0.12.10)
+    eventmachine (1.0.3)
     execjs (2.0.2)
     factory_girl (4.3.0)
       activesupport (>= 3.0.0)
@@ -170,12 +182,6 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mail_sandbox (0.1.1)
-      OptionParser
-      em-http-request (~> 0.3.0)
-      eventmachine (~> 0.12.9)
-      file-utils
-      simple_pid
     metaclass (0.0.1)
     method_source (0.8.2)
     mime-types (1.25)
@@ -381,7 +387,7 @@ DEPENDENCIES
   less-rails
   letter_opener_web
   mail
-  mail_sandbox (~> 0.1.1)
+  mail_sandbox!
   minitest
   mocha
   nokogiri
