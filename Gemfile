@@ -58,7 +58,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'mail_sandbox', git: "https://github.com/kaize/mail_sandbox.git", branch: :develop
+gem 'mail_sandbox'
 gem 'unicorn-rails'
 gem 'twitter-bootstrap-rails', :git => "https://github.com/seyhunak/twitter-bootstrap-rails.git"
 gem 'mail'
@@ -84,7 +84,7 @@ gem 'unicorn'
 
 # Deploy with Capistrano
 group :development do
-  gem 'capistrano', '2.13.5'
+  gem 'capistrano', '2.15.5'
   gem 'capistrano-ext'
   gem 'capistrano-db-tasks', github: "sgruhier/capistrano-db-tasks", require: false
   gem 'capi'
