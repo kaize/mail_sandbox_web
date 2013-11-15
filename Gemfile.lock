@@ -64,7 +64,7 @@ GEM
     builder (3.1.4)
     capi (0.1.1)
       capistrano
-    capistrano (2.15.5)
+    capistrano (2.13.5)
       highline
       net-scp (>= 1.0.0)
       net-sftp (>= 2.0.0)
@@ -365,7 +365,7 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   bootstrap-datepicker-rails
   capi
-  capistrano (= 2.15.5)
+  capistrano (= 2.13.5)
   capistrano-db-tasks!
   capistrano-ext
   coffee-rails

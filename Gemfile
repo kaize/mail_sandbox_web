@@ -84,7 +84,7 @@ gem 'unicorn'
 
 # Deploy with Capistrano
 group :development do
-  gem 'capistrano', '2.15.5'
+  gem 'capistrano', '2.13.5'
   gem 'capistrano-ext'
   gem 'capistrano-db-tasks', github: "sgruhier/capistrano-db-tasks", require: false
   gem 'capi'
