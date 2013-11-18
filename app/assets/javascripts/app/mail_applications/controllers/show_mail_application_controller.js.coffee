@@ -20,13 +20,13 @@ angular.module('app.modules.mail_applications.controllers')
 
         $scope.loadMore()
         )
-      #
-      # Faye.subscribe App.config.faye_channel_message_new, (message) ->
-      #   if $scope.mailApp.name == message.mail_application
 
-      #     $scope.mailAppMessages.splice(0, 0, message)
-      #     $scope.mailAppMessages.pop()
-      #     $scope.$apply()
+      Faye.subscribe App.config.faye_channel_message_new, (message) ->
+        if $scope.mailApp.name == message.mail_application
+
+          $scope.mailAppMessages.splice(0, 0, message)
+          $scope.mailAppMessages.pop()
+          $scope.$apply()
 
       resetPaginationParams = ->
         $scope.mailAppMessages = []
