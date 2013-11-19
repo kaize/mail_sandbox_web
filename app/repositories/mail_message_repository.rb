@@ -13,5 +13,10 @@ module MailMessageRepository
     scope :uniq_by_recipients, ->{ select(:recipient).distinct }
     scope :uniq_by_senders,    ->{ select(:sender).distinct }
 
+    scope :by_user, ->(user) {
+      joins{mail_application.members}
+        .where{(mail_application.members.id.eq user.id) | (mail_application.owner_id.eq user.id)}
+    }
+    scope :recent_by_user, ->(user) { by_user(user).recent }
   end
 end

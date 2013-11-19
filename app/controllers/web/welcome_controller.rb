@@ -2,7 +2,7 @@ class Web::WelcomeController < Web::ProtectedApplicationController
   def index
     @mail_applications = available_applications.recently_active.decorate
 
-    @messages = current_user.mail_messages.recent
+    @messages = current_user.admin ? MailMessage.recent : MailMessage.recent_by_user(current_user)
   end
 
   private
