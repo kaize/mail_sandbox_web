@@ -35,7 +35,9 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'mail_sandbox', '~> 0.1.1'
+
+gem 'jquery-rails'
+gem 'mail_sandbox', '~> 0.1.2'
 gem 'unicorn-rails'
 gem 'twitter-bootstrap-rails', :git => "https://github.com/seyhunak/twitter-bootstrap-rails.git"
 gem 'mail'
