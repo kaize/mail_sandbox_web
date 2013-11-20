@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
 
   has_many :mail_application_users, :dependent => :destroy
   has_many :membered_applications, :through => :mail_application_users, :source => :mail_application
+  has_many :membered_applications_mail_messages, through: :membered_applications, source: :mail_messages
 
   state_machine initial: :waiting_confirmation do
     state :waiting_confirmation
