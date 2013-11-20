@@ -5,7 +5,7 @@ class Web::MailApplications::MailMessagesControllerTest < ActionController::Test
     @user = create :user
     sign_in @user
 
-    @application = create :application, owner: @user
+    @application = create :application, creator: @user
 
     @message = create :mail_message, mail_application: @application
 

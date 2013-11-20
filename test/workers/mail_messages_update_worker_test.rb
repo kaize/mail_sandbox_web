@@ -5,7 +5,7 @@ class MailMessagesUpdateWorkerTest < ActiveSupport::TestCase
     @worker = MailMessagesUpdateWorker.new
 
     @user = create :facebook_user
-    @application = create :application, owner: @user
+    @application = create :application, creator: @user
 
     @message = create :mail_message, mail_application: @application
 

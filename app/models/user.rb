@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_one :facebook, :dependent => :destroy, :autosave => true
   has_one :github, :dependent => :destroy, :autosave => true
 
-  has_many :mail_applications, :inverse_of => :owner, :foreign_key => :owner_id
+  has_many :mail_applications, :inverse_of => :creator, :foreign_key => :creator_id
   has_many :mail_messages, through: :mail_applications
 
   has_many :mail_application_users, :dependent => :destroy
@@ -74,7 +74,7 @@ class User < ActiveRecord::Base
 
   def can_delete_app?(app)
     #TODO: app maybe decorator
-    (self.id == app.owner.id) || admin?
+    (self.id == app.creator.id) || admin?
   end
 
 end

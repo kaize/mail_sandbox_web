@@ -1,5 +1,5 @@
 class MailApplicationDecorator < ApplicationDecorator
-  decorates_association :owner
+  decorates_association :creator
   delegate_all
 
   def mail_application_settings

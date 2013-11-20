@@ -5,7 +5,7 @@ class Api::MailApplications::MailMessagesControllerTest < ActionController::Test
     @user = create :facebook_user
     sign_in @user
 
-    @application = create :application, owner: @user
+    @application = create :application, creator: @user
 
     @message = create :mail_message, mail_application: @application
 

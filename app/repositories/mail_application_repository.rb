@@ -6,8 +6,8 @@ module MailApplicationRepository
     scope :web, active
     scope :by_credentials, ->(n, p){ where{ (name.eq n) & (password.eq p)} }
     scope :ordered, ->{ web.order(completed_at: :desc) }
-    scope :owner_is, ->(owner) { where(owner: owner) }
-    scope :available_for, ->(user){ where{ ( owner_id == user.id ) | ( id >> user.membered_application_ids ) } }
+    scope :creator_is, ->(creator) { where(creator: creator) }
+    scope :available_for, ->(user){ where{ ( creator_id == user.id ) | ( id >> user.membered_application_ids ) } }
 
     scope :recently_active, ->(count = 10) { web.where("last_message_at IS NOT NULL").order(last_message_at: :desc).limit(count) }
   end

@@ -7,7 +7,7 @@ class Api::MailMessagesControllerTest < ActionController::TestCase
     sign_in @user
 
     @application = create :application
-    @my_application = create :application, :owner => @user
+    @my_application = create :application, :creator => @user
     @member_application = create :application
     @member_application.members << @user
   end
