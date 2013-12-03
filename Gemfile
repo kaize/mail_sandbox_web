@@ -5,7 +5,7 @@ gem 'rails', '3.2.14'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'therubyracer'
 gem 'pg'
 gem 'haml-rails'
 gem 'simple_form'
@@ -18,6 +18,7 @@ gem 'configus'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'airbrake'
+
 gem 'virtus'
 
 # Gems used only for assets and not required
@@ -39,7 +40,7 @@ end
 gem 'jquery-rails'
 gem 'mail_sandbox', '~> 0.1.2'
 gem 'unicorn-rails'
-gem 'twitter-bootstrap-rails', :git => "https://github.com/seyhunak/twitter-bootstrap-rails.git"
+gem 'twitter-bootstrap-rails'
 gem 'mail'
 gem 'squeel'
 gem 'chosen-rails'
@@ -66,10 +67,10 @@ gem 'unicorn'
 group :development do
   gem 'capistrano'
   gem 'capistrano-ext'
-  gem 'capistrano-db-tasks', github: "sgruhier/capistrano-db-tasks", require: false
   gem 'capi'
   gem 'letter_opener_web'
   gem 'undev', '>=0.2.1'
+  gem 'capistrano_colors'
 end
 
 
