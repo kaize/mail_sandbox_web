@@ -4,9 +4,8 @@ set :branch do
     ENV['TAG']
 end
 
-set :rvm_ruby_string, 'ruby-1.9.3-p327@mail_sandbox'
-
-set :repository, "gitorious@git.undev.cc:infrastructure/mailsandbox.git"
+require 'undev/capistrano'
+set :undev_ruby_version, '1.9.3-p327'
 
 set :user, 'poweruser'
 
