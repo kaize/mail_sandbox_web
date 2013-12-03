@@ -3,7 +3,6 @@ require 'capi/unicorn'
 load 'deploy'
 
 require 'bundler/capistrano'
-require "rvm/capistrano"
 
 # Uncomment if you are using Rails' asset pipeline
 load 'deploy/assets'
