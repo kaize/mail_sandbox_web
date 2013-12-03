@@ -6,14 +6,12 @@ require 'capistrano/ext/multistage'
 
 set :application, "mail_sandbox_web"
 
-set :rvm_type, :system
-
 set :use_sudo, false
 set :ssh_options, :forward_agent => true
 default_run_options[:pty] = true
 
 set :scm, :git
-set :repository, "git@github.com:kaize/mail_sandbox_web.git"
+set :repository, "git@git.undev.cc:infrastructure/mailsandbox.git"
 
 namespace :deploy do
   desc "Symlinks the config yml files"

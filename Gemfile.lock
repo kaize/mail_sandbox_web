@@ -228,6 +228,10 @@ GEM
     uglifier (1.3.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    undev (0.2.2)
+      capistrano
+      rake
+      thor
     unicorn (4.4.0)
       kgio (~> 2.6)
       rack
@@ -271,5 +275,6 @@ DEPENDENCIES
   turn
   twitter-bootstrap-rails!
   uglifier (>= 1.0.3)
+  undev
   unicorn
   unicorn-rails

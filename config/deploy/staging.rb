@@ -1,6 +1,8 @@
 set :rails_env, :staging
 set :branch, 'staging'
 
+set :rvm_type, :system
+set :rvm_ruby_string, 'ruby-1.9.3-p327@mail_sandbox'
 
 set :user, 'mail_sandbox_web_staging'
 
