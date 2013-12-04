@@ -17,18 +17,29 @@
     %p В настройках приложения можно подключать других пользователей.
 
   .span3
-    .hero-unit.padding40
-      %h3 Please sign in
-      = simple_form_for @session, url: user_session_path, input_html: {class: "form-horizontal"} do |f|
-        - f.with_options label: false do |ff|
-          = ff.input :email, placeholder: "Email address"
-          = ff.input :password, placeholder: "Password"
+    .well
+      %h4 Please sign in
+      .row-fluid
+        = simple_form_for @session, url: user_session_path do |f|
+          - f.with_options label: false do |ff|
+            = ff.input_field :email, placeholder: "Email address", class: "span12"
+            = ff.input_field :password, placeholder: "Password", class: "span12"
+
+          = f.button :submit, class: "btn-primary pull-right"
+          = f.input :remember_me, as: :boolean, wrapper: :label_after_input
+
+
+        .clearfix
+        %hr
         = link_to t(".forgot_password"), forget_user_password_path, target: "_self"
-        = f.input :remember_me, as: :boolean, wrapper: :label_after_input
-        = f.button :submit, class: "btn-primary"
-      %p.social-login
-        = link_to register_with_cpath(:facebook), target: "_self" do
-          = image_tag "facebook.png"
-        = link_to register_with_cpath(:github), target: "_self" do
-          = image_tag "github.png"
-      %p= link_to "Sign up", new_user_path, target: "_self", class: "btn btn-success btn-large btn-block"
+        |
+        = link_to "Sign up", new_user_path, target: "_self"
+        %hr
+
+        %h6.social-login
+          %span
+            or log in with &nbsp;
+          = link_to register_with_cpath(:facebook), target: "_self" do
+            %i.micon-facebook-squared-1>
+          = link_to register_with_cpath(:github), target: "_self" do
+            %i.micon-github-circled

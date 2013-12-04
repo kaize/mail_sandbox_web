@@ -18,31 +18,33 @@
 
 
   %body
-    .navbar.navbar-fixed-top
-      .navbar-inner
+    .main
+      .content-wrap
+        .navbar.navbar-fixed-top
+          .navbar-inner
+            .container-fluid
+              %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
+                %span.icon-bar
+                %span.icon-bar
+                %span.icon-bar
+              = link_to "MailSandboxWeb", root_path, :class => :brand, target: "_self"
+              - if signed_in?
+                .container.nav-collapse
+                  = render 'web/shared/main_menu'
+                  = render 'web/shared/login_menu'
+
         .container-fluid
-          %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          = link_to "MailSandboxWeb", root_path, :class => :brand, target: "_self"
-          - if signed_in?
-            .container.nav-collapse
-              = render 'web/shared/main_menu'
-              = render 'web/shared/login_menu'
 
-    .container-fluid
+          .content
+            .row-fluid
+              .span12
+                = render "web/shared/flash_messages"
 
-      .content
-        .row-fluid
-          .span12
-            = render "web/shared/flash_messages"
+                .content(ui-view)
+                  = yield
 
-            .content(ui-view)
-              = yield
-
-      %footer
-        %p &copy; Company 2013
+    %footer
+      %p &copy; Company 2013
     /
       Javascripts
       \==================================================
