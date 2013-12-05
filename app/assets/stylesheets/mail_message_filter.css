@@ -4,10 +4,12 @@
 
 .mail_msg_filter .icon {
   cursor: pointer;
+  position: relative;
+  left: 5px;
 }
 
 .mail_msg_filter .filter_select_block {
-  margin: 0 0 20px;
+  margin: 0;
 }
 
 .mail_msg_filter .select2 {
@@ -48,11 +50,19 @@
 }
 
 .mail_msg_filter .filter_item {
-  margin: 0 0 20px;
+  margin: 10px 0;
 }
 
 .mail_msg_filter .d_ib {
   display: inline-block;
   margin: 0;
   vertical-align: middle;
+}
+
+.mail_msg_group_actions span{
+  cursor: pointer;
+}
+
+.filter_item_container :last-child{
+  margin-bottom: 0;
 }

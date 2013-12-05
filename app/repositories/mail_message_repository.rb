@@ -15,7 +15,7 @@ module MailMessageRepository
 
     scope :by_user, ->(user) {
       joins{mail_application.members}
-        .where{(mail_application.members.id.eq user.id) | (mail_application.owner_id.eq user.id)}
+        .where{(mail_application.members.id.eq user.id) | (mail_application.creator_id.eq user.id)}
     }
     scope :recent_by_user, ->(user) { by_user(user).recent }
   end

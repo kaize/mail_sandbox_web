@@ -5,10 +5,39 @@
   margin: 20px 0 0 20px;
 }
 
-.btn{
-    margin:0px 5px;
-}
-
 .padding40 {
   padding: 40px;
+}
+
+.new_user_sign_in_type {
+  margin-bottom: 0;
+}
+.social-login i{
+  font-size: 2em;
+}
+.social-login i:before{
+  margin: 0;
+}
+.micon-github-circled{color: #000;}
+.micon-facebook-squared-1{color: #3B5998;}
+
+html,body{
+  height: 100%;
+}
+.main{
+  min-height: 100%;
+}
+.content-wrap {
+  padding-bottom: 40px;
+  padding-top: 60px;
+}
+footer{
+  height: 30px;
+  line-height: 30px;
+  margin-top: -31px;
+  padding: 0 10px;
+  border-top: 1px solid #ccc;
+}
+footer p {
+  margin-bottom: 0;
 }

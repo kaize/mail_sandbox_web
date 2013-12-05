@@ -7,7 +7,7 @@ class Api::MailApplicationsControllerTest < ActionController::TestCase
     @user = create :facebook_user
     sign_in @user
 
-    @my_application = create :application, :owner => @user
+    @my_application = create :application, :creator => @user
 
     @params = { format: :json }
   end
