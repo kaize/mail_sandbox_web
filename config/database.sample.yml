@@ -11,6 +11,7 @@ development:
 
 staging:
   <<: *setup
+  pool: 10
   database: mail_sandbox
   username: mail_sandbox_staging
 
