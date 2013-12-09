@@ -1,4 +1,12 @@
 %table.table
+
+  %tr
+    %td{colspan: 2}
+      %a{ "href" => '', "ng-click" => "showMailAppMessageRaw(resourceMessage)" }
+        = t("view raw data")
+      |
+      %a{ "ng-href" => "{{resourceMessage.without_bootstrap_path}}", target: "_self" }
+        = t("view without bootstrap")
   %tr
     %th{width: '13%'}
       = MailMessage.human_attribute_name :recipient
@@ -12,30 +20,17 @@
     %td
       {{resourceMessage.sender}}
   %tr
-    %th
-      = MailMessage.human_attribute_name :mail_application
+    %th{width: '15%'}
+      = MailMessage.human_attribute_name :completed_at
       \:
     %td
-      {{resourceMessage.mail_application}}
+      {{resourceMessage.completed_at}}
   %tr
     %th
       = MailMessage.human_attribute_name :subject
       \:
     %td
       {{resourceMessage.subject}}
-  %tr
-    %th
-      = MailMessage.human_attribute_name :completed_at
-      \:
-    %td
-      {{resourceMessage.completed_at}}
-  %tr
-    %td{colspan: 2}
-      %a{ "href" => '', "ng-click" => "showMailAppMessageRaw(resourceMessage)" }
-        = t("view raw data")
-      |
-      %a{ "ng-href" => "{{resourceMessage.without_bootstrap_path}}", target: "_self" }
-        = t("view without bootstrap")
   - if false
     %tr
       %th{colspan: 2}
