@@ -5,7 +5,7 @@
       - @messages.each do |message|
         %tr
           %td.clicked
-            .span5
+            .span12
               %a{ :href => without_bootstrap_mail_application_mail_message_path(message.mail_application_id,message.id), target: "_self", :title => "Meet the Team" }
                 %strong= message.subject
               %div
@@ -18,12 +18,12 @@
             .pull-left= message.completed_at
   .span3
     .well
-      %p= link_to t(".new_application"), AngularUrlHelpers::new_mail_application_path, class: "btn btn-success btn-large btn-block"
+      %p= link_to t(".new_application"), AngularUrlHelpers::new_mail_application_path, class: "btn btn-success btn-block"
       %h6.table-header
         = t(".mail applications")
 
       %table.table.table-hover
-        - @mail_applications.each do |app|
+        - @recent_mail_applications.each do |app|
           %tr
             %td
               = link_to app, AngularUrlHelpers::mail_application_path(app)
@@ -32,4 +32,5 @@
               - if app.unread_mails_count > 0
                 %span.badge.badge-info.pull-right
                   = app.unread_mails_count
-      %p= link_to t(".show_all"), AngularUrlHelpers::mail_applications_path, class: "btn btn-success btn-large btn-block"
+      - if @mail_applications.count > 10
+        %p= link_to t(".show_all"), AngularUrlHelpers::mail_applications_path, class: "btn btn-primary btn-block"
