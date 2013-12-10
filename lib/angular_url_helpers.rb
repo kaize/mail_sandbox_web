@@ -12,4 +12,8 @@ module AngularUrlHelpers
     "/mail_applications/new"
   end
 
+  def self.mail_application_mail_message_path(application_id, message_id)
+    "/mail_applications/#{application_id}/mail_messages/#{message_id}"
+  end
+
 end

@@ -6,7 +6,7 @@
         %tr
           %td.clicked
             .span12
-              %a{ :href => without_bootstrap_mail_application_mail_message_path(message.mail_application_id,message.id), target: "_self", :title => "Meet the Team" }
+              %a{ :href => AngularUrlHelpers.mail_application_mail_message_path(message.mail_application_id, message.id), target: "_self", :title => "Meet the Team" }
                 %strong= message.subject
               %div
                 = t(".sender")
