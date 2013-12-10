@@ -4,8 +4,6 @@
       %a.brand{ "href" => '', "ng-click" => "show()" }
         {{mailApp.name}}
       .container.nav-collapse
-        %ul.nav
+        %ul.nav.pull-right
           %li
             %a{ "href" => '', "ng-click" => "edit()" } Settings
-          %li
-            %a{ "href" => '', "ng-click" => "destroy()", "ng-confirm-click" => "ololo", "ng-if" => "mailApp.current_user_can_delete_app" } Delete

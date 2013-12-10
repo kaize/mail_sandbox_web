@@ -1,10 +1,17 @@
 angular.module('app.modules.mail_applications.controllers')
   .controller 'ShowMailApplicationController',
-    ($scope, mailApplications, mailMessages, Faye, railsRoutesHelper, $state, $stateParams, $sce, _) ->
+    ($scope, $rootScope, mailApplications, mailMessages, Faye, railsRoutesHelper, $state, $stateParams, $sce, _) ->
 
-      mailApplications.get($stateParams.id).then (mailApp)->
-        $scope.mailApp = mailApp
+      #state transition to other controllers
+      $scope.showMailAppMessage = (message) ->
+        $state.transitionTo 'show_mail_application.show_mail_message',
+          { mail_message_id: message.id, id: $scope.mailApp.id }
+      $scope.showMailAppMessageRaw = (message) ->
+        $state.transitionTo 'raw_mail_message', { id: message.id, mail_application_id: $stateParams.id }
+      $scope.showMailAppMessageWithoutBootstrap = (message) ->
+        $state.transitionTo 'without_bootstrap_mail_message', { id: message.id, mail_application_id: $stateParams.id }
 
+      #subscription on events
       $scope.$on('filter_form:submit', (event, filterParams) ->
         resetPaginationParams()
 
@@ -21,6 +28,13 @@ angular.module('app.modules.mail_applications.controllers')
         $scope.loadMore()
         )
 
+      $scope.$on('mail_message:mark_read', (event, resourceMessage) ->
+        resource_message = _.find($scope.mailAppMessages, (message) ->
+          message.id == resourceMessage.id
+        )
+        resource_message.state = "read"
+      )
+
       Faye.subscribe App.config.faye_channel_message_new, (message) ->
         if $scope.mailApp.name == message.mail_application
 
@@ -28,74 +42,12 @@ angular.module('app.modules.mail_applications.controllers')
           $scope.mailAppMessages.pop()
           $scope.$apply()
 
+      #infinity scroll utils
       resetPaginationParams = ->
         $scope.mailAppMessages = []
         $scope.current_page = 1
         $scope.total_pages = 1
         $scope.pages_loaded = []
-
-      $scope.masterChbox = false
-
-      $scope.isChecked = (message) ->
-        message.isChecked
-
-      $scope.checkAll = ->
-        _.map($scope.mailAppMessages, (message) ->
-          message.isChecked = true
-        )
-
-      $scope.unCheckAll = ->
-        _.map($scope.mailAppMessages, (message) ->
-          message.isChecked = false
-        )
-
-      $scope.onMasterChboxChange = ->
-        if $scope.masterChbox
-          $scope.checkAll()
-        else
-          $scope.unCheckAll()
-
-      checkedMessagesIds = ->
-        $scope.checkedMessages = _.filter($scope.mailAppMessages, (message) ->
-          message.isChecked
-        )
-        _.pluck($scope.checkedMessages, 'id')
-
-      $scope.markReadCheckedMessages = ->
-        #TODO better solution
-        console.log $scope.checkedMessages
-
-        checkedIds = checkedMessagesIds()
-        console.log $scope.checkedMessages
-
-        _.map($scope.checkedMessages, (message) ->
-          message.state = 'read'
-        )
-
-        mailMessages.batchUpdate({
-          mail_application_id: $stateParams.id,
-          ids: checkedMessagesIds,
-          mail_message: { state_event: 'mark_read' }
-        })
-
-      $scope.deleteCheckedMessages = ->
-        #TODO pagination
-        checkedIds = checkedMessagesIds()
-        console.log checkedIds
-        $scope.mailAppMessages = _.reject($scope.mailAppMessages, (message) ->
-          message.isChecked == true
-        )
-        mailMessages.batchUpdate({
-          mail_application_id: $stateParams.id,
-          ids: checkedIds,
-          mail_message: { state_event: 'mark_as_deleted' }
-        })
-
-
-      resetPaginationParams()
-
-      $scope.editMailApp = (mailApp) ->
-        $state.transitionTo 'edit_mail_application', { id: mailApp.id }
 
       $scope.loadMore = ->
         if $scope.total_pages >= $scope.current_page
@@ -115,22 +67,66 @@ angular.module('app.modules.mail_applications.controllers')
 
           $scope.pages_loaded.push($scope.current_page)
 
+      #checkboxes management
+      $scope.isChecked = (message) ->
+        message.isChecked
+
+      $scope.checkAll = ->
+        _.map($scope.mailAppMessages, (message) ->
+          message.isChecked = true
+        )
+
+      $scope.unCheckAll = ->
+        _.map($scope.mailAppMessages, (message) ->
+          message.isChecked = false
+        )
+
+      $scope.onMasterChboxChange = ->
+        if $scope.masterChbox
+          $scope.checkAll()
+        else
+          $scope.unCheckAll()
+
+      getCheckedMessages = ->
+        _.filter($scope.mailAppMessages, (message) ->
+          message.isChecked
+        )
+      getCheckedMessagesIds = (checkedMessages) ->
+        _.pluck(checkedMessages, 'id')
+
+      $scope.markReadCheckedMessages = ->
+        checkedMessages = getCheckedMessages()
+        checkedMessagesIds = getCheckedMessagesIds(checkedMessages)
+
+        _.map(checkedMessages, (message) ->
+          message.state = 'read'
+        )
+
+        mailMessages.batchUpdate({
+          mail_application_id: $stateParams.id,
+          ids: checkedMessagesIds,
+          mail_message: { state_event: 'mark_read' }
+        })
+
+      $scope.deleteCheckedMessages = ->
+        checkedMessages = getCheckedMessages()
+        checkedMessagesIds = getCheckedMessagesIds(checkedMessages)
+
+        $scope.mailAppMessages = _.difference($scope.mailAppMessages, checkedMessages)
+
+        mailMessages.batchUpdate({
+          mail_application_id: $stateParams.id,
+          ids: checkedMessagesIds,
+          mail_message: { state_event: 'mark_as_deleted' }
+        })
+
+        resetPaginationParams()
+        $scope.loadMore()
+
+
+      mailApplications.get($stateParams.id).then (mailApp)->
+        $scope.mailApp = mailApp
+
+      resetPaginationParams()
       $scope.loadMore()
-
-      $scope.showMailAppMessage = (message) ->
-        $scope.resourceMessage = message
-
-        $scope.resourceMessage.without_bootstrap_path ||= railsRoutesHelper.mail_message_without_bootstrap_path($scope.mailApp.id, message.id)
-
-        if $scope.resourceMessage.state == 'unread'
-          $scope.resourceMessage.state = 'read'
-
-          params = { id: message.id, mail_application_id: $stateParams.id, state_event: 'mark_read' }
-          new mailMessages(params).update()
-
-        $scope.resourceMessageBody = $sce.trustAsHtml(message.body)
-
-      $scope.showMailAppMessageRaw = (message) ->
-        $state.transitionTo 'raw_mail_message', { id: message.id, mail_application_id: $stateParams.id }
-      $scope.showMailAppMessageWithoutBootstrap = (message) ->
-        $state.transitionTo 'without_bootstrap_mail_message', { id: message.id, mail_application_id: $stateParams.id }
+      $scope.masterChbox = false

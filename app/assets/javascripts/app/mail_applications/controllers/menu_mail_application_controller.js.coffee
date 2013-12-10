@@ -11,8 +11,3 @@ angular.module('app.modules.mail_applications.controllers')
         $state.transitionTo 'show_mail_application', id: mailAppId
       $scope.edit = ->
         $state.transitionTo 'edit_mail_application', id: mailAppId
-      $scope.destroy = ->
-        deleteMailApp = confirm('Are you sure you want to delete app and all messages?')
-        if deleteMailApp
-          $scope.mailApp.delete().then ->
-            $state.transitionTo 'mail_applications'

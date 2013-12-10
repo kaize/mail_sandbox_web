@@ -1,6 +1,8 @@
+%h2= t 'all applications'
+%br
 %p
   %a.btn.btn-primary{ "ng-click" => "new()" }
-    = t("new")
+    = t("new application")
 
 %table.table.table-hover.mail_applications
   %tr
@@ -19,11 +21,9 @@
       %td {{mailApp.creator_nickname}}
 
       %td
-        %a.btn.btn-info.nowrap{ "href" => '', "ng-click" => "edit(mailApp)" }
-          %i.icon-edit
-          = t("edit")
         %span{"ng-if" => "mailApp.current_user_can_delete_app"}
-          %a.btn.btn-danger.nowrap{ "href" => '', "ng-click" => "destroy(mailApp)" }
+          %a.btn.btn-danger.nowrap.pull-right{ "href" => '', "ng-click" => "destroy(mailApp)" }
             %i.icon-trash
-            = t("delete")
+          %a.btn.btn-info.nowrap.pull-right{ "href" => '', "ng-click" => "edit(mailApp)" }
+            %i.icon-edit
 %br

@@ -1,5 +1,4 @@
 class Api::MailMessagesController < Api::ProtectedApplicationController
-  #TODO: auth for SMTP server
   skip_before_filter :authenticate_user!, only: [:create, :last_minute_count]
 
   def create
