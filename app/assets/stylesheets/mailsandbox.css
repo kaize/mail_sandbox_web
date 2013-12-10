@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'mailsandbox';
-  src: url('/assets/mailsandbox.eot?82809093');
-  src: url('/assets/mailsandbox.eot?82809093#iefix') format('embedded-opentype'),
-       url('/assets/mailsandbox.woff?82809093') format('woff'),
-       url('/assets/mailsandbox.ttf?82809093') format('truetype'),
-       url('/assets/mailsandbox.svg?82809093#mailsandbox') format('svg');
+  src: asset-url('/assets/mailsandbox.eot?82809093');
+  src: asset-url('/assets/mailsandbox.eot?82809093#iefix') format('embedded-opentype'),
+       asset-url('/assets/mailsandbox.woff?82809093') format('woff'),
+       asset-url('/assets/mailsandbox.ttf?82809093') format('truetype'),
+       asset-url('/assets/mailsandbox.svg?82809093#mailsandbox') format('svg');
   font-weight: normal;
   font-style: normal;
 }
