@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'mailsandbox';
-  src: asset-url('/assets/mailsandbox.eot');
-  src: asset-url('/assets/mailsandbox.eot#iefix') format('embedded-opentype'), asset-url('/assets/mailsandbox.woff') format('woff'), asset-url('/assets/mailsandbox.ttf') format('truetype'), asset-url('/assets/mailsandbox.svg#mailsandbox') format('svg');
+  src: asset-url('mailsandbox.eot') ;
+  src: asset-url('mailsandbox.eot#iefix') format('embedded-opentype'), asset-url('mailsandbox.woff') format('woff'), asset-url('mailsandbox.ttf') format('truetype'), asset-url('mailsandbox.svg#mailsandbox') format('svg');
   font-weight: normal;
   font-style: normal;
 }
