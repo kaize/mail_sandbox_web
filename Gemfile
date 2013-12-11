@@ -15,7 +15,6 @@ gem 'state_machine'
 gem 'ransack'
 gem 'js-routes'
 gem 'kaminari'
-gem 'ransack'
 
 gem 'nokogiri'
 
@@ -44,7 +43,6 @@ gem 'bootstrap-datepicker-rails'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'jquery-rails'
   gem 'jquery-ui-rails'
   gem 'sass-rails'
   gem 'coffee-rails'
