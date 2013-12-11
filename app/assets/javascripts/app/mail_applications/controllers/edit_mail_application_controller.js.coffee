@@ -21,3 +21,13 @@ angular.module('app.modules.mail_applications.controllers')
           -> notifications.notice('Mail Application has been successfully updated!')
         , (response) -> $scope.form.errors = response.data.errors
         )
+
+      $scope.cancel = ->
+        $state.transitionTo 'mail_applications'
+
+      $scope.destroy = ->
+        deleteMailApp = confirm('Are you sure you want to delete app and all messages?')
+
+        if deleteMailApp
+          $scope.mailApp.delete().then ->
+            $state.transitionTo 'mail_applications'
