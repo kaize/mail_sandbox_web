@@ -10,4 +10,8 @@ class MailMessageSerializer < ActiveModel::Serializer
     object.mail_application.name
   end
 
+  def completed_at
+    I18n.l(object.completed_at, format: :full)
+  end
+
 end

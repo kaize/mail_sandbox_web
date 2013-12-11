@@ -89,7 +89,7 @@ gem 'unicorn'
 group :development do
   gem 'capistrano', '2.13.5'
   gem 'capistrano-ext'
-  gem 'capistrano-db-tasks'
+  gem 'capistrano-db-tasks', require: false
   gem 'capi'
   gem 'letter_opener_web'
   gem 'undev', '>=0.2.1'
