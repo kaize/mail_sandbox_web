@@ -87,6 +87,7 @@ gem 'unicorn'
 group :development do
   gem 'capistrano'
   gem 'capistrano-ext'
+  gem 'capistrano-db-tasks'
   gem 'capi'
   gem 'letter_opener_web'
   gem 'undev', '>=0.2.1'

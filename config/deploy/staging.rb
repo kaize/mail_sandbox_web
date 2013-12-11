@@ -6,8 +6,7 @@ role :web, "10.40.56.70"
 role :app, "10.40.56.70"
 role :db,  "10.40.56.70", primary: true
 
-set :rvm_type, :system
-set :rvm_ruby_string, 'ruby-1.9.3-p327@mail_sandbox'
+set :undev_ruby_version, '2.0.0-p247'
 
 set :keep_releases, 5
 

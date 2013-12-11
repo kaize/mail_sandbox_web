@@ -51,6 +51,7 @@ GEM
       i18n
       rake (>= 10.0.0)
       sshkit (>= 0.0.23)
+    capistrano-db-tasks (0.2)
     capistrano-ext (1.2.1)
       capistrano (>= 1.0.0)
     celluloid (0.15.2)
@@ -350,6 +351,7 @@ DEPENDENCIES
   bootstrap-datepicker-rails
   capi
   capistrano
+  capistrano-db-tasks
   capistrano-ext
   coffee-rails
   configus
