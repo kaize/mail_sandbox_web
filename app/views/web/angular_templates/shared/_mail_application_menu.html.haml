@@ -1,0 +1,9 @@
+.navbar(ng-controller="MenuMailApplicationController")
+  .navbar-inner
+    .container-fluid
+      %a.brand{ "href" => '', "ng-click" => "show()" }
+        {{mailApp.name}}
+      .container.nav-collapse
+        %ul.nav.pull-right
+          %li
+            %a{ "href" => '', "ng-click" => "edit()" } Settings

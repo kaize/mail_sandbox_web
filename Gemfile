@@ -1,18 +1,32 @@
 source 'https://rubygems.org'
 source 'http://gems.undev.cc'
 
-gem 'rails', '3.2.14'
+gem 'rails', '4.0.0'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-gem 'therubyracer'
+
+gem 'faye'
+gem 'thin'
+
 gem 'pg'
+
 gem 'haml-rails'
 gem 'simple_form'
 gem 'draper'
+
 gem 'state_machine'
+gem 'ransack'
 gem 'js-routes'
 gem 'kaminari'
+gem 'ransack'
+
+gem 'nokogiri'
+
+gem 'wrong'
+
+gem 'sidekiq'
+gem 'sinatra', require: false
+
+gem 'select2-rails'
 
 gem 'configus'
 gem 'omniauth-facebook'
@@ -21,15 +35,23 @@ gem 'airbrake'
 
 gem 'virtus'
 
+gem 'active_model_serializers'
+gem 'rails-observers'
+
+gem 'angularjs-rails'
+gem 'angularjs-rails-resource'
+gem 'underscore-rails'
+
+gem 'bootstrap-datepicker-rails'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'jquery-rails'
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'jquery-ui-rails'
+  gem 'sass-rails'
+  gem 'coffee-rails'
   gem 'haml-rails'
   gem 'less-rails'
-
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
 
@@ -43,7 +65,7 @@ gem 'unicorn-rails'
 gem 'twitter-bootstrap-rails'
 gem 'mail'
 gem 'squeel'
-gem 'chosen-rails'
+
 gem 'validates'
 
 group :test do
@@ -51,14 +73,12 @@ group :test do
   gem 'turn'
   gem 'factory_girl_rails', require: false
   gem 'tconsole'
-  gem 'simplecov', require: false
+  gem 'simplecov','0.7.1', require: false
+  gem 'mocha', require: false
 end
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
 
 # Use unicorn as the app server
 gem 'unicorn'
@@ -70,7 +90,8 @@ group :development do
   gem 'capi'
   gem 'letter_opener_web'
   gem 'undev', '>=0.2.1'
-  gem 'capistrano_colors'
+  gem 'vendorer'
+  gem 'pry-rails'
 end
 
 

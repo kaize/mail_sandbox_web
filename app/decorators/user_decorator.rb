@@ -1,12 +1,12 @@
 class UserDecorator < ApplicationDecorator
-  decorates :user
+  delegate_all
 
   def role
-    user.admin? ? :admin : :user
+    admin? ? :admin : :user
   end
 
   def providers
-    user.providers.map(&:decorate)
+    object.providers.map(&:decorate)
   end
 
   def nickname
@@ -18,6 +18,6 @@ class UserDecorator < ApplicationDecorator
   end
 
   def to_s
-    "#{nickname} <#{user.email}>"
+    "#{nickname} <#{email}>"
   end
 end

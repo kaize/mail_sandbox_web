@@ -1,8 +1,6 @@
 class MailMessage < ActiveRecord::Base
   include MailMessageRepository
 
-  attr_accessible :data, :recipient, :sender, :completed_at, :mail_application
-
   belongs_to :mail_application
 
   validates :mail_application, :presence => true
@@ -21,6 +19,9 @@ class MailMessage < ActiveRecord::Base
     end
   end
 
+  after_create :add_mail_subject
+  after_create :mail_application_last_message_at
+
   def mail
     @mail ||= Mail.new(data)
   end
@@ -36,5 +37,22 @@ class MailMessage < ActiveRecord::Base
   def self.last_minute_count
     last_minute.count
   end
+
+  ransacker :completed_at_casted do |parent|
+    Arel::Nodes::SqlLiteral.new("date(mail_messages.completed_at)")
+  end
+
+  private
+
+    def add_mail_subject
+      self.subject = self.mail.subject
+    end
+
+    def mail_application_last_message_at
+      mail_application = self.mail_application
+      mail_application.last_message_at = self.completed_at
+
+      mail_application.save!
+    end
 
 end

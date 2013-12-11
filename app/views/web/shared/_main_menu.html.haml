@@ -1,4 +1,4 @@
 %ul.nav
-  %li= link_to t(".mail_applications"), mail_applications_path
+  %li= link_to t(".mail_applications"), AngularUrlHelpers::mail_applications_path
   - if current_user.admin?
-    %li= link_to t(".users"), users_path
+    %li= link_to t(".users"), users_path, target: "_self"

@@ -18,6 +18,11 @@ Configus.build Rails.env do
   env :production do
     host 'mail-sandbox-web.st2.ul.home'
 
+    faye do
+      url '/faye'
+      port 9292
+    end
+
     airbrake do
       enable? true
       api_key Configus::AIRBRAKE['api_key']
@@ -54,15 +59,18 @@ Configus.build Rails.env do
 
   end
 
-  env :development, parent: :production do
-    host "localhost:8080"
+  env :development, :parent => :production do
+    host 'http://localhost'
+    port 8080
   end
 
   env :staging, parent: :production do
     host "mail-sandbox-web-1.staging.ul.home"
   end
 
-  env :test, parent: :development do
+  env :test, :parent => :development do
+    host 'http://localhost'
+    port 8080
   end
 
 end

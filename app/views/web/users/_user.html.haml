@@ -4,6 +4,6 @@
   %td= t user.role, scope: :roles
   %td= t user.human_state_name, scope: :roles
   %td
-    = link_to t('edit'), edit_user_path(user)
+    = link_to t('edit'), edit_user_path(user), target: "_self"
     - unless user == current_user
-      = link_to t('delete'), user_path(user),  confirm: t("are_you_sure?"), method: :delete
+      = link_to t('delete'), user_path(user), target: "_self", confirm: t("are_you_sure?"), method: :delete

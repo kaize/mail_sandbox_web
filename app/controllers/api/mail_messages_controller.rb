@@ -1,5 +1,4 @@
 class Api::MailMessagesController < Api::ProtectedApplicationController
-  #TODO: auth for SMTP server
   skip_before_filter :authenticate_user!, only: [:create, :last_minute_count]
 
   def create
@@ -10,14 +9,7 @@ class Api::MailMessagesController < Api::ProtectedApplicationController
     @application.mail_messages << @message
     @message.save
 
-    respond_with @message
-  end
-
-  def mark_read
-    @message = available_applications_messages.find(params[:id])
-    @message.mark_read
-
-    respond_with @message
+    respond_with @message, location: nil
   end
 
   def destroy

@@ -7,12 +7,12 @@ class Api::MailMessagesControllerTest < ActionController::TestCase
     sign_in @user
 
     @application = create :application
-    @my_application = create :application, :owner => @user
+    @my_application = create :application, :creator => @user
     @member_application = create :application
     @member_application.members << @user
   end
 
-  test "should get create" do
+  test "should post create" do
     attrs = attributes_for(:mail_message, :sender => "unique@unique.ru")
 
     attrs[:user] = @application.name
@@ -22,14 +22,8 @@ class Api::MailMessagesControllerTest < ActionController::TestCase
     assert_response :success
 
     message = MailMessage.find_by_sender("unique@unique.ru")
-    assert_not_nil message
-  end
 
-  test "should mark read" do
-    message = create :mail_message, :mail_application => @my_application
-
-    put :mark_read, :id => message.id, :format => :json
-    assert_response :success
+    assert { message }
   end
 
   test "should delete" do

@@ -12,21 +12,21 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require select2
+//= require bootstrap-datepicker
+//= require js-routes
 //= require twitter/bootstrap
-//= require chosen-jquery
 //= require jquery.query-2.1.7
-//= require_tree .
-//= require_self
-
-$(function(){
-  $('.table tr .clicked').click(function(e) {
-      var href = $(this).parent().data('href');
-      if(href && !$(e.target).data('remote')) window.location.href = href;
-  });
-
-  $("select.per_page_selector").change(function(){
-    url = $.query.set("per_page", this.value).set("page", 1).toString().replace('%2B', '+');
-    window.location.href = url;
-  });
-});
-
+//= require underscore
+//= require angular-1.2.0
+//= require angular-sanitize-1.2.0
+//= require angular-underscore
+//= require angular-route.min
+//= require angular-resource
+//= require angular-ui-router
+//= require angularjs/rails/resource
+//= require ./boot
+//= require ./vendor/vendor
+//= require_tree ./config
+//= require_tree ./lib
+//= require ./app/app

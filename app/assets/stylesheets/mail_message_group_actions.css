@@ -1,0 +1,35 @@
+.mail_msg_group_actions {
+  background-color: #f5f5f5;
+  position: relative;
+  margin: 0;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border: 0;
+  border-bottom: 1px solid rgba(0,0,0, .20);
+  border-top: 1px solid #e5e5e5;
+  padding: 5px 12px;
+  text-align: right;
+}
+
+.mail_msg_group_actions:after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid rgba(0,0,0, .12);
+  border-bottom: 1px solid rgba(0,0,0, .04);
+}
+
+.mail_msg_group_actions .d_ib {
+  cursor: pointer;
+  margin: 0 0 0 15px;
+}
+
+.mail_msg_group_actions .cb_ctrl {
+  position: absolute;
+  top: 9px;
+  left: -3px;
+}

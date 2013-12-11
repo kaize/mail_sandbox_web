@@ -1,0 +1,24 @@
+.mail_msg_container
+  .mail_msg_content{ "when-scrolled" => "loadMore()" }
+    %table.table.mail_msg_table.table-hover
+      %div
+        %tr{ 'ng-repeat' => 'message in mailAppMessages'}
+          %td.cb_ctrl_cell
+            %input{ "type" => "checkbox", "ng-model" => "message.isChecked", "ng-value" => "message.id", "ng-checked" => "isChecked(message)" }
+          %td
+            .subject{ "ng-class" => "{'bold' : message.state == 'unread'}", 'ng-click' => "showMailAppMessage(message)" }
+              %span
+                {{message.subject}}
+            .meta
+              %dl
+                %dt From:
+                %dd {{message.sender}}
+              %dl
+                %dt To:
+                %dd {{message.recipient}}
+              %dl
+                %dt At:
+                %dd {{message.completed_at}}
+        %tr{ "ng-show" => "messagesLoading" }
+          %td.load_icon{ colspan: 2 }
+            = image_tag "loading.gif"

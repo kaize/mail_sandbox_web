@@ -1,5 +1,5 @@
 !!! 5
-%html(lang="en")
+%html(lang="en" ng-app="app")
   %head
     %meta(charset="utf-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
@@ -18,31 +18,39 @@
 
 
   %body
-    .navbar.navbar-fixed-top
-      .navbar-inner
-        .container
-          %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          = link_to "MailSandboxWeb", root_path, :class => :brand
-          - if signed_in?
-            .container.nav-collapse
-              = render 'web/shared/main_menu'
-              = render 'web/shared/login_menu'
+    .main
+      .content-wrap
+        .navbar.navbar-fixed-top
+          .navbar-inner
+            .container-fluid
+              %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
+                %span.icon-bar
+                %span.icon-bar
+                %span.icon-bar
+              = link_to "MailSandboxWeb", root_path, :class => :brand, target: "_self"
+              - if signed_in?
+                .container.nav-collapse
+                  = render 'web/shared/main_menu'
+                  = render 'web/shared/login_menu'
 
-    .container
+        .container-fluid
 
-      .content
-        .row
-          .span12
-            = render "web/shared/flash_messages"
-            = yield
+          .content
+            .row-fluid
+              .span12
+                = render "web/shared/flash_messages"
 
-      %footer
-        %p &copy; Company 2013
+                .content(ui-view)
+                  = yield
+
+    %footer
+      %p &copy; Company 2013
     /
       Javascripts
       \==================================================
     / Placed at the end of the document so the pages load faster
+
+    = render 'layouts/shared/faye_js'
+    = render 'layouts/shared/host_js'
+
     = javascript_include_tag "application"

@@ -1,0 +1,68 @@
+.mail_msg_filter {
+  margin: 0;
+}
+
+.mail_msg_filter .icon {
+  cursor: pointer;
+  position: relative;
+  left: 5px;
+}
+
+.mail_msg_filter .filter_select_block {
+  margin: 0;
+}
+
+.mail_msg_filter .select2 {
+  width: 310px;
+}
+
+.mail_msg_filter input, .mail_msg_filter select, .mail_msg_filter .select2, .mail_msg_filter label {
+  font-size: 12px;
+}
+
+.select2-result-label {
+  font-size: 12px;
+}
+
+.mail_msg_filter .input-append input {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  width: 258px;
+}
+
+.mail_msg_filter .input-append .simple_input {
+  width: 296px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  margin: 0;
+}
+
+.mail_msg_filter .input-append .btn {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-right: 0;
+}
+
+.mail_msg_filter .filter_item_select {
+  width: 120px;
+  margin: 0 0 20px;
+}
+
+.mail_msg_filter .filter_item {
+  margin: 10px 0;
+}
+
+.mail_msg_filter .d_ib {
+  display: inline-block;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.mail_msg_group_actions span{
+  cursor: pointer;
+}
+
+.filter_item_container :last-child{
+  margin-bottom: 0;
+}

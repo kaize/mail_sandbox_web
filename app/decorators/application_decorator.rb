@@ -1,8 +1,5 @@
-class ApplicationDecorator < Draper::Base
+class ApplicationDecorator < Draper::Decorator
+  delegate :to_s, to: :source
+
   include Draper::LazyHelpers
-
-  def to_s
-    model.class.name.demodulize.downcase
-  end
-
 end

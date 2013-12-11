@@ -1,0 +1,46 @@
+%form.form-horizontal.form-inline.mail_msg_filter(name="form" ng-controller="FilterMessagesController"
+  ng-submit="filterParamsPicking()")
+
+  .row-fluid.filter_select_block
+    .span7
+      %label.d_ib Add filter
+      %select.filter_item_select.d_ib(ng-model="selectedFilter" ng-change="addFilter()" )
+        %option
+        %option(ng-repeat="opt in options | filter: { isSelected: 'false' }" ng-value="opt.title" ng-bind="opt.title")
+
+    .actions.span5
+      %button.btn.btn-info Apply
+      %button.btn.btn-danger(ng-click="filterParamsDrop()") Clean
+
+  .filter_items
+
+    %div.filter_item(filter-item-show="hasFilter('state')")
+      %select.select2(placeholder="State" ng-model="messagesFilterMask.state" ui-select2="{allowClear: true}")
+        %option
+        %option(value="read")   read
+        %option(value="unread") unread
+      %i.icon-remove.icon(ng-click="removeFilter('state')")
+
+    %div.filter_item(filter-item-show="hasFilter('recipient')")
+      %select.select2(placeholder="Recipient" ng-model="messagesFilterMask.recipient" ui-select2="{allowClear: true}")
+        %option
+        %option(ng-repeat="recipient in mailApp.recipients" value="{{recipient}}") {{recipient}}
+      %i.icon-remove.icon(ng-click="removeFilter('recipient')")
+
+    %div.filter_item(filter-item-show="hasFilter('sender')")
+      %select.select2(placeholder="Sender" ng-model="messagesFilterMask.sender" ui-select2="{allowClear: true}")
+        %option
+        %option(ng-repeat="sender in mailApp.senders" value="{{sender}}") {{sender}}
+      %i.icon-remove.icon(ng-click="removeFilter('sender')")
+
+    %div.filter_item(filter-item-show="hasFilter('completed_at')")
+      .input-append
+        %input(bs-datepicker="" placeholder="Completed At" date-format="yyyy-mm-dd" ng-model= "messagesFilterMask.completed_at" type="text")
+        %button.btn(data-toggle="datepicker" type="button")
+          %i.icon-calendar
+      %i.icon-remove.icon(ng-click="removeFilter('completed_at')")
+
+    %div.filter_item(filter-item-show="hasFilter('subject')")
+      .input-append
+        %input.simple_input(ng-model="messagesFilterMask.subject" placeholder="Subject" type="text")
+      %i.icon-remove.icon(ng-click= "removeFilter('subject')")

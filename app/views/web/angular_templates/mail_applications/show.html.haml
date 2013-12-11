@@ -1,0 +1,21 @@
+.container-fluid
+  .row-fluid
+    .span4.well.mail_msg_box
+      .mail_msg_filter_container
+        = render "web/angular_templates/shared/messages_filter"
+      .mail_msg_group_actions
+        %input.cb_ctrl.d_ib{ type: "checkbox", "ng-model" => "masterChbox", "ng-change" => "onMasterChboxChange()"}
+        %span{ "ng-click" => "deleteCheckedMessages()" }
+          %i.icon-trash.d_ib
+          = t("delete")
+        %span{ "ng-click" => "markReadCheckedMessages()" }
+          %i.icon-ok.d_ib
+          = t("mark read")
+
+      = render "web/angular_templates/shared/messages_list"
+    .span8
+      = render "web/angular_templates/shared/mail_application_menu"
+      %span{ "ng-if" => "messageDummy" }
+        = render "web/angular_templates/shared/message_dummy"
+
+      %div(ui-view)

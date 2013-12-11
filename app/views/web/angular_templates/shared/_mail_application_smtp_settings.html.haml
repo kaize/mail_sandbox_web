@@ -1,0 +1,9 @@
+%pre
+  %code
+    = "config.action_mailer.smtp_settings = {"
+    = " :address => '{{mailApp.smtp_settings.host}}',"
+    = " :port => '{{mailApp.smtp_settings.port}}',"
+    = " :user_name => '{{mailApp.name}}',"
+    = " :password => '{{mailApp.password}}'"
+    = "}"
+
