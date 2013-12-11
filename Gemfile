@@ -5,6 +5,7 @@ source 'http://gems.undev.cc'
 
 gem 'rails', '4.0.0'
 
+
 gem 'faye'
 gem 'thin'
 
@@ -33,6 +34,7 @@ gem 'configus'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'airbrake'
+
 gem 'virtus'
 
 gem 'active_model_serializers'
@@ -58,9 +60,10 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'mail_sandbox'
+gem 'jquery-rails'
+gem 'mail_sandbox', '~> 0.1.2'
 gem 'unicorn-rails'
-gem 'twitter-bootstrap-rails', :git => "https://github.com/seyhunak/twitter-bootstrap-rails.git"
+gem 'twitter-bootstrap-rails'
 gem 'mail'
 gem 'squeel'
 
@@ -71,7 +74,7 @@ group :test do
   gem 'turn'
   gem 'factory_girl_rails', require: false
   gem 'tconsole'
-  gem 'simplecov', '0.7.1', require: false
+  gem 'simplecov','0.7.1', require: false
   gem 'mocha', require: false
 end
 
@@ -86,7 +89,6 @@ gem 'unicorn'
 group :development do
   gem 'capistrano', '2.13.5'
   gem 'capistrano-ext'
-  gem 'capistrano-db-tasks', github: "sgruhier/capistrano-db-tasks", require: false
   gem 'capi'
   gem 'letter_opener_web'
   gem 'undev', '>=0.2.1'

@@ -6,11 +6,11 @@ set :rake, "#{rake} --trace"
 set :stages, %w(production staging)
 set :default_stage, "staging"
 set :application, "mail_sandbox_web"
-set :undev_ruby_version, '2.0.0-p247'
+
 set :use_sudo, false
 set :ssh_options, :forward_agent => true
 set :scm, :git
-set :repository, "git://git.undev.cc/infrastructure/mailsandbox.git"
+set :repository, "git@git.undev.cc:infrastructure/mailsandbox.git"
 set :deploy_to, "/rest/u/apps/mail_sandbox"
 
 default_run_options[:pty] = true

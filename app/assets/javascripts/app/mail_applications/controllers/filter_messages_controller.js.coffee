@@ -32,6 +32,7 @@ angular.module('app.modules.mail_applications.controllers')
             item.isSelected = false
         )
         $scope.selectedFilter = ""
+        delete $scope.messagesFilterMask[filter]
 
       $scope.filterParamsPicking = ->
         $scope.filterParams = messagesFilterHelper.filterParamsFilling($scope.messagesFilterMask)
