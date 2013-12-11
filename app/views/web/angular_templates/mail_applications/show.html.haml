@@ -15,5 +15,7 @@
       = render "web/angular_templates/shared/messages_list"
     .span8
       = render "web/angular_templates/shared/mail_application_menu"
+      %span{ "ng-if" => "messageDummy" }
+        = render "web/angular_templates/shared/message_dummy"
 
       %div(ui-view)
