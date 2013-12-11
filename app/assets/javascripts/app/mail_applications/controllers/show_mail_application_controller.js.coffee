@@ -2,8 +2,13 @@ angular.module('app.modules.mail_applications.controllers')
   .controller 'ShowMailApplicationController',
     ($scope, $rootScope, mailApplications, mailMessages, Faye, railsRoutesHelper, $state, $stateParams, $sce, _) ->
 
+      #management dummy for message body(better solution then rootScope)
+      showMessageDummy = ->
+        $rootScope.messageDummy = true
+
       #state transition to other controllers
       $scope.showMailAppMessage = (message) ->
+        $scope.currentShowingMessage = message
         $state.transitionTo 'show_mail_application.show_mail_message',
           { mail_message_id: message.id, id: $scope.mailApp.id }
       $scope.showMailAppMessageRaw = (message) ->
@@ -113,6 +118,11 @@ angular.module('app.modules.mail_applications.controllers')
         uncheckMaster()
         $scope.unCheckAllMessages()
 
+      currentShowingMessageIsDeleted = (deletedMessagesIds) ->
+        _.find(deletedMessagesIds, (message_id) ->
+          message_id == $scope.currentShowingMessage.id
+        )
+
       $scope.deleteCheckedMessages = ->
         checkedMessages = getCheckedMessages()
         checkedMessagesIds = getCheckedMessagesIds(checkedMessages)
@@ -124,6 +134,10 @@ angular.module('app.modules.mail_applications.controllers')
           ids: checkedMessagesIds,
           mail_message: { state_event: 'mark_as_deleted' }
         })
+        if currentShowingMessageIsDeleted(checkedMessagesIds)
+          $state.transitionTo 'show_mail_application', { id: $scope.mailApp.id }
+          showMessageDummy()
+
         uncheckMaster()
         $scope.unCheckAllMessages()
 
@@ -135,4 +149,6 @@ angular.module('app.modules.mail_applications.controllers')
 
       resetPaginationParams()
       $scope.loadMore()
+
       uncheckMaster()
+      showMessageDummy()
