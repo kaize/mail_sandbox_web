@@ -68,24 +68,27 @@ angular.module('app.modules.mail_applications.controllers')
           $scope.pages_loaded.push($scope.current_page)
 
       #checkboxes management
+      uncheckMaster = ->
+        $scope.masterChbox = false
+
       $scope.isChecked = (message) ->
         message.isChecked
 
-      $scope.checkAll = ->
+      $scope.checkAllMessages = ->
         _.map($scope.mailAppMessages, (message) ->
           message.isChecked = true
         )
 
-      $scope.unCheckAll = ->
+      $scope.unCheckAllMessages = ->
         _.map($scope.mailAppMessages, (message) ->
           message.isChecked = false
         )
 
       $scope.onMasterChboxChange = ->
         if $scope.masterChbox
-          $scope.checkAll()
+          $scope.checkAllMessages()
         else
-          $scope.unCheckAll()
+          $scope.unCheckAllMessages()
 
       getCheckedMessages = ->
         _.filter($scope.mailAppMessages, (message) ->
@@ -107,6 +110,8 @@ angular.module('app.modules.mail_applications.controllers')
           ids: checkedMessagesIds,
           mail_message: { state_event: 'mark_read' }
         })
+        uncheckMaster()
+        $scope.unCheckAllMessages()
 
       $scope.deleteCheckedMessages = ->
         checkedMessages = getCheckedMessages()
@@ -119,14 +124,15 @@ angular.module('app.modules.mail_applications.controllers')
           ids: checkedMessagesIds,
           mail_message: { state_event: 'mark_as_deleted' }
         })
+        uncheckMaster()
+        $scope.unCheckAllMessages()
 
         resetPaginationParams()
         $scope.loadMore()
-
 
       mailApplications.get($stateParams.id).then (mailApp)->
         $scope.mailApp = mailApp
 
       resetPaginationParams()
       $scope.loadMore()
-      $scope.masterChbox = false
+      uncheckMaster()
