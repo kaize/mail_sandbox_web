@@ -104,7 +104,7 @@ GEM
     equalizer (0.0.7)
     erubis (2.7.0)
     escape_utils (1.0.0)
-    eventmachine (0.12.10)
+    eventmachine (1.0.3)
     execjs (2.0.2)
     factory_girl (4.3.0)
       activesupport (>= 3.0.0)
@@ -167,10 +167,10 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mail_sandbox (0.1.1)
+    mail_sandbox (0.1.2)
       OptionParser
       em-http-request (~> 0.3.0)
-      eventmachine (~> 0.12.9)
+      eventmachine (~> 1.0.1)
       file-utils
       simple_pid
     metaclass (0.0.1)
