@@ -1,24 +1,29 @@
 require 'test_helper'
 
 class Web::User::GithubControllerTest < ActionController::TestCase
-
-  test "should create user via Github" do
+  setup do
     @auth_data = generate(:github_auth)
-    @request.env['omniauth.auth'] = @auth_data
-    get :callback
-    assert_response :redirect
+    request.env['omniauth.auth'] = @auth_data
   end
 
-  test "should sign in via Github" do
-    @auth_data = generate(:github_auth)
-    user = create :github_user
-    github_user = user.github
-    @auth_data[:uid] = github_user.uid
-    @request.env['omniauth.auth'] = @auth_data
+  test "should create user via GitHub" do
+    get :callback
+    assert_response :redirect
+
+    user = User.find_by(@auth_data[:info].extract(:email))
+
+    assert { user }
+    assert { user.authentications.any? }
+    assert { signed_in? }
+  end
+
+  test "should sign in via GitHub" do
+    user = create :user, email: @auth_data[:info][:email]
 
     get :callback
     assert_response :redirect
+
     assert signed_in?
-    assert_equal github_user.user.id, current_user.id
+    assert { user.authentications.any? }
   end
 end

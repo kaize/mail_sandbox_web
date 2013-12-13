@@ -1,18 +1,29 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
-  factory :user, :aliases => [:facebook_user] do
-    facebook :factory => "user/facebook"
+  factory :unconfirmed_user, class: 'User' do
     email { generate :email }
     password { generate :string }
     password_confirmation { "#{password}" }
   end
 
-  factory :admin_user, :parent => :user do
+  factory :admin_user, parent: :user do
     admin {true}
   end
 
-  factory :github_user, :parent => :user do
-    github :factory => "user/github"
+  factory :user, parent: :unconfirmed_user do
+    after(:build) do |u|
+      u.confirm
+    end
+  end
+
+  factory :facebook_user, parent: :user do
+    after(:create) do |u|
+      create "user/facebook", user: u
+    end
+  end
+
+  factory :github_user, parent: :user do
+    after(:create) do |u|
+      create "user/github", user: u
+    end
   end
 end
