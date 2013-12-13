@@ -2,7 +2,7 @@
   .mail_msg_content{ "when-scrolled" => "loadMore()" }
     %table.table.mail_msg_table.table-hover
       %div
-        %tr.active{ 'ng-repeat' => 'message in mailAppMessages'}
+        %tr{ 'ng-repeat' => 'message in mailAppMessages', 'ng-class' => "{'active': message.id == currentShowingMessageId }" }
           %td.cb_ctrl_cell
             %input{ "type" => "checkbox", "ng-model" => "message.isChecked", "ng-value" => "message.id", "ng-checked" => "isChecked(message)" }
           %td

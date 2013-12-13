@@ -8,7 +8,6 @@ angular.module('app.modules.mail_applications.controllers')
 
       #state transition to other controllers
       $scope.showMailAppMessage = (message) ->
-        $scope.currentShowingMessage = message
         $state.transitionTo 'show_mail_application.show_mail_message',
           { mail_message_id: message.id, id: $scope.mailApp.id }
       $scope.showMailAppMessageRaw = (message) ->
@@ -38,6 +37,10 @@ angular.module('app.modules.mail_applications.controllers')
           message.id == resourceMessage.id
         )
         resource_message.state = "read"
+      )
+
+      $scope.$on('mail_message:current', (event, currentShowingMessageId) ->
+        $scope.currentShowingMessageId = currentShowingMessageId
       )
 
       Faye.subscribe App.config.faye_channel_message_new, (message) ->

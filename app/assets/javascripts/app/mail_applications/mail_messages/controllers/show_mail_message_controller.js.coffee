@@ -18,4 +18,6 @@ angular.module('app.modules.mail_applications.mail_messages.controllers')
         $scope.resourceMessage.without_bootstrap_path ||=
           railsRoutesHelper.mail_message_without_bootstrap_path($scope.mailApp.id, message.id)
 
+        $rootScope.$broadcast('mail_message:current', $scope.resourceMessage.id)
+
         hideMessageDummy()
