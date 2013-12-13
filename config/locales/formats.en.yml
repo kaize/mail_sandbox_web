@@ -4,6 +4,7 @@ en:
     formats:
       time: "%H:%M"
       default: "%d-%m-%Y %H:%M"
+      full: "%Y-%m-%d %H:%M:%S UTC"
   date:
     formats:
       week_month: "%A %d %B"
