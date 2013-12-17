@@ -1,9 +1,8 @@
 angular.module('app.modules.mail_applications.mail_messages.controllers')
   .controller 'ShowMailMessageController',
     ($scope, $rootScope, mailMessages, railsRoutesHelper, $stateParams, $sce) ->
-      #management dummy for message body(try to find better solution then rootScope))
-      hideMessageDummy = ->
-        $rootScope.messageDummy = false
+
+      $rootScope.currentShowingMessageId = $stateParams.mail_message_id
 
       mailMessages.get({mail_application_id: $stateParams.id, id: $stateParams.mail_message_id}).then (message) ->
         $scope.resourceMessage = message
@@ -17,5 +16,3 @@ angular.module('app.modules.mail_applications.mail_messages.controllers')
 
         $scope.resourceMessage.without_bootstrap_path ||=
           railsRoutesHelper.mail_message_without_bootstrap_path($scope.mailApp.id, message.id)
-
-        hideMessageDummy()

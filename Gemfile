@@ -2,14 +2,12 @@ source 'https://rubygems.org'
 source 'http://gems.undev.cc'
 
 gem 'rails', '4.0.0'
-
-
 gem 'faye'
 gem 'thin'
 
 gem 'pg'
 
-gem 'haml-rails'
+gem 'haml-rails', '0.4'
 gem 'simple_form'
 gem 'draper'
 
@@ -50,14 +48,12 @@ group :assets do
   gem 'jquery-ui-rails'
   gem 'sass-rails'
   gem 'coffee-rails'
-  gem 'haml-rails'
   gem 'less-rails'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
 end
-
 
 gem 'jquery-rails'
 gem 'mail_sandbox', '~> 0.1.2'
