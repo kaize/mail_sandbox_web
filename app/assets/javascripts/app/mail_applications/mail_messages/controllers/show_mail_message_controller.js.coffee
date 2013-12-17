@@ -1,10 +1,7 @@
 angular.module('app.modules.mail_applications.mail_messages.controllers')
   .controller 'ShowMailMessageController',
     ($scope, $rootScope, mailMessages, railsRoutesHelper, $stateParams, $sce) ->
-      #management dummy for message body(try to find better solution then rootScope))
-      hideMessageDummy = ->
-        $rootScope.messageDummy = false
-
+      $rootScope.messageDummy = false
       mailMessages.get({mail_application_id: $stateParams.id, id: $stateParams.mail_message_id}).then (message) ->
         $scope.resourceMessage = message
         $scope.resourceMessageBody = $sce.trustAsHtml(message.body)
@@ -19,5 +16,3 @@ angular.module('app.modules.mail_applications.mail_messages.controllers')
           railsRoutesHelper.mail_message_without_bootstrap_path($scope.mailApp.id, message.id)
 
         $rootScope.$broadcast('mail_message:current', $scope.resourceMessage.id)
-
-        hideMessageDummy()
