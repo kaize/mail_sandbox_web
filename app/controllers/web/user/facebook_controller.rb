@@ -5,15 +5,14 @@ class Web::User::FacebookController < Web::User::NetworksController
     authentication.nickname = auth_hash[:info][:nickname]
 
     if authentication.persisted?
+      authentication.save!
       user = authentication.user
     else
       user = User::FacebookType.where(attrs.extract('email'))
         .first_or_create(attrs)
       user.authentications << authentication
-    end
 
-    if user.waiting_confirmation?
-      user.confirm!
+      user.confirm! if user.waiting_confirmation?
     end
 
     if user.active?
