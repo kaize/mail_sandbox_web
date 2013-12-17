@@ -35,10 +35,6 @@ angular.module('app.modules.mail_applications.controllers')
         resource_message.state = "read"
       )
 
-      $scope.$on('mail_message:current', (event, currentShowingMessageId) ->
-        $scope.currentShowingMessageId = currentShowingMessageId
-      )
-
       Faye.subscribe App.config.faye_channel_message_new, (message) ->
         if $scope.mailApp.name == message.mail_application
 
@@ -119,7 +115,7 @@ angular.module('app.modules.mail_applications.controllers')
 
       currentShowingMessageIsDeleted = (deletedMessagesIds) ->
         _.find(deletedMessagesIds, (message_id) ->
-          message_id == $scope.currentShowingMessageId
+          message_id == $rootScope.currentShowingMessageId
         )
 
       $scope.deleteCheckedMessages = ->
@@ -136,6 +132,7 @@ angular.module('app.modules.mail_applications.controllers')
         if currentShowingMessageIsDeleted(checkedMessagesIds)
           $state.transitionTo 'show_mail_application', { id: $scope.mailApp.id }
           $rootScope.showMessageDummy = true
+          $rootScope.currentShowingMessageId = null
 
         uncheckMaster()
         $scope.unCheckAllMessages()
