@@ -9,4 +9,5 @@ angular.module('app').config(["$routeProvider", ($routeProvider) ->
 
     if toState.name == "show_mail_application"
       $rootScope.showMessageDummy = true
+      $rootScope.currentShowingMessageId = null
   )
