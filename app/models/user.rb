@@ -1,13 +1,12 @@
 class User < ActiveRecord::Base
   include UserRepository
 
-  has_secure_password
+  has_secure_password validations: false
 
   validates :email, presence: true, email: true, uniqueness: true, length: {maximum: 255}
   validates :password, presence: true, on: :create
 
-  has_one :facebook, :dependent => :destroy, :autosave => true
-  has_one :github, :dependent => :destroy, :autosave => true
+  has_many :authentications, dependent: :destroy
 
   has_many :mail_applications, :inverse_of => :creator, :foreign_key => :creator_id
   has_many :mail_messages, through: :mail_applications
@@ -68,8 +67,7 @@ class User < ActiveRecord::Base
   end
 
   def providers
-    [self.facebook,
-     self.github].compact
+    self.authentications.compact
   end
 
   def can_delete_app?(app)

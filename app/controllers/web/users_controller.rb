@@ -41,7 +41,6 @@ class Web::UsersController < Web::ProtectedApplicationController
 
   def create
     @user = UserRegistrationType.new params[:user]
-
     if @user.valid?
       @user.generate_confirmation_token
       @user.save

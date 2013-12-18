@@ -2,6 +2,7 @@
   = f.input :state_event, as: :select, collection: human_state_events_collection(@user)
   = f.input :email
   = f.input :password
+  = f.input :password_confirmation
   = f.input :admin, as: :boolean
 
   - if @user.providers.any?
