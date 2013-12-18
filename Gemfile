@@ -7,7 +7,7 @@ gem 'thin'
 
 gem 'pg'
 
-gem 'haml-rails', '0.4'
+gem 'haml-rails'
 gem 'simple_form'
 gem 'draper'
 
@@ -37,7 +37,7 @@ gem 'active_model_serializers'
 gem 'rails-observers'
 
 gem 'angularjs-rails'
-gem 'angularjs-rails-resource'
+gem 'angularjs-rails-resource', '0.2.4'
 gem 'underscore-rails'
 
 gem 'bootstrap-datepicker-rails'
