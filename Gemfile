@@ -21,7 +21,6 @@ gem 'nokogiri'
 
 gem 'wrong'
 
-gem 'sidekiq'
 gem 'sinatra', require: false
 
 gem 'select2-rails'
