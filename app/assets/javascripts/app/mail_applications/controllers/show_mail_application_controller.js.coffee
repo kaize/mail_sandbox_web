@@ -120,23 +120,23 @@ angular.module('app.modules.mail_applications.controllers')
         checkedMessages = getCheckedMessages()
         checkedMessagesIds = getCheckedMessagesIds(checkedMessages)
 
-        $scope.mailAppMessages = _.difference($scope.mailAppMessages, checkedMessages)
-
         mailMessages.batchUpdate({
           mail_application_id: $stateParams.id,
           mail_message: { state_event: 'mark_as_deleted' },
           ids: checkedMessagesIds
-        })
-        if currentShowingMessageIsDeleted(checkedMessagesIds)
-          $state.transitionTo 'show_mail_application', { id: $scope.mailApp.id }
-          $rootScope.showMessageDummy = true
-          $rootScope.currentShowingMessageId = null
+        }).then ->
+          if currentShowingMessageIsDeleted(checkedMessagesIds)
+            $state.transitionTo 'show_mail_application', { id: $scope.mailApp.id }
+            $rootScope.showMessageDummy = true
+            $rootScope.currentShowingMessageId = null
 
-        uncheckMaster()
-        $scope.unCheckAllMessages()
+          $scope.mailAppMessages = _.difference($scope.mailAppMessages, checkedMessages)
 
-        resetPaginationParams()
-        $scope.loadMore()
+          uncheckMaster()
+          $scope.unCheckAllMessages()
+
+          resetPaginationParams()
+          $scope.loadMore()
 
       mailApplications.get($stateParams.id).then (mailApp)->
         $scope.mailApp = mailApp
