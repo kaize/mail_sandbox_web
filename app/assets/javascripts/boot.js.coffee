@@ -1,6 +1,7 @@
 dependencies = [
   'ui.router'
   'ui.select2'
+  'ui.bootstrap.pagination'
   '$strap.directives'
   'scroll'
 

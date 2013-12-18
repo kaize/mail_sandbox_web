@@ -1,0 +1,4 @@
+.pagination
+  %ul
+    %li{"ng-class" => "{active: page.active, disabled: page.disabled}", "ng-repeat" => "page in pages"}
+      %a{"ng-click" => "selectPage(page.number)"} {{page.text}}

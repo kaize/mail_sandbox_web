@@ -1,29 +1,51 @@
 %h1= t 'all applications'
-%br
-%p
-  %a.btn.btn-primary{ "ng-click" => "new()" }
-    = t("new application")
+.container-fluid
+  .row-fluid
+    .span8.offset2
+      %a.btn.btn-primary{ "ng-click" => "new()" }
+        = t("new application")
+      %br
+      %p
+      %table.table.table-hover.mail_applications
+        %tr
+          %th
+            %a{ "href" => '', "ng-click" => "sortMailAppsByName()" }
+              .name= MailApplication.human_attribute_name :name
+              .sort_desc{ "ng-if" => "predicate == 'name' && reverse == false" }
+                ▼
+              .sort_asc{ "ng-if" => "predicate == 'name' && reverse == true" }
+                ▲
+          %th
+            %a{ "href" => '', "ng-click" => "sortMailAppsByUnreadMailsCount()" }
+              .unread_mails_count= t('.unread_mails_count')
+              .sort_desc{ "ng-if" => "predicate == 'unread_mails_count' && reverse == false" }
+                ▼
+              .sort_asc{ "ng-if" => "predicate == 'unread_mails_count' && reverse == true" }
+                ▲
+          %th
+            %a{ "href" => '', "ng-click" => "sortMailAppsByCreatorNickname()" }
+              .creator= t('.creator')
+              .sort_desc{ "ng-if" => "predicate == 'creator_nickname' && reverse == false" }
+                ▼
+              .sort_asc{ "ng-if" => "predicate == 'creator_nickname' && reverse == true" }
+                ▲
+          %th.actions
+        %div
+          %tr{ "ng-show" => "mailAppsLoading" }
+            %td
+              = image_tag "loading.gif"
+          %tr(ng-repeat="mailApp in currentShowingMailApps")
+            %td
+              %a{ "href" => '', "ng-click" => "show(mailApp)" } {{mailApp.name}}
+            %td {{mailApp.unread_mails_count}}
+            %td {{mailApp.creator_nickname}}
 
-%table.table.table-hover.mail_applications
-  %tr
-    %th.name= MailApplication.human_attribute_name :name
-    %th.unread_mails_count= t('.unread_mails_count')
-    %th.owner= t('.owner')
-    %th.actions
-  %div
-    %tr{ "ng-show" => "mailApplicationsLoading" }
-      %td
-        = image_tag "loading.gif"
-    %tr(ng-repeat="mailApp in mailApplications")
-      %td
-        %a{ "href" => '', "ng-click" => "show(mailApp)" } {{mailApp.name}}
-      %td {{mailApp.unread_mails_count}}
-      %td {{mailApp.creator_nickname}}
-
-      %td
-        %span{"ng-if" => "mailApp.current_user_can_delete_app"}
-          %a.btn.btn-danger.nowrap.pull-right{ "href" => '', "ng-click" => "destroy(mailApp)" }
-            %i.icon-trash
-          %a.btn.btn-info.nowrap.pull-right{ "href" => '', "ng-click" => "edit(mailApp)" }
-            %i.icon-edit
-%br
+            %td
+              %span{"ng-if" => "mailApp.current_user_can_delete_app"}
+                .pull-right
+                  %a.btn.btn-info.nowrap{ "href" => '', "ng-click" => "edit(mailApp)" }
+                    %i.icon-edit
+                  %a.btn.btn-danger.nowrap{ "href" => '', "ng-click" => "destroy(mailApp)" }
+                    %i.icon-trash
+      %pagination.pagination-centered{ "boundary-links" => "true", "page" => "currentPage", "on-select-page" => "onSelectPage(page)", "total-items" => "mailApps.length", "items-per-page" => "mailAppsPerPage" }
+      %br
