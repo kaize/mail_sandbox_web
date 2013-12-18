@@ -2,7 +2,7 @@ angular.module('app.modules.mail_applications.mail_messages.controllers')
   .controller 'ShowMailMessageController',
     ($scope, $rootScope, mailMessages, railsRoutesHelper, $stateParams, $sce) ->
 
-      $rootScope.currentShowingMessageId = $stateParams.mail_message_id
+      $rootScope.currentShowingMessageId = parseInt($stateParams.mail_message_id)
 
       mailMessages.get({mail_application_id: $stateParams.id, id: $stateParams.mail_message_id}).then (message) ->
         $scope.resourceMessage = message
