@@ -1,12 +1,8 @@
-require 'sidekiq/web'
-
 MailSandboxWeb::Application.routes.draw do
 
   # if Rails.env.development?
   #   mount LetterOpenerWeb::Engine, at: "/letter_opener"
   # end
-
-  mount Sidekiq::Web, at: "/sidekiq"
 
   namespace :api do
     resources :mail_messages, :only => [:create, :destroy] do

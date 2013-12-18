@@ -29,7 +29,10 @@ class Api::MailApplications::MailMessagesController < Api::MailApplications::App
   end
 
   def batch_update
-    MailMessagesUpdateWorker.perform_async(params)
+    @messages = resource_application.mail_messages.where(id: params["ids"]).find_each do |message|
+      message = message.becomes(MailMessageType)
+      message.update(params[:mail_message])
+    end
 
     respond_with nil, location: nil
   end

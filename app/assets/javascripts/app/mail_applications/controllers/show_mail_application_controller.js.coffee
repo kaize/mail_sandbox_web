@@ -114,9 +114,7 @@ angular.module('app.modules.mail_applications.controllers')
         $scope.unCheckAllMessages()
 
       currentShowingMessageIsDeleted = (deletedMessagesIds) ->
-        _.find(deletedMessagesIds, (message_id) ->
-          message_id == $rootScope.currentShowingMessageId
-        )
+        _.contains(deletedMessagesIds, $rootScope.currentShowingMessageId)
 
       $scope.deleteCheckedMessages = ->
         checkedMessages = getCheckedMessages()

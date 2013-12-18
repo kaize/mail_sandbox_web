@@ -10,8 +10,6 @@ if ENV["COVERAGE"]
   end
 end
 
-require 'sidekiq/testing/inline'
-
 require 'mocha/setup'
 
 class ActiveSupport::TestCase

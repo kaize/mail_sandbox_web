@@ -35,13 +35,13 @@ class Api::MailApplications::MailMessagesControllerTest < ActionController::Test
   end
 
   test "should batch_update patch" do
-    MailMessagesUpdateWorker.stubs(:perform_async)
-
     attrs = { state_event: :mark_read }
 
     patch :batch_update, @params.merge(mail_message: attrs, ids: [@message.id])
 
-    assert_response :no_content
+    @message.reload
+
+    assert { @message.read? }
   end
 
 end
