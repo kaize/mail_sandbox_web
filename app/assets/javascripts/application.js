@@ -24,6 +24,7 @@
 //= require angular-route.min
 //= require angular-resource
 //= require angular-ui-router
+//= require angular-ui-bootstrap-pagination
 //= require angularjs/rails/resource
 //= require ./boot
 //= require ./vendor/vendor
