@@ -65,7 +65,7 @@ Configus.build Rails.env do
   end
 
   env :staging, parent: :production do
-    host "mail-sandbox-web-1.staging.ul.home"
+    host "http://mail-sandbox-web01.staging.ul.home"
   end
 
   env :test, :parent => :development do
