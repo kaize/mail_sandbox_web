@@ -16,9 +16,13 @@ class Api::MailApplicationsController < Api::ProtectedApplicationController
     @application = MailApplicationType.new(params[:mail_application]).decorate
     @application.creator = current_user
 
-    @application.save
-
-    respond_with @application, location: nil
+    if @application.save
+      respond_to do |format|
+        format.json { render json: { id: @application.id } }
+      end
+    else
+      respond_with @application, location: nil
+    end
   end
 
   def update
