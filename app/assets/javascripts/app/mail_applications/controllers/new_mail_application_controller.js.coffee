@@ -16,6 +16,6 @@ angular.module('app.modules.mail_applications.controllers')
         mailApp = new mailApplications($scope.mailApp)
 
         mailApp.create().then(
-          -> notifications.notice('Mail Application has been successfully created!')
-        , (response) -> $scope.form.errors = response.data.errors
+          (responce) -> $state.transitionTo 'edit_mail_application', id: responce.id,
+          (response) -> $scope.form.errors = response.data.errors
         )
