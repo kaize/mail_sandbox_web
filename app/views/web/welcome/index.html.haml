@@ -23,7 +23,7 @@
         = t(".mail applications")
 
       %table.table.table-hover
-        - @recent_mail_applications.each do |app|
+        - @recently_active_apps.each do |app|
           %tr
             %td
               = link_to app, AngularUrlHelpers::mail_application_path(app)
@@ -32,5 +32,11 @@
               - if app.unread_mails_count > 0
                 %span.badge.badge-info.pull-right
                   = app.unread_mails_count
-      - if @mail_applications.count > 10
+        -if @apps_without_messages
+          - @apps_without_messages.each do |app|
+            %tr
+              %td
+                = link_to app, AngularUrlHelpers::mail_application_path(app)
+
+      - if @avaliable_apps.count > 10
         %p= link_to t(".show_all"), AngularUrlHelpers::mail_applications_path, class: "btn btn-primary btn-block"
