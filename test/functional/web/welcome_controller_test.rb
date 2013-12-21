@@ -8,6 +8,11 @@ class Web::WelcomeControllerTest < ActionController::TestCase
   end
 
   test "should get index" do
+    application = create :application, creator: @user
+    message = create :mail_message, mail_application: application
+
+    application2 = create :application, creator: @user
+
     get :index
     assert_response :success
   end
