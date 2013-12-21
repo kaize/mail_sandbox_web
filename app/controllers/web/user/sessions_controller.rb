@@ -9,8 +9,10 @@ class Web::User::SessionsController < Web::ApplicationController
     if @session.valid?
       user = @session.user
       sign_in user
+      f(:success)
       redirect_to :root
     else
+      f(:error)
       render :new
     end
   end

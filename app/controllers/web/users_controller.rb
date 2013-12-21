@@ -45,6 +45,7 @@ class Web::UsersController < Web::ProtectedApplicationController
       @user.generate_confirmation_token
       @user.save
       services.email_sender.send_email_on_registration(@user)
+      f(:need_confirm)
       redirect_to :root
     else
       render :new

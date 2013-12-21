@@ -7,6 +7,18 @@ en:
           profiles:
             update:
               success: "Profile was updated successfully"
+        user:
+          passwords:
+            reset:
+              reset_success: "If the email you specified exists in our system, we've sent a password reset link to it."
         users:
           update:
             success: "User's data was updated successfully"
+    base:
+      callback:
+        success: "Logged in!"
+        error: "Log in error"
+      create:
+        success: "Logged in!"
+        error: "Incorrect email or password."
+        need_confirm: "Thank you for registering! A confirmation email message has been sent to your email address. Please check your email and activate your account."

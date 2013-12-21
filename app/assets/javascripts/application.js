@@ -31,3 +31,4 @@
 //= require_tree ./config
 //= require_tree ./lib
 //= require ./app/app
+//= require ./flash
