@@ -26,8 +26,6 @@ class Api::MailApplicationsControllerTest < ActionController::TestCase
     attrs = attributes_for(:mail_application)
     post :create, @params.merge(mail_application: attrs)
 
-    assert_response :created
-
     application = MailApplication.find_by(name: attrs[:name])
 
     assert { application }
