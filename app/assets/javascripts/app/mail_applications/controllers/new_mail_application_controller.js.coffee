@@ -19,3 +19,7 @@ angular.module('app.modules.mail_applications.controllers')
           (responce) -> $state.transitionTo 'edit_mail_application', id: responce.id,
           (response) -> $scope.form.errors = response.data.errors
         )
+
+      $scope.cancel = ->
+        $state.transitionTo 'mail_applications'
+
