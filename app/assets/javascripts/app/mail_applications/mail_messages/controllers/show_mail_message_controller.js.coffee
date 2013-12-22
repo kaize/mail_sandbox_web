@@ -1,6 +1,6 @@
 angular.module('app.modules.mail_applications.mail_messages.controllers')
   .controller 'ShowMailMessageController',
-    ($scope, $rootScope, mailMessages, railsRoutesHelper, $stateParams, $sce) ->
+    ($scope, $rootScope, mailMessages, $stateParams, $sce) ->
 
       $rootScope.currentShowingMessageId = parseInt($stateParams.mail_message_id)
 
@@ -12,6 +12,3 @@ angular.module('app.modules.mail_applications.mail_messages.controllers')
 
           params = { id: message.id, mail_application_id: $stateParams.id, state_event: 'mark_read' }
           new mailMessages(params).update()
-
-        $scope.resourceMessage.without_bootstrap_path ||=
-          railsRoutesHelper.mail_message_without_bootstrap_path($scope.mailApp.id, message.id)
