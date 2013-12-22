@@ -6,7 +6,6 @@ angular.module('app.modules.mail_applications.mail_messages.controllers')
 
       mailMessages.get({mail_application_id: $stateParams.id, id: $stateParams.mail_message_id}).then (message) ->
         $scope.resourceMessage = message
-        $scope.resourceMessageBody = $sce.trustAsHtml(message.body)
 
         if $scope.resourceMessage.state == 'unread'
           $rootScope.$broadcast('mail_message:mark_read', $scope.resourceMessage)

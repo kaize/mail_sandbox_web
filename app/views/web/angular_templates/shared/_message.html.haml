@@ -38,4 +38,4 @@
   - else
     %tr
       %td{colspan: 2}
-        %span{ "ng-bind-html" => "resourceMessageBody" }
+        %iframe.mail_msg_body_frame{srcdoc: "{{resourceMessage.body}}", width: "100%", "iframe-height" => "" }
