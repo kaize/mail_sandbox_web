@@ -1,6 +1,6 @@
 angular.module('app.modules.mail_applications.controllers')
   .controller 'ShowMailApplicationController',
-    ($scope, $rootScope, mailApplications, mailMessages, Faye, railsRoutesHelper, $state, $stateParams, $sce, _) ->
+    ($scope, $rootScope, mailApplications, mailMessages, Faye, $state, $stateParams, $sce, _) ->
 
       #state transition to other controllers
       $scope.showMailAppMessage = (message) ->

@@ -31,18 +31,8 @@ MailSandboxWeb::Application.routes.draw do
 
     root to: "welcome#index"
 
-    resources :mail_applications, only: [:index] do
-      scope module: :mail_applications do
-        resources :mail_messages, only: [] do
-          member do
-            get :without_bootstrap
-          end
-        end
-      end
-    end
-
+    resources :mail_applications, only: [:index]
     get '/mail_applications/*path', to: "mail_applications#index"
-
     resource :angular_template, only: [:show]
 
     resources :users do

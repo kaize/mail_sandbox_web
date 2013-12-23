@@ -16,6 +16,10 @@
     white-space: nowrap;
 }
 
+.mail_msg_body_frame{
+  border: 0;
+}
+
 .mail_msg_content {
     height: 300px;
     overflow: auto;
